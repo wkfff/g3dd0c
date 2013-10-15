@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{D2B22FB9-E655-4955-A866-397926B8F66D}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="src\Server\iDocServer.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="src\Client\iDocClient.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="iDocServer">
+        <MSBuild Projects="src\Server\iDocServer.dproj"/>
+    </Target>
+    <Target Name="iDocServer:Clean">
+        <MSBuild Projects="src\Server\iDocServer.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="iDocServer:Make">
+        <MSBuild Projects="src\Server\iDocServer.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="iDocClient">
+        <MSBuild Projects="src\Client\iDocClient.dproj"/>
+    </Target>
+    <Target Name="iDocClient:Clean">
+        <MSBuild Projects="src\Client\iDocClient.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="iDocClient:Make">
+        <MSBuild Projects="src\Client\iDocClient.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="iDocServer;iDocClient"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="iDocServer:Clean;iDocClient:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="iDocServer:Make;iDocClient:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

@@ -1,0 +1,119 @@
+unit UFrmBase;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms, BaseModel,
+  Dialogs, Grids, DBGrids, StdCtrls,DBClient, DB, ComCtrls, Buttons, Controller,Usuario,
+  BusinessSkinForm, bsSkinCtrls, bsSkinGrids, bsDBGrids, Vcl.Mask,
+  bsSkinBoxCtrls;
+
+type
+  TFrmBase = class(TForm)
+    Enome: TEdit;
+    Label1: TLabel;
+    ESenha: TEdit;
+    Label2: TLabel;
+    BtnInserirOld: TButton;
+    Button1: TButton;
+    DBGrid1: TDBGrid;
+    dsBase: TDataSource;
+    PCBase: TPageControl;
+    tsPesquisa: TTabSheet;
+    tsCadastro: TTabSheet;
+    bsBusinessSkinForm1: TbsBusinessSkinForm;
+    bsSkinPanel1: TbsSkinPanel;
+    GroupBox1: TGroupBox;
+    bsSkinStdLabel2: TbsSkinStdLabel;
+    bsSkinStdLabel1: TbsSkinStdLabel;
+    cbbPesquisa: TbsSkinComboBox;
+    ePesquisa: TbsSkinEdit;
+    btnPesquisar: TbsSkinButton;
+    bsSkinGroupBox1: TbsSkinGroupBox;
+    bsSkinDBGrid1: TbsSkinDBGrid;
+    bsSkinScrollBar1: TbsSkinScrollBar;
+    bsSkinScrollBar2: TbsSkinScrollBar;
+    BtnExcluir: TbsSkinButton;
+    BtnEditar: TbsSkinButton;
+    BtnInserir: TbsSkinButton;
+    bsSkinPanel2: TbsSkinPanel;
+    BtnSalvar: TbsSkinButton;
+    BtnCancelar: TbsSkinButton;
+    procedure BtnInserirOldClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure BtnInserirClick(Sender: TObject);
+    procedure BtnExcluirClick(Sender: TObject);
+    procedure BtnEditaClick(Sender: TObject);
+    procedure BtnSalvarClick(Sender: TObject);
+    procedure BitBtn1Click(Sender: TObject);
+  private
+    { Private declarations }
+   FController:TController<TBaseModel>;
+  public
+    { Public declarations }
+    property Controller:TController<TBaseModel> read FController write FController;
+  end;
+
+var
+  FrmBase: TFrmBase;
+
+implementation
+
+uses UDm, UsuarioController,  Constantes, UFrmPrincipal;
+
+var
+  Operacao:Integer; //1-Inserir | 2-Alterar
+  Filtro: String;
+  Pagina: Integer;
+
+
+{$R *.dfm}
+
+procedure TFrmBase.BitBtn1Click(Sender: TObject);
+begin
+  self.dsBase.DataSet.Cancel;
+end;
+
+procedure TFrmBase.BtnEditaClick(Sender: TObject);
+begin
+  self.dsBase.DataSet.Edit;
+  tsPesquisa.TabVisible := false;
+  tsCadastro.TabVisible := true;
+end;
+
+procedure TFrmBase.BtnExcluirClick(Sender: TObject);
+begin
+  self.dsBase.DataSet.Delete;
+end;
+
+procedure TFrmBase.BtnInserirClick(Sender: TObject);
+begin
+  self.dsBase.DataSet.Append;
+  tsPesquisa.TabVisible := false;
+  tsCadastro.TabVisible := true;
+  self.PCBase.TabIndex := 1;
+end;
+
+procedure TFrmBase.BtnInserirOldClick(Sender: TObject);
+//var
+//  Usuario : TUsuario;
+begin
+  //Usuario := TUsuario.Create;
+  //Usuario.Nome := Enome.Text;
+  //Usuario.Senha := ESenha.Text;
+  //TUsuarioController.Insere(Usuario);
+  //TUsuarioController.Consulta('1=1',1);
+end;
+
+procedure TFrmBase.BtnSalvarClick(Sender: TObject);
+begin
+  self.dsBase.DataSet.Post;
+end;
+
+procedure TFrmBase.FormCreate(Sender: TObject);
+begin
+  self.PCBase.TabIndex := 0;
+  self.tsCadastro.TabVisible := false;
+end;
+
+end.

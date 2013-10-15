@@ -1,0 +1,29 @@
+unit Validators.CustomAttributes;
+
+interface
+
+uses Validators.CoreAttributes;
+
+type
+  validates_email = class(validates_format)
+  public
+    constructor Create(pFormat:String; pErrorMessage:String='');overload;
+    function isValid(pValue:Variant):boolean;override;
+  end;
+
+implementation
+
+{ validates_email }
+
+constructor validates_email.Create(pErrorMessage: String);
+begin
+//
+end;
+
+function validates_email.isValid(pValue: Variant): boolean;
+  var bRes : boolean; bRegExp : string;
+begin
+  result :=  inherited isValid(pValue);
+end;
+
+end.

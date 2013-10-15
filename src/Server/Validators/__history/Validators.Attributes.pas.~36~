@@ -1,0 +1,99 @@
+unit Validators.Attributes;
+
+interface
+
+uses
+Variants,RegularExpressions;
+
+type
+  validator = class(TCustomAttribute)
+  protected
+    FErrorMessage:String;
+  public
+    property ErrorMessage:String read FErrorMessage write FErrorMessage;
+    function isValid(pValue:Variant):boolean;abstract;
+  end;
+
+type
+  validates_presence = class(validator)
+  private
+
+  public
+    constructor Create(pErrorMessage:String='');overload;
+    function isValid(pValue:Variant):boolean;
+
+  end;
+
+  validates_format = class(TCustomAttribute)
+  private
+    FErrorMessage:String;
+    FFormat:String;
+  public
+    constructor Create(pFormat:String; pErrorMessage:String='');overload;
+    function isValid(pValue:Variant):boolean;
+  end;
+
+
+  validates_size = class(TCustomAttribute)
+  private
+    FErrorMessage:String;
+    FMinSize:Integer;
+    FMaxSize:Integer;
+  public
+    constructor Create(pMinSize:Integer;pMaxSize:Integer;pErrorMessage:String='');overload;
+    function isValid(pValue:String):boolean;
+  end;
+
+  implementation
+
+
+{ TValidator }
+
+
+{ validates_presence }
+
+constructor validates_presence.Create(pErrorMessage: String);
+begin
+  if pErrorMessage <> '' then
+    self.ErrorMessage := pErrorMessage;
+end;
+
+function validates_presence.isValid(pValue:Variant): boolean;
+begin
+  if (pValue <> null) and  (VarToStr(pValue) <> '') then
+    result := true
+  else result := false;
+end;
+
+{ validates_format }
+
+constructor validates_format.Create(pFormat, pErrorMessage: String);
+begin
+  self.FFormat := pFormat;
+  if pErrorMessage <> '' then
+    self.FErrorMessage := pErrorMessage;
+end;
+
+function validates_format.isValid(pValue: Variant): boolean;
+begin
+  if (pValue <> null) and  (VarToStr(pValue) <> '') then
+    Begin
+        if TRegEx.IsMatch(pValue,FFormat) then
+            result := true
+        else result := false;
+    end;
+end;
+
+{ validates_size }
+
+function validates_size.isValid(pValue: String): boolean;
+begin
+  if (pValue <> '') then
+    Begin
+        if (Length(pValue) <= FMaxSize) and (Length(pValue) >= FMinSize) then
+            result := true
+        else result := false;
+    end;
+end;
+
+end.

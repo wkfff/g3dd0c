@@ -1,0 +1,28 @@
+object FServerContainer: TFServerContainer
+  OldCreateOrder = False
+  OnCreate = DataModuleCreate
+  Height = 115
+  Width = 236
+  object DSServer: TDSServer
+    AutoStart = False
+    HideDSAdmin = False
+    Left = 40
+    Top = 11
+  end
+  object DSHTTPService: TDSHTTPService
+    RESTContext = 'restT2Ti'
+    Server = DSServer
+    DSHostname = 'localhost'
+    DSPort = 211
+    Filters = <>
+    AuthenticationManager = DSHTTPServiceAuthenticationManager1
+    Active = False
+    Left = 136
+    Top = 15
+  end
+  object DSHTTPServiceAuthenticationManager1: TDSHTTPServiceAuthenticationManager
+    HTTPAuthenticate = DSHTTPServiceAuthenticationManager1HTTPAuthenticate
+    Left = 88
+    Top = 72
+  end
+end

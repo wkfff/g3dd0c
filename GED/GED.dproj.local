@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2013/06/24 10:11:41.706.pas,C:\Users\itgEric\Documents\RAD Studio\Projects\Unit1.pas=C:\Pessoal\GED\UFrmPrincipal.pas</Transaction>
+    <Transaction>2013/06/24 10:11:41.706.dfm,C:\Users\itgEric\Documents\RAD Studio\Projects\Unit1.dfm=C:\Pessoal\GED\UFrmPrincipal.dfm</Transaction>
+    <Transaction>2013/06/24 10:11:48.921.dproj,C:\Users\itgEric\Documents\RAD Studio\Projects\Project1.dproj=C:\Pessoal\GED\GED.dproj</Transaction>
+    <Transaction>2013/06/29 12:22:40.660.pas,C:\Pessoal\GED\Unit1.pas=C:\Pessoal\GED\UFrmBase.pas</Transaction>
+    <Transaction>2013/06/29 12:22:40.668.dfm,C:\Pessoal\GED\Unit1.dfm=C:\Pessoal\GED\UFrmBase.dfm</Transaction>
+    <Transaction>2013/06/29 12:47:23.667.pas,C:\Pessoal\GED\Unit1.pas=C:\Pessoal\GED\UFrmTiposDocumentos.pas</Transaction>
+    <Transaction>2013/06/29 12:47:23.667.dfm,C:\Pessoal\GED\Unit1.dfm=C:\Pessoal\GED\UFrmTiposDocumentos.dfm</Transaction>
+  </Transactions>
+</BorlandProject>

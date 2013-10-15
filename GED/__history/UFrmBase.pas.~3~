@@ -1,0 +1,27 @@
+unit UFrmBase;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, BusinessSkinForm;
+
+type
+  TFrmBase = class(TForm)
+    bsForm: TbsBusinessSkinForm;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FrmBase: TFrmBase;
+
+implementation
+
+uses UFrmPrincipal;
+
+{$R *.dfm}
+
+end.

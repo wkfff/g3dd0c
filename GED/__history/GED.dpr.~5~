@@ -1,0 +1,18 @@
+program GED;
+
+uses
+  Forms,
+  UFrmPrincipal in 'UFrmPrincipal.pas' {FrmPrincipal},
+  UFrmBase in 'UFrmBase.pas' {FrmBase},
+  UFrmTiposDocumentos in 'UFrmTiposDocumentos.pas' {FrmBase1};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TFrmPrincipal, FrmPrincipal);
+  Application.CreateForm(TFrmBase, FrmBase);
+  Application.CreateForm(TFrmBase1, FrmBase1);
+  Application.Run;
+end.

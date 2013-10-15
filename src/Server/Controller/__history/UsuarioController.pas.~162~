@@ -1,0 +1,60 @@
+unit UsuarioController;
+
+interface
+
+uses
+  Classes, SQLExpr, SysUtils, Generics.Collections, Controller, DBXJSON,
+  DBXCommon, Usuario,DSService;
+type
+  TUsuarioController = class(TController<TUsuario>)
+  private
+
+  public
+    //consultar
+    function Usuarios(pFiltro: String; pPagina: Integer): TJSONArray;
+    //inserir
+    function AcceptUsuarios(pObjeto: TJSONValue): TJSONArray;
+    //alterar
+    function UpdateUsuarios(pObjeto: TJSONValue): TJSONArray;
+    //excluir
+    function CancelUsuarios(pId: Integer): Boolean;
+
+    function Autenticar(usuario,senha: String): Boolean;
+  end;
+
+implementation
+
+uses JSonVO, ORM, DBConnection, SA, ServerContainer;
+
+var
+  objBanco: TUsuario;
+
+  { TUsuarioController }
+
+function TUsuarioController.AcceptUsuarios(pObjeto: TJSONValue): TJSONArray;
+var
+  UltimoID: Integer;
+begin
+  result := self.Accept(pObjeto);
+end;
+
+function TUsuarioController.Autenticar(usuario, senha: String): Boolean;
+begin
+//
+end;
+
+function TUsuarioController.CancelUsuarios(pId: Integer): Boolean;
+Begin
+  result := self.Cancel(pId);
+end;
+function TUsuarioController.UpdateUsuarios(pObjeto: TJSONValue): TJSONArray;
+begin
+  result := self.UpdateUsuarios(pObjeto);
+end;
+
+function TUsuarioController.Usuarios(pCampo: String; pValue:String; pTipo:String; pPagina: Integer): TJSONArray;
+begin
+  result := self.List(pFiltro,pPagina);
+end;
+
+end.

@@ -1,0 +1,37 @@
+unit TipoDocumento;
+
+interface
+
+uses
+  Aurelius.Mapping.Attributes,
+  Aurelius.Types.Nullable,
+  DBXJSON, DBXJSONReflect, SysUtils,Atributos,BaseModel;
+
+type
+  [Entity]
+  [Table('TIPO_DOCUMENTO')]
+  [Sequence('GEN_TIPODOCUMENTO_ID')]
+  [Id('FId', TIdGenerator.IdentityOrSequence)]
+  TTipoDocumento = class(TJsonVO)
+  private
+    [Column('ID', [TColumnProp.Unique, TColumnProp.Required, TColumnProp.NoUpdate])]
+    FID: Integer;
+    FNOME: String;
+    FTAMANHO_MAXIMO: Currency;
+
+  public 
+    [TId('ID')]
+    [TGeneratedValue('AUTO')]
+    property Id: Integer  read FID write FID;
+    [TColumn('NOME')]
+    property Nome: String  read FNOME write FNOME;
+    [TColumn('TAMANHO_MAXIMO')]
+    property TamanhoMaximo: Currency  read FTAMANHO_MAXIMO write FTAMANHO_MAXIMO;
+
+  end;
+
+implementation
+
+
+
+end.

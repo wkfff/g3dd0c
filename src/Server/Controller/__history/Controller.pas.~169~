@@ -1,0 +1,260 @@
+{*******************************************************************************
+Title: T2Ti ERP
+Description: Unit de controle Base.
+
+The MIT License
+
+Copyright: Copyright (C) 2010 T2Ti.COM
+
+Permission is hereby granted, free of charge, to any person
+obtaining a copy of this software and associated documentation
+files (the "Software"), to deal in the Software without
+restriction, including without limitation the rights to use,
+copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the
+Software is furnished to do so, subject to the following
+conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+OTHER DEALINGS IN THE SOFTWARE.
+
+       The author may be contacted at:
+           t2ti.com@gmail.com</p>
+
+@author Fábio Thomaz | Albert Eije (T2Ti.COM)
+@version 1.0
+*******************************************************************************}
+unit Controller;
+
+interface
+
+uses
+  Classes, DSServer, DBXJSON,BaseModel,Generics.Collections,JSonVO,
+  Aurelius.Engine.ObjectManager,
+  Aurelius.Criteria.Expression,
+  Aurelius.Criteria.Linq,
+  Aurelius.JSon.DataSnap,
+  Aurelius.Criteria.Base,
+  superobject;
+
+type
+  {$METHODINFO ON}
+  TController<O:class,constructor> = class(TPersistent)
+  private
+    FManager: TObjectManager;
+    FSerializer : TDataSnapJsonSerializer;
+  public
+    //function JsonResponse(sucesso:boolean;mensagem:string;Obj:TBaseModel=nil):TJSONArray;
+    property Serializer: TDataSnapJsonSerializer read FSerializer Write FSerializer;
+    property Manager: TObjectManager read FManager Write FManager;
+    function List(pCampo: String; pValue:String; pTipo:String; pPagina: Integer): TJSONArray;
+    function Accept(pObjeto: TJSONValue): TJSONArray;
+    function Update(pObjeto: TJSONValue): TJSONArray;
+    function Cancel(pId: Integer): Boolean;
+    function IndexFields: TJSONArray;
+    function Serializar(obj:O):TJsonObject;
+    function JsonResponse(sucesso: boolean; mensagem: string;Obj:TBaseModel): TJSONArray;
+    constructor Create;
+  end;
+
+implementation
+
+
+
+uses ORM, DBConnection, SA, ServerContainer, ServerData;
+
+{ TController }
+
+{function TController<O>.JsonResponse(sucesso: boolean;
+  mensagem: string;Obj:TBaseModel=nil): TJSONArray;
+var
+  ja: TJSONArray;
+  jo: TJSONObject;
+begin
+  ja := TJSONArray.Create;
+  try
+    ja.Add(TJSONObject.Create(TJSONPair.Create('mensagem',mensagem)));
+    if sucesso then
+        ja.AddElement(TJSONObject.Create(TJSONPair.Create('sucesso',TJSONTrue.Create)))
+    else ja.AddElement(TJSONObject.Create(TJSONPair.Create('sucesso',TJSONFalse.Create)));
+    ja.AddElement(TJSonVO.ObjectToJSON(Obj).Create);
+  except
+    ja.Free;
+    raise;
+  end;
+end;}
+
+{ TController<O> }
+
+function TController<O>.Accept(pObjeto: TJSONValue): TJSONArray;
+var
+  UltimoID: Integer;
+  obj:O;
+begin
+  try
+      if (FManager = nil) then
+           FManager := TDBConnection.GetInstance.CreateObjectManager;
+      obj := TJSonVO.JSONToObject<O>(pObjeto);
+      FManager := TDBConnection.GetInstance.CreateObjectManager;
+      FManager.SaveOrUpdate(obj);
+      FManager.Flush;
+      result := TJSONArray.Create;
+      result.addElement(TJSonVO.ObjectToJson<O>(obj));
+  finally
+
+  end;
+end;
+
+function TController<O>.Cancel(pId: Integer): Boolean;
+var
+obj:O;
+begin
+  try
+    try
+      if (FManager = nil) then
+           FManager := TDBConnection.GetInstance.CreateObjectManager;
+      if not FManager.IsAttached(obj) then
+          obj := FManager.Find<O>(pId);
+      FManager.Remove(obj);
+      result := True;
+    except
+      result := False;
+    end;
+  finally
+    obj.Free;
+  end;
+end;
+
+constructor TController<O>.Create;
+begin
+inherited;
+end;
+
+function TController<O>.IndexFields: TJSONArray;
+var
+  UltimoID: Integer;
+  obj:O;
+  dictionary:TDictionary<String,String>;
+  key,value:String;
+  ja: TJSONArray;
+  jo: TJSONObject;
+  jv: TJSONValue;
+  objJson: ISuperObject;
+  sJson:string;
+  oList:TObjectList<TServerData>;
+  i:integer;
+begin
+  try
+    obj := o.create;
+    oList := TBaseModel(obj).IndexColumns;
+    ja := TJSONArray.Create;
+    objJson := SO;
+    result := TJSONArray.Create;
+    for i := 0 to oList.Count - 1 do
+      Begin
+        result.AddElement(TJSonVO.ObjectToJSON<TServerData>(oList.Items[i]));
+      end;
+  finally
+
+  end;
+end;
+
+function TController<O>.JsonResponse(sucesso: boolean; mensagem: string;
+  Obj: TBaseModel): TJSONArray;
+var
+  ja: TJSONArray;
+  jo: TJSONObject;
+  jv: TJSONValue;
+begin
+  ja := TJSONArray.Create;
+  try
+    ja.Add(TJSONObject.Create(TJSONPair.Create('mensagem',mensagem)));
+    if sucesso then
+        ja.AddElement(TJSONObject.Create(TJSONPair.Create('sucesso',TJSONTrue.Create)))
+    else ja.AddElement(TJSONObject.Create(TJSONPair.Create('sucesso',TJSONFalse.Create)));
+    jv := TJSonVO.ObjectToJSON<O>(Obj);
+    ja.AddElement(jv);
+  except
+    ja.Free;
+    raise;
+  end;
+end;
+
+function TController<O>.List(pCampo: String; pValue:String; pTipo:String; pPagina: Integer): TJSONArray;
+var
+  obj: O;
+  oList: TObjectList<O>;
+  i:integer;
+begin
+  try
+    try
+      FManager := TDBConnection.GetInstance.CreateObjectManager;
+      if pTipo = 'ALL' then
+        oList := FManager.FindAll<O>
+      else
+      if pTipo = 'EQ' then
+          oList := FManager.Find<O>.Add(TExpression.Like(pCampo, pValue)).List;
+
+      {.Where.(TLinq.Sql(pFiltro)).List;
+      result := TJSONArray.Create;}
+      for i := 0 to oList.Count - 1 do
+        Begin
+          result.AddElement(TJSonVO.ObjectToJSON<O>(oList.Items[i]));
+        end;
+    except
+      result := TJSONArray.Create;
+    end;
+  finally
+    oList.Free;
+    FManager.Free;
+  end;
+end;
+
+function TController<O>.Serializar(obj: O): TJSonObject;
+begin
+    Serializer := TDataSnapJsonSerializer.Create;
+    try
+      result := Serializer.ToJson(obj) as TJsonObject;
+    finally
+      Serializer.Free;
+    end;
+end;
+
+function TController<O>.Update(pObjeto: TJSONValue): TJSONArray;
+var
+  Filtro: String;
+  Pagina: Integer;
+  obj:O;
+begin
+  try
+    try
+      obj := TJSonVO.JSONToObject<O>
+        ((pObjeto as TJSONArray).Get(0));
+
+      if not (FManager.IsAttached(obj)) then
+          FManager.SaveOrUpdate(obj);
+      FManager.Flush;
+      result := TJSONArray.Create;
+      result.addElement(TJSonVO.ObjectToJson<O>(obj));
+    except
+      result := TJSONArray.Create;
+    end;
+  finally
+  end;
+end;
+
+initialization
+
+
+end.
+
+

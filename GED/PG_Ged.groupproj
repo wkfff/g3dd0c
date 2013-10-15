@@ -1,0 +1,48 @@
+﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		<PropertyGroup>
+			<ProjectGuid>{AB01E9CC-B2B8-4517-B988-B07E9F03F825}</ProjectGuid>
+		</PropertyGroup>
+		<ItemGroup>
+			<Projects Include="C:\Program Files\Borland\Delphi7\Componentes\BusinessSkin\bsfd2010.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="GED.dproj">
+				<Dependencies/>
+			</Projects>
+		</ItemGroup>
+		<ProjectExtensions>
+			<Borland.Personality>Default.Personality.12</Borland.Personality>
+			<Borland.ProjectType/>
+			<BorlandProject>
+				<Default.Personality/>
+			</BorlandProject>
+		</ProjectExtensions>
+		<Target Name="bsfd2010">
+			<MSBuild Projects="C:\Program Files\Borland\Delphi7\Componentes\BusinessSkin\bsfd2010.dproj"/>
+		</Target>
+		<Target Name="bsfd2010:Clean">
+			<MSBuild Targets="Clean" Projects="C:\Program Files\Borland\Delphi7\Componentes\BusinessSkin\bsfd2010.dproj"/>
+		</Target>
+		<Target Name="bsfd2010:Make">
+			<MSBuild Targets="Make" Projects="C:\Program Files\Borland\Delphi7\Componentes\BusinessSkin\bsfd2010.dproj"/>
+		</Target>
+		<Target Name="GED">
+			<MSBuild Projects="GED.dproj"/>
+		</Target>
+		<Target Name="GED:Clean">
+			<MSBuild Targets="Clean" Projects="GED.dproj"/>
+		</Target>
+		<Target Name="GED:Make">
+			<MSBuild Targets="Make" Projects="GED.dproj"/>
+		</Target>
+		<Target Name="Build">
+			<CallTarget Targets="bsfd2010;GED"/>
+		</Target>
+		<Target Name="Clean">
+			<CallTarget Targets="bsfd2010:Clean;GED:Clean"/>
+		</Target>
+		<Target Name="Make">
+			<CallTarget Targets="bsfd2010:Make;GED:Make"/>
+		</Target>
+		<Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+	</Project>

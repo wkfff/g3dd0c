@@ -1,0 +1,20 @@
+unit Helpers;
+
+interface
+
+uses
+Vcl.Forms;
+
+procedure AbrirForm(ClassType:TFormClass;Form:TForm);
+
+
+
+implementation
+
+procedure AbrirForm(ClassType:TFormClass;Form:TForm);
+Begin
+  Application.CreateForm(ClassType,Form);
+  Form.ShowModal;
+End;
+
+end.

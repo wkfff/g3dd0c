@@ -1,0 +1,51 @@
+unit BaseModel;
+
+
+
+interface
+
+uses Generics.Collections,RTTI,Atributos,ServerData;
+
+type
+  TBaseModel = class(TObject)
+  public
+  function IndexColumns:TDictionary<String, String>;
+  end;
+
+
+implementation
+{ TBaseModel }
+
+function TBaseModel.IndexColumns: TObjectList<TServerData>;
+var
+  Contexto: TRttiContext;
+  Tipo: TRttiType;
+  Propriedade: TRttiProperty;
+  Atributo: TCustomAttribute;
+  ConsultaSQL, CamposSQL, ValoresSQL: String;
+  UltimoID:Integer;
+  i:integer;
+begin
+    result := TDictionary<String,String>.Create;
+    Contexto := TRttiContext.Create;
+    try
+    Tipo := Contexto.GetType(self.ClassType);
+
+    //preenche os nomes dos campos e valores
+    for Propriedade in Tipo.GetProperties do
+    begin
+      for Atributo in Propriedade.GetAttributes do
+      begin
+        if Atributo is TIndexColumn then
+        begin
+          result.Add((Atributo as TIndexColumn).Name,(Atributo as TIndexColumn).Display);
+          i := i + 1;
+        end;
+      end;
+    end;
+    finally
+      Contexto.Free;
+    end;
+end;
+
+end.

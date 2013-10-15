@@ -1,0 +1,34 @@
+program iDocClient;
+
+uses
+  Forms,
+  UFrmPrincipal in 'UFrmPrincipal.pas' {FrmPrincipal},
+  JSonVO in '..\Comum\JSonVO.pas',
+  Usuario in '..\Comum\Usuario.pas',
+  Atributos in '..\Atributos.pas',
+  UsuarioController in 'Controller\UsuarioController.pas',
+  UDm in 'UDm.pas' {Dm: TDataModule},
+  UFrmBase in 'UFrmBase.pas' {FrmBase},
+  Constantes in '..\Constantes.pas',
+  BaseModel in '..\Comum\BaseModel.pas',
+  Controller in 'Controller\Controller.pas',
+  UFrmLogin in 'UFrmLogin.pas' {FrmLogin},
+  UFrmUsuarios in 'UFrmUsuarios.pas' {FrmUsuarios},
+  Helpers in '..\Comum\Helpers.pas',
+  TipoDocumentoController in 'Controller\TipoDocumentoController.pas',
+  DocumentoController in 'Controller\DocumentoController.pas',
+  TipoDocumento in '..\Comum\TipoDocumento.pas',
+  UFrmTipoDocumento in 'UFrmTipoDocumento.pas' {FrmTipoDocumento},
+  ServerData in '..\Comum\ServerData.pas',
+  superobject in '..\Comum\superobject.pas';
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TFrmPrincipal, FrmPrincipal);
+  Application.CreateForm(TDm, Dm);
+  Application.CreateForm(TFrmLogin, FrmLogin);
+  Application.Run;
+end.

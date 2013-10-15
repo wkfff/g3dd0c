@@ -1,0 +1,124 @@
+unit TipoDocumentoController;
+
+interface
+
+uses
+  Classes, SQLExpr, SysUtils, Generics.Collections, Controller, DBXJSON, DBXCommon,Usuario;
+
+type
+  TTipoDocumentoController = class(TController)
+  protected
+  public
+    //consultar
+	  function Usuario(pFiltro: String; pPagina: Integer): TJSONArray;
+    //inserir
+    function AcceptUsuario(pObjeto: TJSONValue): TJSONArray;
+    //alterar
+    function UpdateUsuario(pObjeto: TJSONValue): TJSONArray;
+    //excluir
+    function CancelUsuario(pId: Integer): Boolean;
+  end;
+
+
+implementation
+
+uses JSonVO, ORM;
+
+var
+  objBanco: TUsuario;
+
+
+{ TTipoDocumentoController }
+
+function TTipoDocumentoController.AcceptUsuario(pObjeto: TJSONValue): TJSONArray;
+var
+  UltimoID:Integer;
+begin
+  try
+    try
+      objBanco := TJSonVO.JSONToObject<TUsuario>(pObjeto);
+      UltimoID := TORM.Inserir(objBanco);
+      result := Usuario('ID='+IntToStr(UltimoID),0);
+    except
+      result := TJSONArray.Create;
+    end;
+  finally
+  end;
+end;
+
+function TTipoDocumentoController.CancelUsuario(pId: Integer): Boolean;
+begin
+  try
+    try
+      objBanco := TUsuario.Create;
+      objBanco.Id := pId;
+      TORM.Excluir(objBanco);
+      result := True;
+    except
+      result := False;
+    end;
+  finally
+    objBanco.Free;
+  end;
+
+end;
+
+function TTipoDocumentoController.UpdateUsuario(pObjeto: TJSONValue): TJSONArray;
+var
+  Filtro : String;
+  Pagina : Integer;
+begin
+  try
+    try
+      objBanco := TJSonVO.JSONToObject<TUsuario>((pObjeto as TJSONArray).Get(0));
+      TORM.Alterar(objBanco);
+      Filtro := (pObjeto as TJSONArray).Get(1).ToString;
+
+      //retira as aspas do JSON
+      Delete(Filtro, Length(Filtro), 1);
+      Delete(Filtro, 1, 1);
+
+      Pagina := StrToInt((pObjeto as TJSONArray).Get(2).ToString);
+
+      result := Usuario(Filtro,Pagina);
+    except
+      result := TJSONArray.Create;
+    end;
+  finally
+  end;
+end;
+
+function TTipoDocumentoController.Usuario(pFiltro: String;
+  pPagina: Integer): TJSONArray;
+var
+  resultSet : TDBXReader;
+  objBanco : TUsuario;
+begin
+  try
+    try
+      pFiltro := StringReplace(pFiltro,'*','%',[rfReplaceAll]);
+      resultSet := TORM.Consultar(TUsuario.Create,pFiltro, pPagina);
+
+      result := TJSONArray.Create;
+
+      while resultSet.Next do
+      begin
+        objBanco := TUsuario.Create;
+        objBanco.Id := resultSet.Value['ID'].AsInt32;
+        objBanco.Nome := resultSet.Value['NOME'].AsString;
+        objBanco.Senha := resultSet.Value['SENHA'].AsString;
+
+        result.AddElement(TJSonVO.ObjectToJSON<TUsuario>(objBanco));
+
+        objBanco.Free;
+      end;
+
+    except
+      result := TJSONArray.Create;
+    end;
+  finally
+    resultSet.Free;
+  end;
+
+end;
+end.

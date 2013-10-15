@@ -1,0 +1,16 @@
+program iDocServer;
+
+uses
+  Forms,
+  UServerContainer in 'UServerContainer.pas' {ServerContainer},
+  ConexaoBD in 'ConexaoBD.pas',
+  UBaseModel in 'Model\UBaseModel.pas';
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TServerContainer, ServerContainer);
+  Application.Run;
+end.

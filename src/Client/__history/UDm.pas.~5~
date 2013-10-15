@@ -1,0 +1,48 @@
+unit UDm;
+
+interface
+
+uses
+  SysUtils, Classes, Dialogs, JvDBGridExport, JvComponentBase, ImgList,
+  Controls, DB, DBClient;
+
+type
+  TDm = class(TDataModule)
+    CDSUsuario: TClientDataSet;
+    DSUsuario: TDataSource;
+    ImagensCadastros: TImageList;
+    ImagensCadastrosD: TImageList;
+    ExportarWord: TJvDBGridWordExport;
+    ExportarExcel: TJvDBGridExcelExport;
+    ExportarHTML: TJvDBGridHTMLExport;
+    ExportarCSV: TJvDBGridCSVExport;
+    ExportarXML: TJvDBGridXMLExport;
+    SaveDialog: TSaveDialog;
+    CDSVersaoDocumento: TClientDataSet;
+    DSVersaoDocumento: TDataSource;
+    CDSDocumento: TClientDataSet;
+    DSDocumento: TDataSource;
+    OpenDialog: TOpenDialog;
+    CDSUsuarioID: TIntegerField;
+    CDSUsuarioNOME: TStringField;
+    CDSUsuarioSENHA: TStringField;
+    procedure DataModuleCreate(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Dm: TDm;
+
+implementation
+
+{$R *.dfm}
+
+procedure TDm.DataModuleCreate(Sender: TObject);
+begin
+self.CDSUsuario.CreateDataSet;
+end;
+
+end.

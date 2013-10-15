@@ -1,0 +1,25 @@
+unit ServerData;
+
+interface
+
+uses
+
+
+   SysUtils,Atributos;
+
+type
+
+  TServerData = class
+  private
+    FKey: String;
+    FValue: String;
+    FDefaultIndex: Boolean;
+  public
+    property Key    : String  read FKey write FKey;
+    property Value  : String  read FValue write FValue;
+    property DefaultIndex: Boolean  read FDefaultIndex write FDefaultIndex;
+  end;
+
+implementation
+
+end.

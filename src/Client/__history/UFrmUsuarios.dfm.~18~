@@ -1,0 +1,89 @@
+inherited FrmUsuarios: TFrmUsuarios
+  Caption = 'FrmUsuarios'
+  ExplicitWidth = 773
+  ExplicitHeight = 391
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited PCBase: TPageControl
+    ActivePage = TabSheet1
+    ExplicitWidth = 757
+    ExplicitHeight = 352
+    inherited TabSheet1: TTabSheet
+      ExplicitLeft = 4
+      ExplicitTop = 24
+      ExplicitWidth = 749
+      ExplicitHeight = 324
+      inherited bsSkinPanel1: TbsSkinPanel
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 749
+        ExplicitHeight = 324
+        inherited GroupBox1: TGroupBox
+          ExplicitWidth = 742
+          ExplicitHeight = 271
+          inherited btnPesquisar: TbsSkinButton
+            ExplicitLeft = 652
+          end
+          inherited bsSkinGroupBox1: TbsSkinGroupBox
+            ExplicitWidth = 720
+            ExplicitHeight = 219
+            inherited bsSkinScrollBar1: TbsSkinScrollBar
+              ExplicitTop = 192
+              ExplicitWidth = 691
+            end
+            inherited bsSkinScrollBar2: TbsSkinScrollBar
+              ExplicitLeft = 702
+              ExplicitHeight = 164
+            end
+          end
+        end
+      end
+    end
+    inherited TabSheet2: TTabSheet
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 525
+      ExplicitHeight = 326
+      inherited bsSkinPanel2: TbsSkinPanel
+        ExplicitLeft = 440
+        ExplicitTop = 248
+        ExplicitWidth = 150
+        ExplicitHeight = 150
+        object Label3: TLabel [0]
+          Left = 3
+          Top = 3
+          Width = 27
+          Height = 13
+          Align = alCustom
+          Caption = 'Nome'
+        end
+        object Label4: TLabel [1]
+          Left = 147
+          Top = 3
+          Width = 27
+          Height = 13
+          Align = alCustom
+          Caption = 'Nome'
+        end
+        object DBESenha: TDBEdit
+          Left = 147
+          Top = 20
+          Width = 137
+          Height = 21
+          DataField = 'SENHA'
+          DataSource = dsBase
+          TabOrder = 2
+        end
+        object DBENome: TDBEdit
+          Left = 3
+          Top = 20
+          Width = 137
+          Height = 21
+          DataField = 'NOME'
+          DataSource = dsBase
+          TabOrder = 3
+        end
+      end
+    end
+  end
+end
