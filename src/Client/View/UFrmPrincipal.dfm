@@ -1870,6 +1870,9 @@ object FrmPrincipal: TFrmPrincipal
       object mUnidadeOramentria: TMenuItem
         Caption = 'Unidade Or'#231'ament'#225'ria'
         OnClick = mUnidadeOramentriaClick
+      object Documentos1: TMenuItem
+        Caption = 'Documentos'
+        OnClick = Documentos1Click
       end
     end
     object ContabilidadePblica1: TMenuItem

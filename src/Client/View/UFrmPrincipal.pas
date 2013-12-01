@@ -28,12 +28,14 @@ type
     messageDlg: TbsSkinMessage;
     mOrgao: TMenuItem;
     mUnidadeOramentria: TMenuItem;
+    Documentos1: TMenuItem;
     procedure Button1Click(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure Usurios1Click(Sender: TObject);
     procedure ipodeDocumento1Click(Sender: TObject);
     procedure mOrgaoClick(Sender: TObject);
     procedure mUnidadeOramentriaClick(Sender: TObject);
+    procedure Documentos1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -45,7 +47,8 @@ var
 
 implementation
 
-uses UFrmBase, UFrmLogin, UFrmUsuarios, Helpers, UFrmTipoDocumento, UFrmOrgao,UFrmUnidadeOrcamentaria;
+uses UFrmBase, UFrmLogin, UFrmUsuarios, Helpers, UFrmTipoDocumento, UFrmOrgao,UFrmUnidadeOrcamentaria
+  UFrmDocumento;
 
 {$R *.dfm}
 
@@ -53,6 +56,11 @@ procedure TFrmPrincipal.Button1Click(Sender: TObject);
 begin
   Application.CreateForm(TFrmBase,FrmBase);
   FrmBase.ShowModal;
+end;
+
+procedure TFrmPrincipal.Documentos1Click(Sender: TObject);
+begin
+    AbrirForm(TFrmDocumentos,FrmDocumentos);
 end;
 
 procedure TFrmPrincipal.FormShow(Sender: TObject);

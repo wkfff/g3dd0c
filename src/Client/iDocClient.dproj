@@ -116,6 +116,7 @@
         <DCCReference Include="..\Comum\utils\superobject.pas"/>
         <DCCReference Include="..\Comum\utils\ServerData.pas"/>
         <DCCReference Include="Validators\Validators.CoreAttributes.pas"/>
+<<<<<<< HEAD
         <DCCReference Include="View\UFrmOrgao.pas">
             <Form>FrmOrgao</Form>
             <FormType>dfm</FormType>
@@ -126,6 +127,24 @@
         <DCCReference Include="..\Comum\model\UnidadeOrcamentaria.pas"/>
         <DCCReference Include="View\UFrmUnidadeOrcamentaria.pas">
             <Form>FrmUnidadeOrcamentaria</Form>
+=======
+        <DCCReference Include="View\UFrmDocumento.pas">
+            <Form>FrmDocumentos</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="View\UFrmPesquisa.pas">
+            <Form>FrmPesquisa</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\Comum\model\Documento.pas"/>
+        <DCCReference Include="Helpers\UHelpers.pas"/>
+        <DCCReference Include="View\UFrmPesquisaDocumentos.pas">
+            <Form>FrmPesquisa1</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="View\UFrmPesquisaTiposDocumentos.pas">
+            <Form>FrmPesquisaTiposDocumentos</Form>
+>>>>>>> 75af3a46775eeb5ca4a5dacd408ab9347b8a5d82
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Debug">

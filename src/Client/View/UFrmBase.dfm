@@ -88,7 +88,7 @@ object FrmBase: TFrmBase
     Top = 0
     Width = 757
     Height = 352
-    ActivePage = tsCadastro
+    ActivePage = tsPesquisa
     Align = alClient
     TabOrder = 5
     object tsPesquisa: TTabSheet
@@ -270,8 +270,8 @@ object FrmBase: TFrmBase
             ExplicitWidth = 503
           end
           object btnPesquisar: TbsSkinButton
-            Left = 652
-            Top = 20
+            Left = 654
+            Top = 23
             Width = 77
             Height = 19
             HintImageIndex = 0

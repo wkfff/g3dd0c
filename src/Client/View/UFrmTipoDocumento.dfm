@@ -1,15 +1,9 @@
 inherited FrmTipoDocumento: TFrmTipoDocumento
   Caption = 'Cadastro de tipos de documento'
-  ExplicitWidth = 773
-  ExplicitHeight = 390
   PixelsPerInch = 96
   TextHeight = 13
   inherited PCBase: TPageControl
     inherited tsPesquisa: TTabSheet
-      ExplicitLeft = 4
-      ExplicitTop = 24
-      ExplicitWidth = 749
-      ExplicitHeight = 324
       inherited bsSkinPanel1: TbsSkinPanel
         inherited GroupBox1: TGroupBox
           inherited btnPesquisar: TbsSkinButton

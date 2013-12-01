@@ -35,7 +35,11 @@ object Dm: TDm
     Left = 400
     Top = 88
     Bitmap = {
+<<<<<<< HEAD
       494C01011D0026005C0010001000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+=======
+      494C01011D002600400010001000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+>>>>>>> 75af3a46775eeb5ca4a5dacd408ab9347b8a5d82
       0000000000003600000028000000400000008000000001002000000000000080
       000000000000000000000000000000000000032C3A4D088DBEFF088DBEFF088D
       BEFF088DBEFF088DBEFF088DBEFF088DBEFF088DBEFF088DBEFF088DBEFF088D
@@ -1103,7 +1107,11 @@ object Dm: TDm
     Left = 400
     Top = 144
     Bitmap = {
+<<<<<<< HEAD
       494C01011D0026005C0010001000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+=======
+      494C01011D002600400010001000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+>>>>>>> 75af3a46775eeb5ca4a5dacd408ab9347b8a5d82
       0000000000003600000028000000400000008000000001002000000000000080
       0000000000000000000000000000000000002F2F2F4D989898FF989898FF9898
       98FF989898FF989898FF989898FF989898FF989898FF989898FF989898FF9898
@@ -2190,8 +2198,52 @@ object Dm: TDm
     IndexDefs = <>
     Params = <>
     StoreDefs = True
+<<<<<<< HEAD
     Left = 208
     Top = 8
+=======
+    Left = 48
+    Top = 152
+    object CDSDocumentoID: TIntegerField
+      FieldName = 'ID'
+    end
+    object CDSDocumentoNOME: TStringField
+      FieldName = 'NOME'
+      Size = 60
+    end
+    object CDSDocumentoIDEMPRESA: TIntegerField
+      FieldName = 'IDEMPRESA'
+    end
+    object CDSDocumentoIDTIPODOCUMENTO: TIntegerField
+      FieldName = 'IDTIPODOCUMENTO'
+    end
+    object CDSDocumentoDESCRICAO: TStringField
+      FieldName = 'DESCRICAO'
+      Size = 60
+    end
+    object CDSDocumentoPALAVRACHAVE: TStringField
+      FieldName = 'PALAVRACHAVE'
+      Size = 1
+    end
+    object CDSDocumentoPODEALTERAR: TStringField
+      FieldName = 'PODEALTERAR'
+      Size = 1
+    end
+    object CDSDocumentoASSINADO: TStringField
+      FieldName = 'ASSINADO'
+      Size = 1
+    end
+    object CDSDocumentoDATAFIMVIGENCIA: TDateField
+      FieldName = 'DATAFIMVIGENCIA'
+    end
+    object CDSDocumentoDATAEXCLUSAO: TDateField
+      FieldName = 'DATAEXCLUSAO'
+    end
+    object CDSDocumentoPODEEXCLUIR: TStringField
+      FieldName = 'PODEEXCLUIR'
+      Size = 1
+    end
+>>>>>>> 75af3a46775eeb5ca4a5dacd408ab9347b8a5d82
   end
   object DSDocumento: TDataSource
     DataSet = CDSDocumento
