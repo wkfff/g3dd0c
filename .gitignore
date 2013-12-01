@@ -1,0 +1,10 @@
+*.dcu
+*.exe
+*.ddp
+*.txt
+*.~*
+*.rar
+*.xml
+*.ini
+/nbproject/private/
+
