@@ -29,6 +29,17 @@ type
     dsTipoDocumento: TDataSource;
     SQLConnection1: TSQLConnection;
     cdsTipoDOcumentoTAMANHO_MAXIMO: TIntegerField;
+    CDSDocumentoID: TIntegerField;
+    CDSDocumentoNOME: TStringField;
+    CDSDocumentoIDEMPRESA: TIntegerField;
+    CDSDocumentoIDTIPODOCUMENTO: TIntegerField;
+    CDSDocumentoDESCRICAO: TStringField;
+    CDSDocumentoPALAVRACHAVE: TStringField;
+    CDSDocumentoPODEALTERAR: TStringField;
+    CDSDocumentoASSINADO: TStringField;
+    CDSDocumentoDATAEXCLUSAO: TDateField;
+    CDSDocumentoDATAFIMVIGENCIA: TDateField;
+    CDSDocumentoPODEEXCLUIR: TStringField;
     procedure DataModuleCreate(Sender: TObject);
 
   private
@@ -49,6 +60,7 @@ procedure TDm.DataModuleCreate(Sender: TObject);
 begin
 self.CDSUsuario.CreateDataSet;
 self.cdsTipoDOcumento.CreateDataSet;
+self.CDSDocumento.CreateDataSet;
 HTTP := TDSHTTP.Create;
 
 end;

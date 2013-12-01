@@ -84,7 +84,7 @@ var
 
 implementation
 
-uses  DSServerClass, Server.UsuarioController, Server.TipoDocumentoController,
+uses  DSServerClass, Server.UsuarioController, Server.TipoDocumentoController,Server.DocumentoController,
   DBConnection;//,BancoController, PaisController, TipoDocumentoController,
   //DocumentoController, DownloadArquivoController;
 {$R *.dfm}
@@ -93,6 +93,7 @@ procedure TFServerContainer.RegistrarClasses;
 begin
 RegistrarClasse(TUsuarioController);
 RegistrarClasse(TTipoDocumentoController);
+RegistrarClasse(TDocumentoController);
 end;
 
 procedure TFServerContainer.ConectarBD;

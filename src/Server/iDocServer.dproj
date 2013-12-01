@@ -103,6 +103,8 @@
         <DCCReference Include="Validators\Validators.CoreAttributes.pas"/>
         <DCCReference Include="Validators\Validators.CustomAttributes.pas"/>
         <DCCReference Include="..\Comum\utils\Helpers.pas"/>
+        <DCCReference Include="Controller\Server.CargosController.pas"/>
+        <DCCReference Include="Controller\Server.DocumentoController.pas"/>
         <BuildConfiguration Include="Debug">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

@@ -116,6 +116,24 @@
         <DCCReference Include="..\Comum\utils\superobject.pas"/>
         <DCCReference Include="..\Comum\utils\ServerData.pas"/>
         <DCCReference Include="Validators\Validators.CoreAttributes.pas"/>
+        <DCCReference Include="View\UFrmDocumento.pas">
+            <Form>FrmDocumentos</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="View\UFrmPesquisa.pas">
+            <Form>FrmPesquisa</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\Comum\model\Documento.pas"/>
+        <DCCReference Include="Helpers\UHelpers.pas"/>
+        <DCCReference Include="View\UFrmPesquisaDocumentos.pas">
+            <Form>FrmPesquisa1</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="View\UFrmPesquisaTiposDocumentos.pas">
+            <Form>FrmPesquisaTiposDocumentos</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Debug">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

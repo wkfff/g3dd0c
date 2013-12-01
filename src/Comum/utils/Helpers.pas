@@ -3,13 +3,14 @@ unit Helpers;
 interface
 
 uses
-Vcl.Forms, IdHashMessageDigest;
+Vcl.Forms, IdHashMessageDigest,Vcl.Controls;
 
-procedure AbrirForm(ClassType:TFormClass;Form:TForm);
+function AbrirForm(ClassType:TFormClass;Form:TForm):TModalResult;
 
 function MD5String(const Value: string): string;
 
-function HttpResponseMessage(Code:Integer):String;
+function HttpResponseMessage(Code:Integer):string
+;
 
 implementation
 
@@ -32,10 +33,10 @@ begin
   end;
 End;
 
-procedure AbrirForm(ClassType:TFormClass;Form:TForm);
+function AbrirForm(ClassType:TFormClass;Form:TForm):TModalResult;
 Begin
   Application.CreateForm(ClassType,Form);
-  Form.ShowModal;
+  result := Form.ShowModal;
 End;
 
 end.

@@ -26,10 +26,12 @@ type
     Usurios1: TMenuItem;
     bsSkinMainMenuBar1: TbsSkinMainMenuBar;
     messageDlg: TbsSkinMessage;
+    Documentos1: TMenuItem;
     procedure Button1Click(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure Usurios1Click(Sender: TObject);
     procedure ipodeDocumento1Click(Sender: TObject);
+    procedure Documentos1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -41,7 +43,8 @@ var
 
 implementation
 
-uses UFrmBase, UFrmLogin, UFrmUsuarios, Helpers, UFrmTipoDocumento;
+uses UFrmBase, UFrmLogin, UFrmUsuarios, Helpers, UFrmTipoDocumento,
+  UFrmDocumento;
 
 {$R *.dfm}
 
@@ -49,6 +52,11 @@ procedure TFrmPrincipal.Button1Click(Sender: TObject);
 begin
   Application.CreateForm(TFrmBase,FrmBase);
   FrmBase.ShowModal;
+end;
+
+procedure TFrmPrincipal.Documentos1Click(Sender: TObject);
+begin
+    AbrirForm(TFrmDocumentos,FrmDocumentos);
 end;
 
 procedure TFrmPrincipal.FormShow(Sender: TObject);

@@ -56,6 +56,7 @@ for i := 0 to tipos_documentos.Count - 1 do
   end;
   Dm.cdsTipoDocumento.Open;
   Dm.cdsTipoDocumento.EnableControls;
+
 end;
 
 
@@ -81,7 +82,7 @@ end;
 procedure TFrmTipoDocumento.btnPesquisarClick(Sender: TObject);
 begin
   inherited;
-  Dm.cdsTipoDOcumento.EmptyDataSet;
+  Dm.cdsTipoDocumento.EmptyDataSet;
   AtualizaGrid(Controller.Consulta(self.fCamposPesquisa[self.cbbPesquisa.ItemIndex].Key,ePesquisa.Text,'like',0));
 end;
 

@@ -21,7 +21,13 @@ uses
   UFrmTipoDocumento in 'View\UFrmTipoDocumento.pas' {FrmTipoDocumento},
   superobject in '..\Comum\utils\superobject.pas',
   ServerData in '..\Comum\utils\ServerData.pas',
-  Validators.CoreAttributes in 'Validators\Validators.CoreAttributes.pas';
+  Validators.CoreAttributes in 'Validators\Validators.CoreAttributes.pas',
+  UFrmDocumento in 'View\UFrmDocumento.pas' {FrmDocumentos},
+  UFrmPesquisa in 'View\UFrmPesquisa.pas' {FrmPesquisa},
+  Documento in '..\Comum\model\Documento.pas',
+  UHelpers in 'Helpers\UHelpers.pas',
+  UFrmPesquisaDocumentos in 'View\UFrmPesquisaDocumentos.pas' {FrmPesquisa1},
+  UFrmPesquisaTiposDocumentos in 'View\UFrmPesquisaTiposDocumentos.pas' {FrmPesquisaTiposDocumentos};
 
 {$R *.res}
 
@@ -31,5 +37,8 @@ begin
   Application.CreateForm(TFrmPrincipal, FrmPrincipal);
   Application.CreateForm(TDm, Dm);
   Application.CreateForm(TFrmLogin, FrmLogin);
+  Application.CreateForm(TFrmDocumentos, FrmDocumentos);
+  Application.CreateForm(TFrmPesquisa1, FrmPesquisa1);
+  Application.CreateForm(TFrmPesquisaTiposDocumentos, FrmPesquisaTiposDocumentos);
   Application.Run;
 end.

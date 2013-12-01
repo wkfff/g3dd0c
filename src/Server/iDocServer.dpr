@@ -26,7 +26,9 @@ uses
   Validator in 'Validators\Validator.pas',
   Validators.CoreAttributes in 'Validators\Validators.CoreAttributes.pas',
   Validators.CustomAttributes in 'Validators\Validators.CustomAttributes.pas',
-  Helpers in '..\Comum\utils\Helpers.pas';
+  Helpers in '..\Comum\utils\Helpers.pas',
+  Server.CargosController in 'Controller\Server.CargosController.pas',
+  Server.DocumentoController in 'Controller\Server.DocumentoController.pas';
 
 {$R *.res}
 
