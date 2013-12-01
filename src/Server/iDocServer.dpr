@@ -27,15 +27,12 @@ uses
   Validators.CoreAttributes in 'Validators\Validators.CoreAttributes.pas',
   Validators.CustomAttributes in 'Validators\Validators.CustomAttributes.pas',
   Helpers in '..\Comum\utils\Helpers.pas',
-<<<<<<< HEAD
   Server.OrgaoController in 'Controller\Server.OrgaoController.pas',
   Orgao in '..\Comum\model\Orgao.pas',
   Server.UnidadeOrcamentariaController in 'Controller\Server.UnidadeOrcamentariaController.pas',
   UnidadeOrcamentaria in '..\Comum\model\UnidadeOrcamentaria.pas';
-=======
   Server.CargosController in 'Controller\Server.CargosController.pas',
   Server.DocumentoController in 'Controller\Server.DocumentoController.pas';
->>>>>>> 75af3a46775eeb5ca4a5dacd408ab9347b8a5d82
 
 {$R *.res}
 
