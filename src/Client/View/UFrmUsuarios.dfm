@@ -1,7 +1,7 @@
 inherited FrmUsuarios: TFrmUsuarios
   Caption = 'FrmUsuarios'
   ExplicitWidth = 773
-  ExplicitHeight = 391
+  ExplicitHeight = 390
   PixelsPerInch = 96
   TextHeight = 13
   inherited PCBase: TPageControl

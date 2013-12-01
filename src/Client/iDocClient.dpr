@@ -21,7 +21,13 @@ uses
   UFrmTipoDocumento in 'View\UFrmTipoDocumento.pas' {FrmTipoDocumento},
   superobject in '..\Comum\utils\superobject.pas',
   ServerData in '..\Comum\utils\ServerData.pas',
-  Validators.CoreAttributes in 'Validators\Validators.CoreAttributes.pas';
+  Validators.CoreAttributes in 'Validators\Validators.CoreAttributes.pas',
+  UFrmOrgao in 'View\UFrmOrgao.pas' {FrmOrgao},
+  Orgao in '..\Comum\model\Orgao.pas',
+  OrgaoController in 'Controller\OrgaoController.pas',
+  UnidadeOrcamentariaController in 'Controller\UnidadeOrcamentariaController.pas',
+  UnidadeOrcamentaria in '..\Comum\model\UnidadeOrcamentaria.pas',
+  UFrmUnidadeOrcamentaria in 'View\UFrmUnidadeOrcamentaria.pas' {FrmUnidadeOrcamentaria};
 
 {$R *.res}
 
@@ -31,5 +37,6 @@ begin
   Application.CreateForm(TFrmPrincipal, FrmPrincipal);
   Application.CreateForm(TDm, Dm);
   Application.CreateForm(TFrmLogin, FrmLogin);
+  Application.CreateForm(TFrmBase, FrmBase);
   Application.Run;
 end.

@@ -13,13 +13,12 @@ type
   TFrmTipoDocumento = class(TFrmBase)
     dbeNome: TbsSkinDBEdit;
     bsSkinStdLabel3: TbsSkinStdLabel;
-    bsSkinStdLabel4: TbsSkinStdLabel;
-    DBETamanhoMaximo: TbsSkinDBEdit;
     procedure BtnSalvarClick(Sender: TObject);
     procedure BtnExcluirClick(Sender: TObject);
     procedure btnPesquisarClick(Sender: TObject);
     procedure BtnInserirClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure BtnEditaClick(Sender: TObject);
   private
     { Private declarations }
     Controller : TTipoDocumentoController;
@@ -51,13 +50,18 @@ for i := 0 to tipos_documentos.Count - 1 do
     Dm.cdsTipoDocumento.Append;
     Dm.cdsTipoDocumento.Fields[0].AsInteger := tipos_documentos.Items[i].Id;
     Dm.cdsTipoDocumento.Fields[1].AsString := tipos_documentos.Items[i].Nome;
-    Dm.cdsTipoDocumento.Fields[2].AsCurrency := tipos_documentos.Items[i].TamanhoMaximo;
     Dm.cdsTipoDocumento.Post;
   end;
   Dm.cdsTipoDocumento.Open;
   Dm.cdsTipoDocumento.EnableControls;
 end;
 
+
+procedure TFrmTipoDocumento.BtnEditaClick(Sender: TObject);
+begin
+  inherited;
+  self.dbeNome.setFocus;
+end;
 
 procedure TFrmTipoDocumento.BtnExcluirClick(Sender: TObject);
 begin
@@ -94,12 +98,10 @@ listErro:TObjectList<TServerData>;
 I:integer;
 messageErro:String;
 begin
-
   tipoDocumento:=TTipoDocumento.Create;
   try
     tipoDocumento.Id := Dm.cdsTipoDOcumentoID.Value;
     tipoDocumento.Nome := Dm.cdsTipoDOcumentoNOME.Value;
-    tipoDocumento.TamanhoMaximo := Dm.cdsTipoDOcumentoTAMANHO_MAXIMO.Value;
     try
       if Dm.cdsTipoDOcumento.State in [dsInsert] then
           tipoDocumento := Controller.Insere(tipoDocumento,listErro)
@@ -125,7 +127,6 @@ begin
   finally
     tipoDocumento.Free;
   end;
-
 end;
 
 procedure TFrmTipoDocumento.FormShow(Sender: TObject);
@@ -139,8 +140,6 @@ begin
      Begin
         AtualizaCamposPesquisa(fCamposPesquisa);
         AtualizaGrid(Controller.Consulta('1','1','ALL',0));
-        Dm.cdsTipoDOcumento.Fields[2].Visible := false;
-        self.DBETamanhoMaximo.DataField := 'TAMANHO_MAXIMO';
      End
   else
     Begin

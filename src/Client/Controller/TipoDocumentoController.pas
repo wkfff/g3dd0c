@@ -47,7 +47,6 @@ begin
     Dm.cdsTipoDocumento.Append;
     Dm.cdsTipoDocumento.Fields[0].AsInteger := TipoDocumento.Id;
     Dm.cdsTipoDocumento.Fields[1].AsString := TipoDocumento.Nome;
-    Dm.cdsTipoDocumento.Fields[2].AsCurrency := TipoDocumento.TamanhoMaximo;
     Dm.cdsTipoDocumento.Post;
   end;
   Dm.cdsTipoDocumento.Open;

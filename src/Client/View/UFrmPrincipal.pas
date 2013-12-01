@@ -26,10 +26,14 @@ type
     Usurios1: TMenuItem;
     bsSkinMainMenuBar1: TbsSkinMainMenuBar;
     messageDlg: TbsSkinMessage;
+    mOrgao: TMenuItem;
+    mUnidadeOramentria: TMenuItem;
     procedure Button1Click(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure Usurios1Click(Sender: TObject);
     procedure ipodeDocumento1Click(Sender: TObject);
+    procedure mOrgaoClick(Sender: TObject);
+    procedure mUnidadeOramentriaClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -41,7 +45,7 @@ var
 
 implementation
 
-uses UFrmBase, UFrmLogin, UFrmUsuarios, Helpers, UFrmTipoDocumento;
+uses UFrmBase, UFrmLogin, UFrmUsuarios, Helpers, UFrmTipoDocumento, UFrmOrgao,UFrmUnidadeOrcamentaria;
 
 {$R *.dfm}
 
@@ -60,6 +64,16 @@ end;
 procedure TFrmPrincipal.ipodeDocumento1Click(Sender: TObject);
 begin
   AbrirForm(TFrmTipoDocumento,FrmTipoDocumento);
+end;
+
+procedure TFrmPrincipal.mOrgaoClick(Sender: TObject);
+begin
+  AbrirForm(TFrmOrgao,FrmOrgao);
+end;
+
+procedure TFrmPrincipal.mUnidadeOramentriaClick(Sender: TObject);
+begin
+  AbrirForm(TFrmUnidadeOrcamentaria,FrmUnidadeOrcamentaria);
 end;
 
 procedure TFrmPrincipal.Usurios1Click(Sender: TObject);

@@ -26,7 +26,11 @@ uses
   Validator in 'Validators\Validator.pas',
   Validators.CoreAttributes in 'Validators\Validators.CoreAttributes.pas',
   Validators.CustomAttributes in 'Validators\Validators.CustomAttributes.pas',
-  Helpers in '..\Comum\utils\Helpers.pas';
+  Helpers in '..\Comum\utils\Helpers.pas',
+  Server.OrgaoController in 'Controller\Server.OrgaoController.pas',
+  Orgao in '..\Comum\model\Orgao.pas',
+  Server.UnidadeOrcamentariaController in 'Controller\Server.UnidadeOrcamentariaController.pas',
+  UnidadeOrcamentaria in '..\Comum\model\UnidadeOrcamentaria.pas';
 
 {$R *.res}
 

@@ -1863,6 +1863,14 @@ object FrmPrincipal: TFrmPrincipal
       object Digitalizao1: TMenuItem
         Caption = 'Digitaliza'#231#227'o'
       end
+      object mOrgao: TMenuItem
+        Caption = #211'rgao'
+        OnClick = mOrgaoClick
+      end
+      object mUnidadeOramentria: TMenuItem
+        Caption = 'Unidade Or'#231'ament'#225'ria'
+        OnClick = mUnidadeOramentriaClick
+      end
     end
     object ContabilidadePblica1: TMenuItem
       Caption = 'Contabilidade'

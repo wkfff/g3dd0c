@@ -9,8 +9,8 @@ object Dm: TDm
     IndexDefs = <>
     Params = <>
     StoreDefs = True
-    Left = 48
-    Top = 24
+    Left = 24
+    Top = 8
     object CDSUsuarioID: TIntegerField
       DisplayLabel = 'C'#243'digo'
       FieldName = 'ID'
@@ -27,15 +27,15 @@ object Dm: TDm
   end
   object DSUsuario: TDataSource
     DataSet = CDSUsuario
-    Left = 160
-    Top = 24
+    Left = 20
+    Top = 56
   end
   object ImagensCadastros: TImageList
     ColorDepth = cd32Bit
     Left = 400
     Top = 88
     Bitmap = {
-      494C01011D002600380010001000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C01011D0026005C0010001000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000008000000001002000000000000080
       000000000000000000000000000000000000032C3A4D088DBEFF088DBEFF088D
       BEFF088DBEFF088DBEFF088DBEFF088DBEFF088DBEFF088DBEFF088DBEFF088D
@@ -1103,7 +1103,7 @@ object Dm: TDm
     Left = 400
     Top = 144
     Bitmap = {
-      494C01011D002600380010001000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C01011D0026005C0010001000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000008000000001002000000000000080
       0000000000000000000000000000000000002F2F2F4D989898FF989898FF9898
       98FF989898FF989898FF989898FF989898FF989898FF989898FF989898FF9898
@@ -2176,13 +2176,13 @@ object Dm: TDm
     IndexDefs = <>
     Params = <>
     StoreDefs = True
-    Left = 48
-    Top = 88
+    Left = 112
+    Top = 8
   end
   object DSVersaoDocumento: TDataSource
     DataSet = CDSVersaoDocumento
-    Left = 160
-    Top = 88
+    Left = 111
+    Top = 56
   end
   object CDSDocumento: TClientDataSet
     Aggregates = <>
@@ -2190,54 +2190,110 @@ object Dm: TDm
     IndexDefs = <>
     Params = <>
     StoreDefs = True
-    Left = 48
-    Top = 152
+    Left = 208
+    Top = 8
   end
   object DSDocumento: TDataSource
     DataSet = CDSDocumento
-    Left = 160
-    Top = 152
+    Left = 208
+    Top = 56
   end
   object OpenDialog: TOpenDialog
-    Left = 288
+    Left = 328
     Top = 32
   end
-  object cdsTipoDOcumento: TClientDataSet
+  object CDSTipoDOcumento: TClientDataSet
     Aggregates = <>
     FieldDefs = <>
     IndexDefs = <>
     Params = <>
     StoreDefs = True
-    Left = 48
-    Top = 296
-    object cdsTipoDOcumentoID: TIntegerField
+    Left = 112
+    Top = 120
+    object CDSTipoDOcumentoID: TIntegerField
       DisplayLabel = 'C'#243'digo'
       FieldName = 'ID'
     end
-    object cdsTipoDOcumentoNOME: TStringField
+    object CDSTipoDOcumentoNOME: TStringField
       DisplayLabel = 'Nome'
       FieldName = 'NOME'
       Size = 60
     end
-    object cdsTipoDOcumentoTAMANHO_MAXIMO: TIntegerField
-      FieldName = 'TAMANHO_MAXIMO'
-    end
   end
-  object dsTipoDocumento: TDataSource
-    DataSet = cdsTipoDOcumento
-    Left = 149
-    Top = 295
+  object DSTipoDocumento: TDataSource
+    DataSet = CDSTipoDOcumento
+    Left = 112
+    Top = 167
   end
   object SQLConnection1: TSQLConnection
     ConnectionName = 'FIRST'
     DriverName = 'Datasnap'
     LoginPrompt = False
     Params.Strings = (
+      'DriverUnit=Data.DBXDataSnap'
+      'HostName=localhost'
+      'DatasnapContext=datasnap/'
+      
+        'DriverAssemblyLoader=Borland.Data.TDBXClientDriverLoader,Borland' +
+        '.Data.DbxClientDriver,Version=18.0.0.0,Culture=neutral,PublicKey' +
+        'Token=91d62ebb5b0d1b1b'
       'Port=80'
       'CommunicationProtocol=http'
       'DSAuthenticationPassword=123'
-      'DSAuthenticationUser=eric')
-    Left = 440
-    Top = 224
+      'DSAuthenticationUser=eric'
+      'Filters={}')
+    Left = 40
+    Top = 312
+  end
+  object CDSOrgao: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    Left = 208
+    Top = 120
+    object CDSOrgaoID: TIntegerField
+      FieldName = 'ID'
+    end
+    object CDSOrgaoNOME: TStringField
+      ConstraintErrorMessage = 'Preencha o campo nome'
+      FieldName = 'NOME'
+      Required = True
+      Size = 60
+    end
+    object CDSOrgaoCOD_CONTABIL: TStringField
+      FieldName = 'COD_CONTABIL'
+      Required = True
+      EditMask = '!999;0;_'
+      Size = 3
+    end
+  end
+  object DSOrgao: TDataSource
+    DataSet = CDSOrgao
+    Left = 208
+    Top = 176
+  end
+  object CDSUnidadeOrcamentaria: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    Left = 510
+    Top = 56
+    object CDSUnidadeOrcamentariaID: TIntegerField
+      FieldName = 'ID'
+    end
+    object CDSUnidadeOrcamentariaNOME: TStringField
+      FieldName = 'NOME'
+      Size = 100
+    end
+    object CDSUnidadeOrcamentariaCOD_CONTABIL: TStringField
+      FieldName = 'COD_CONTABIL'
+      Size = 3
+    end
+    object CDSUnidadeOrcamentariaORGAO_ID: TIntegerField
+      FieldName = 'ORGAO_ID'
+    end
+  end
+  object DSUnidadeOrcamentaria: TDataSource
+    DataSet = CDSUnidadeOrcamentaria
+    Left = 512
+    Top = 104
   end
 end

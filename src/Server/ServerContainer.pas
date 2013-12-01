@@ -85,14 +85,19 @@ var
 implementation
 
 uses  DSServerClass, Server.UsuarioController, Server.TipoDocumentoController,
+  Server.OrgaoController, Server.UnidadeOrcamentariaController,
   DBConnection;//,BancoController, PaisController, TipoDocumentoController,
   //DocumentoController, DownloadArquivoController;
 {$R *.dfm}
 
 procedure TFServerContainer.RegistrarClasses;
 begin
+GravaLog('ServerContainer');
 RegistrarClasse(TUsuarioController);
 RegistrarClasse(TTipoDocumentoController);
+RegistrarClasse(TOrgaoController);
+RegistrarClasse(TUnidadeOrcamentariaController);
+
 end;
 
 procedure TFServerContainer.ConectarBD;

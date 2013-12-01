@@ -23,12 +23,22 @@ type
     CDSUsuarioID: TIntegerField;
     CDSUsuarioNOME: TStringField;
     CDSUsuarioSENHA: TStringField;
-    cdsTipoDOcumento: TClientDataSet;
-    cdsTipoDOcumentoID: TIntegerField;
-    cdsTipoDOcumentoNOME: TStringField;
-    dsTipoDocumento: TDataSource;
+    CDSTipoDOcumento: TClientDataSet;
+    CDSTipoDOcumentoID: TIntegerField;
+    CDSTipoDOcumentoNOME: TStringField;
+    DSTipoDocumento: TDataSource;
     SQLConnection1: TSQLConnection;
-    cdsTipoDOcumentoTAMANHO_MAXIMO: TIntegerField;
+    CDSOrgao: TClientDataSet;
+    DSOrgao: TDataSource;
+    CDSOrgaoID: TIntegerField;
+    CDSOrgaoNOME: TStringField;
+    CDSOrgaoCOD_CONTABIL: TStringField;
+    CDSUnidadeOrcamentaria: TClientDataSet;
+    DSUnidadeOrcamentaria: TDataSource;
+    CDSUnidadeOrcamentariaID: TIntegerField;
+    CDSUnidadeOrcamentariaNOME: TStringField;
+    CDSUnidadeOrcamentariaCOD_CONTABIL: TStringField;
+    CDSUnidadeOrcamentariaORGAO_ID: TIntegerField;
     procedure DataModuleCreate(Sender: TObject);
 
   private
@@ -49,6 +59,9 @@ procedure TDm.DataModuleCreate(Sender: TObject);
 begin
 self.CDSUsuario.CreateDataSet;
 self.cdsTipoDOcumento.CreateDataSet;
+self.cdsOrgao.CreateDataSet;
+self.CDSUnidadeOrcamentaria.CreateDataSet;
+
 HTTP := TDSHTTP.Create;
 
 end;
