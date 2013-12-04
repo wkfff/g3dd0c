@@ -2,12 +2,10 @@ program iDocClient;
 
 uses
   Forms,
-  UFrmPrincipal in 'View\UFrmPrincipal.pas' {FrmPrincipal},
   JSonVO in '..\Comum\model\JSonVO.pas',
   Usuario in '..\Comum\model\Usuario.pas',
   Atributos in '..\Comum\utils\Atributos.pas',
   UsuarioController in 'Controller\UsuarioController.pas',
-  UDm in 'Data\UDm.pas' {Dm: TDataModule},
   UFrmBase in 'View\UFrmBase.pas' {FrmBase},
   Constantes in '..\Comum\utils\Constantes.pas',
   BaseModel in '..\Comum\model\BaseModel.pas',
@@ -15,10 +13,7 @@ uses
   UFrmLogin in 'View\UFrmLogin.pas' {FrmLogin},
   UFrmUsuarios in 'View\UFrmUsuarios.pas' {FrmUsuarios},
   Helpers in '..\Comum\utils\Helpers.pas',
-  TipoDocumentoController in 'Controller\TipoDocumentoController.pas',
-  DocumentoController in 'Controller\DocumentoController.pas',
   TipoDocumento in '..\Comum\model\TipoDocumento.pas',
-  UFrmTipoDocumento in 'View\UFrmTipoDocumento.pas' {FrmTipoDocumento},
   superobject in '..\Comum\utils\superobject.pas',
   ServerData in '..\Comum\utils\ServerData.pas',
   Validators.CoreAttributes in 'Validators\Validators.CoreAttributes.pas',
@@ -27,13 +22,19 @@ uses
   OrgaoController in 'Controller\OrgaoController.pas',
   UnidadeOrcamentariaController in 'Controller\UnidadeOrcamentariaController.pas',
   UnidadeOrcamentaria in '..\Comum\model\UnidadeOrcamentaria.pas',
-  UFrmUnidadeOrcamentaria in 'View\UFrmUnidadeOrcamentaria.pas' {FrmUnidadeOrcamentaria};
-  UFrmDocumento in 'View\UFrmDocumento.pas' {FrmDocumentos},
+  UFrmUnidadeOrcamentaria in 'View\UFrmUnidadeOrcamentaria.pas' {FrmUnidadeOrcamentaria},
   UFrmPesquisa in 'View\UFrmPesquisa.pas' {FrmPesquisa},
+  UFrmPesquisaDocumentos in 'View\UFrmPesquisaDocumentos.pas' {FrmPesquisa1},
+  UFrmPesquisaTiposDocumentos in 'View\UFrmPesquisaTiposDocumentos.pas' {FrmPesquisaTiposDocumentos},
+  UFrmTipoDocumento in 'View\UFrmTipoDocumento.pas' {FrmTipoDocumento},
+  UFrmDocumento in 'View\UFrmDocumento.pas' {FrmDocumentos},
+  DocumentoController in 'Controller\DocumentoController.pas',
+  TipoDocumentoController in 'Controller\TipoDocumentoController.pas',
   Documento in '..\Comum\model\Documento.pas',
   UHelpers in 'Helpers\UHelpers.pas',
-  UFrmPesquisaDocumentos in 'View\UFrmPesquisaDocumentos.pas' {FrmPesquisa1},
-  UFrmPesquisaTiposDocumentos in 'View\UFrmPesquisaTiposDocumentos.pas' {FrmPesquisaTiposDocumentos};
+  VersaoDocumento in '..\Comum\model\VersaoDocumento.pas',
+  UFrmPrincipal in 'View\UFrmPrincipal.pas' {FrmPrincipal},
+  UDm in 'Data\UDm.pas' {Dm: TDataModule};
 
 {$R *.res}
 
@@ -47,5 +48,12 @@ begin
   Application.CreateForm(TFrmDocumentos, FrmDocumentos);
   Application.CreateForm(TFrmPesquisa1, FrmPesquisa1);
   Application.CreateForm(TFrmPesquisaTiposDocumentos, FrmPesquisaTiposDocumentos);
+  Application.CreateForm(TFrmDocumentos, FrmDocumentos);
+  Application.CreateForm(TFrmPesquisa1, FrmPesquisa1);
+  Application.CreateForm(TFrmPesquisaTiposDocumentos, FrmPesquisaTiposDocumentos);
+  Application.CreateForm(TFrmTipoDocumento, FrmTipoDocumento);
+  Application.CreateForm(TFrmDocumentos, FrmDocumentos);
+  Application.CreateForm(TFrmPrincipal, FrmPrincipal);
+  Application.CreateForm(TDm, Dm);
   Application.Run;
 end.

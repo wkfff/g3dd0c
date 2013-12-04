@@ -29,6 +29,14 @@ type
     function isValid(pValue:Variant):boolean;override;
   end;
 
+  //eneasmarques - validates
+  validates_s_or_n = class(validator_attr)
+  protected
+    FFormat:String;
+  public
+    constructor Create(pErrorMessage:String='');overload;
+    function isValid(pValue:Variant):boolean;override;
+  end;
 
   validates_size = class(validator_attr)
   protected
@@ -44,9 +52,22 @@ type
 
 { TValidator }
 
+{ validates_s_or_n }
+
+constructor validates_s_or_n.Create(pErrorMessage: String);
+begin
+  if pErrorMessage <> '' then
+    self.ErrorMessage := pErrorMessage;
+end;
+
+function validates_s_or_n.isValid(pValue:Variant): boolean;
+begin
+  if (VarToStr(pValue) = 'S') or (VarToStr(pValue) = 'N') then
+    result := true
+  else result := false;
+end;
 
 { validates_presence }
-
 constructor validates_presence.Create(pErrorMessage: String);
 begin
   if pErrorMessage <> '' then
@@ -61,7 +82,6 @@ begin
 end;
 
 { validates_format }
-
 constructor validates_format.Create(pFormat, pErrorMessage: String);
 begin
   self.FFormat := pFormat;
@@ -80,7 +100,6 @@ begin
 end;
 
 { validates_size }
-
 constructor validates_size.Create(pMinSize, pMaxSize: Integer;
   pErrorMessage: String);
 begin

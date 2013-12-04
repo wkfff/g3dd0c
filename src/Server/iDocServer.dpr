@@ -21,7 +21,6 @@ uses
   ServerData in '..\Comum\utils\ServerData.pas',
   superobject in '..\Comum\utils\superobject.pas',
   Documento in '..\Comum\model\Documento.pas',
-  VersaoDocumento in '..\Comum\model\VersaoDocumento.pas',
   Generics.Factory in '..\Comum\utils\Generics.Factory.pas',
   Validator in 'Validators\Validator.pas',
   Validators.CoreAttributes in 'Validators\Validators.CoreAttributes.pas',
@@ -30,9 +29,10 @@ uses
   Server.OrgaoController in 'Controller\Server.OrgaoController.pas',
   Orgao in '..\Comum\model\Orgao.pas',
   Server.UnidadeOrcamentariaController in 'Controller\Server.UnidadeOrcamentariaController.pas',
-  UnidadeOrcamentaria in '..\Comum\model\UnidadeOrcamentaria.pas';
+  UnidadeOrcamentaria in '..\Comum\model\UnidadeOrcamentaria.pas',
+  Server.DocumentoController in 'Controller\Server.DocumentoController.pas',
   Server.CargosController in 'Controller\Server.CargosController.pas',
-  Server.DocumentoController in 'Controller\Server.DocumentoController.pas';
+  VersaoDocumento in '..\Comum\model\VersaoDocumento.pas';
 
 {$R *.res}
 

@@ -81,17 +81,10 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="View\UFrmPrincipal.pas">
-            <Form>FrmPrincipal</Form>
-        </DCCReference>
         <DCCReference Include="..\Comum\model\JSonVO.pas"/>
         <DCCReference Include="..\Comum\model\Usuario.pas"/>
         <DCCReference Include="..\Comum\utils\Atributos.pas"/>
         <DCCReference Include="Controller\UsuarioController.pas"/>
-        <DCCReference Include="Data\UDm.pas">
-            <Form>Dm</Form>
-            <DesignClass>TDataModule</DesignClass>
-        </DCCReference>
         <DCCReference Include="View\UFrmBase.pas">
             <Form>FrmBase</Form>
         </DCCReference>
@@ -106,13 +99,7 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\Comum\utils\Helpers.pas"/>
-        <DCCReference Include="Controller\TipoDocumentoController.pas"/>
-        <DCCReference Include="Controller\DocumentoController.pas"/>
         <DCCReference Include="..\Comum\model\TipoDocumento.pas"/>
-        <DCCReference Include="View\UFrmTipoDocumento.pas">
-            <Form>FrmTipoDocumento</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
         <DCCReference Include="..\Comum\utils\superobject.pas"/>
         <DCCReference Include="..\Comum\utils\ServerData.pas"/>
         <DCCReference Include="Validators\Validators.CoreAttributes.pas"/>
@@ -126,16 +113,12 @@
         <DCCReference Include="..\Comum\model\UnidadeOrcamentaria.pas"/>
         <DCCReference Include="View\UFrmUnidadeOrcamentaria.pas">
             <Form>FrmUnidadeOrcamentaria</Form>
-        <DCCReference Include="View\UFrmDocumento.pas">
-            <Form>FrmDocumentos</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="View\UFrmPesquisa.pas">
             <Form>FrmPesquisa</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\Comum\model\Documento.pas"/>
-        <DCCReference Include="Helpers\UHelpers.pas"/>
         <DCCReference Include="View\UFrmPesquisaDocumentos.pas">
             <Form>FrmPesquisa1</Form>
             <FormType>dfm</FormType>
@@ -143,6 +126,28 @@
         <DCCReference Include="View\UFrmPesquisaTiposDocumentos.pas">
             <Form>FrmPesquisaTiposDocumentos</Form>
             <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="View\UFrmTipoDocumento.pas">
+            <Form>FrmTipoDocumento</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="View\UFrmDocumento.pas">
+            <Form>FrmDocumentos</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Controller\DocumentoController.pas"/>
+        <DCCReference Include="Controller\TipoDocumentoController.pas"/>
+        <DCCReference Include="..\Comum\model\Documento.pas"/>
+        <DCCReference Include="Helpers\UHelpers.pas"/>
+        <DCCReference Include="..\Comum\model\VersaoDocumento.pas"/>
+        <DCCReference Include="View\UFrmPrincipal.pas">
+            <Form>FrmPrincipal</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Data\UDm.pas">
+            <Form>Dm</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
         </DCCReference>
         <BuildConfiguration Include="Debug">
             <Key>Cfg_2</Key>

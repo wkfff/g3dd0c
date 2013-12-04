@@ -27,19 +27,15 @@ object Dm: TDm
   end
   object DSUsuario: TDataSource
     DataSet = CDSUsuario
-    Left = 20
-    Top = 56
+    Left = 25
+    Top = 16
   end
   object ImagensCadastros: TImageList
     ColorDepth = cd32Bit
-    Left = 400
-    Top = 88
+    Left = 40
+    Top = 224
     Bitmap = {
-<<<<<<< HEAD
-      494C01011D0026005C0010001000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
-=======
-      494C01011D002600400010001000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
->>>>>>> 75af3a46775eeb5ca4a5dacd408ab9347b8a5d82
+      494C01011D0026004C0010001000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000008000000001002000000000000080
       000000000000000000000000000000000000032C3A4D088DBEFF088DBEFF088D
       BEFF088DBEFF088DBEFF088DBEFF088DBEFF088DBEFF088DBEFF088DBEFF088D
@@ -1104,14 +1100,10 @@ object Dm: TDm
   end
   object ImagensCadastrosD: TImageList
     ColorDepth = cd32Bit
-    Left = 400
-    Top = 144
+    Left = 144
+    Top = 224
     Bitmap = {
-<<<<<<< HEAD
-      494C01011D0026005C0010001000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
-=======
-      494C01011D002600400010001000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
->>>>>>> 75af3a46775eeb5ca4a5dacd408ab9347b8a5d82
+      494C01011D0026004C0010001000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000008000000001002000000000000080
       0000000000000000000000000000000000002F2F2F4D989898FF989898FF9898
       98FF989898FF989898FF989898FF989898FF989898FF989898FF989898FF9898
@@ -2175,8 +2167,8 @@ object Dm: TDm
       000000000000}
   end
   object SaveDialog: TSaveDialog
-    Left = 400
-    Top = 32
+    Left = 144
+    Top = 168
   end
   object CDSVersaoDocumento: TClientDataSet
     Aggregates = <>
@@ -2184,13 +2176,13 @@ object Dm: TDm
     IndexDefs = <>
     Params = <>
     StoreDefs = True
-    Left = 112
+    Left = 496
     Top = 8
   end
   object DSVersaoDocumento: TDataSource
     DataSet = CDSVersaoDocumento
-    Left = 111
-    Top = 56
+    Left = 496
+    Top = 16
   end
   object CDSDocumento: TClientDataSet
     Aggregates = <>
@@ -2198,12 +2190,8 @@ object Dm: TDm
     IndexDefs = <>
     Params = <>
     StoreDefs = True
-<<<<<<< HEAD
-    Left = 208
+    Left = 96
     Top = 8
-=======
-    Left = 48
-    Top = 152
     object CDSDocumentoID: TIntegerField
       FieldName = 'ID'
     end
@@ -2222,8 +2210,9 @@ object Dm: TDm
       Size = 60
     end
     object CDSDocumentoPALAVRACHAVE: TStringField
+      DisplayWidth = 60
       FieldName = 'PALAVRACHAVE'
-      Size = 1
+      Size = 60
     end
     object CDSDocumentoPODEALTERAR: TStringField
       FieldName = 'PODEALTERAR'
@@ -2243,16 +2232,15 @@ object Dm: TDm
       FieldName = 'PODEEXCLUIR'
       Size = 1
     end
->>>>>>> 75af3a46775eeb5ca4a5dacd408ab9347b8a5d82
   end
   object DSDocumento: TDataSource
     DataSet = CDSDocumento
-    Left = 208
-    Top = 56
+    Left = 96
+    Top = 16
   end
   object OpenDialog: TOpenDialog
-    Left = 328
-    Top = 32
+    Left = 40
+    Top = 168
   end
   object CDSTipoDOcumento: TClientDataSet
     Aggregates = <>
@@ -2260,8 +2248,8 @@ object Dm: TDm
     IndexDefs = <>
     Params = <>
     StoreDefs = True
-    Left = 112
-    Top = 120
+    Left = 192
+    Top = 8
     object CDSTipoDOcumentoID: TIntegerField
       DisplayLabel = 'C'#243'digo'
       FieldName = 'ID'
@@ -2274,8 +2262,8 @@ object Dm: TDm
   end
   object DSTipoDocumento: TDataSource
     DataSet = CDSTipoDOcumento
-    Left = 112
-    Top = 167
+    Left = 192
+    Top = 16
   end
   object SQLConnection1: TSQLConnection
     ConnectionName = 'FIRST'
@@ -2300,8 +2288,8 @@ object Dm: TDm
   object CDSOrgao: TClientDataSet
     Aggregates = <>
     Params = <>
-    Left = 208
-    Top = 120
+    Left = 272
+    Top = 7
     object CDSOrgaoID: TIntegerField
       FieldName = 'ID'
     end
@@ -2320,14 +2308,14 @@ object Dm: TDm
   end
   object DSOrgao: TDataSource
     DataSet = CDSOrgao
-    Left = 208
-    Top = 176
+    Left = 272
+    Top = 15
   end
   object CDSUnidadeOrcamentaria: TClientDataSet
     Aggregates = <>
     Params = <>
-    Left = 510
-    Top = 56
+    Left = 375
+    Top = 8
     object CDSUnidadeOrcamentariaID: TIntegerField
       FieldName = 'ID'
     end
@@ -2345,7 +2333,7 @@ object Dm: TDm
   end
   object DSUnidadeOrcamentaria: TDataSource
     DataSet = CDSUnidadeOrcamentaria
-    Left = 512
-    Top = 104
+    Left = 376
+    Top = 16
   end
 end

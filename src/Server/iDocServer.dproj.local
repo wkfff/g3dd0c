@@ -4,8 +4,8 @@
     <Transaction>2013/07/18 16:19:58.231.pas,C:\Users\Eric\Documents\RAD Studio\Projects\Unit1.pas=C:\isistemas\src\UFrmPrincipal.pas</Transaction>
     <Transaction>2013/07/18 16:19:58.231.dfm,C:\Users\Eric\Documents\RAD Studio\Projects\Unit1.dfm=C:\isistemas\src\UFrmPrincipal.dfm</Transaction>
     <Transaction>2013/07/18 16:20:05.321.dproj,C:\Users\Eric\Documents\RAD Studio\Projects\Project1.dproj=C:\isistemas\src\iDoc.dproj</Transaction>
-    <Transaction>2013/07/18 16:30:19.349.dfm,C:\isistemas\src\UFrmPrincipal.dfm=C:\isistemas\src\UServerContainer.dfm</Transaction>
     <Transaction>2013/07/18 16:30:19.349.pas,C:\isistemas\src\UFrmPrincipal.pas=C:\isistemas\src\UServerContainer.pas</Transaction>
+    <Transaction>2013/07/18 16:30:19.349.dfm,C:\isistemas\src\UFrmPrincipal.dfm=C:\isistemas\src\UServerContainer.dfm</Transaction>
     <Transaction>2013/07/18 17:01:22.793.dproj,C:\isistemas\src\iDoc.dproj=C:\isistemas\src\iDocServer.dproj</Transaction>
     <Transaction>2013/07/18 17:07:08.848.pas,C:\isistemas\src\Unit1.pas=C:\isistemas\src\Model\UBaseModel.pas</Transaction>
     <Transaction>2013/07/18 17:54:50.225.pas,C:\isistemas\src\Unit1.pas=C:\isistemas\src\Controller\ULoginController.pas</Transaction>
@@ -90,6 +90,9 @@
     <Transaction>2013/10/19 12:25:58.000.149,=C:\delphixe4\src\Comum\model\Orgao.pas</Transaction>
     <Transaction>2013/11/27 05:58:27.000.171,=C:\delphixe4\src\Server\Controller\Server.UnidadeOrcamentariaController.pas</Transaction>
     <Transaction>2013/11/27 06:16:03.000.770,=C:\delphixe4\src\Comum\model\UnidadeOrcamentaria.pas</Transaction>
+    <Transaction>2013/12/01 11:28:20.000.949,=C:\delphixe4\src\Server\Controller\Server.DocumentoController.pas</Transaction>
+    <Transaction>2013/12/01 11:28:40.000.553,=C:\delphixe4\src\Server\Controller\DownloadArquivoController.pas</Transaction>
+    <Transaction>2013/12/01 11:34:25.000.344,C:\delphixe4\src\Server\Controller\DownloadArquivoController.pas=</Transaction>
   </Transactions>
 	<ProjectSortOrder AutoSort="0" SortType="0">
     <File Path="..\..\src"/>
@@ -122,6 +125,8 @@
     <File Path="Controller\Server.TipoDocumentoController.pas"/>
     <File Path="Controller\Server.UsuarioController.pas"/>
     <File Path="Controller\Server.UnidadeOrcamentariaController.pas"/>
+    <File Path="Controller\Server.DocumentoController.pas"/>
+    <File Path="Controller\Server.CargosController.pas"/>
     <File Path="ORM"/>
     <File Path="ORM\ORM.pas"/>
     <File Path="Validators"/>

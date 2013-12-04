@@ -1,19 +1,49 @@
 inherited FrmTipoDocumento: TFrmTipoDocumento
   Caption = 'Cadastro de tipos de documento'
+  ClientWidth = 753
+  ExplicitWidth = 769
+  ExplicitHeight = 390
   PixelsPerInch = 96
   TextHeight = 13
   inherited PCBase: TPageControl
+    Width = 753
+    ActivePage = tsCadastro
     inherited tsPesquisa: TTabSheet
+      ExplicitLeft = 4
+      ExplicitTop = 24
+      ExplicitWidth = 749
+      ExplicitHeight = 324
       inherited bsSkinPanel1: TbsSkinPanel
+        Width = 745
         inherited GroupBox1: TGroupBox
+          Width = 738
+          inherited ePesquisa: TbsSkinEdit
+            Width = 505
+          end
           inherited btnPesquisar: TbsSkinButton
+            Left = 650
             OnClick = btnPesquisarClick
+          end
+          inherited bsSkinGroupBox1: TbsSkinGroupBox
+            Width = 722
+            inherited bsSkinDBGrid1: TbsSkinDBGrid
+              Width = 687
+            end
+            inherited bsSkinScrollBar1: TbsSkinScrollBar
+              Width = 687
+            end
+            inherited bsSkinScrollBar2: TbsSkinScrollBar
+              Left = 698
+            end
           end
         end
       end
     end
     inherited tsCadastro: TTabSheet
+      ExplicitWidth = 745
       inherited bsSkinPanel2: TbsSkinPanel
+        Width = 745
+        ExplicitWidth = 745
         object bsSkinStdLabel3: TbsSkinStdLabel [0]
           Left = 3
           Top = 10

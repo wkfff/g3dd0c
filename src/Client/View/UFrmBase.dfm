@@ -444,7 +444,7 @@ object FrmBase: TFrmBase
         end
         object BtnExcluir: TbsSkinButton
           Left = 183
-          Top = 288
+          Top = 290
           Width = 84
           Height = 25
           HintImageIndex = 0
@@ -480,7 +480,7 @@ object FrmBase: TFrmBase
         end
         object BtnEditar: TbsSkinButton
           Left = 93
-          Top = 288
+          Top = 290
           Width = 84
           Height = 25
           HintImageIndex = 0
@@ -516,7 +516,7 @@ object FrmBase: TFrmBase
         end
         object BtnInserir: TbsSkinButton
           Left = 3
-          Top = 288
+          Top = 290
           Width = 84
           Height = 25
           HintImageIndex = 0
@@ -596,7 +596,7 @@ object FrmBase: TFrmBase
           324)
         object BtnSalvar: TbsSkinButton
           Left = 6
-          Top = 296
+          Top = 290
           Width = 84
           Height = 25
           HintImageIndex = 0
@@ -632,7 +632,7 @@ object FrmBase: TFrmBase
         end
         object BtnCancelar: TbsSkinButton
           Left = 96
-          Top = 296
+          Top = 290
           Width = 84
           Height = 25
           HintImageIndex = 0

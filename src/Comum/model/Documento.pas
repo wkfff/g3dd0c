@@ -40,7 +40,7 @@ interface
 uses
   JsonVO, Atributos,
   Aurelius.Mapping.Attributes,
-  Aurelius.Types.Nullable,BaseModel;
+  Aurelius.Types.Nullable,BaseModel,Validators.CoreAttributes;
 
 type
   [Entity]
@@ -62,26 +62,44 @@ type
     FDTA_EXCLUSAO: TDateTime;
 
   public
-    property Id: Integer  read FID write FID;
     [TIndexColumn('ID', 'Código',false)]
+    property Id: Integer  read FID write FID;
+
     [Column('TIPO_DOCUMENTO_ID', [TColumnProp.Required])]
     property IdTipoDocumento: Integer  read FID_TIPO_DOCUMENTO write FID_TIPO_DOCUMENTO;
+
     [TIndexColumn('NOME', 'Nome',true)]
     [Column('NOME', [TColumnProp.Required], 60)]
+    [validates_size(5,60,'O Nome deve ter até 60 caracteres')]
+    [validates_presence('Preencha o campo Nome')]
     property Nome: String  read FNOME write FNOME;
+
     [TIndexColumn('DESCRICAO', 'Descrição',true)]
     [Column('DESCRICAO', [TColumnProp.Required], 200)]
+    [validates_size(1,200,'A Descrição deve conter até 200 caracteres')]
+    [validates_presence('Preencha o campo Nome')]
     property Descricao: String  read FDESCRICAO write FDESCRICAO;
+
     [Column('FPALAVRA_CHAVE', [TColumnProp.Required], 60)]
+    [validates_size(1,60,'A Palavra Chave deve conter até 60 caracteres')]
+    [validates_presence('Preencha o campo Palavra Chave')]
     property PalavraChave: String  read FPALAVRA_CHAVE write FPALAVRA_CHAVE;
+
     [Column('PODE_EXCLUIR', [TColumnProp.Required],1)]
+    [validates_s_or_n('O campo Pode Excluir deverá ser preenchido com S ou N')]
     property PodeExcluir: String  read FPODE_EXCLUIR write FPODE_EXCLUIR;
+
     [Column('PODE_ALTERAR', [TColumnProp.Required],1)]
+    [validates_s_or_n('O campo Pode Alterar deverá ser preenchido com S ou N')]
     property PodeAlterar: String  read FPODE_ALTERAR write FPODE_ALTERAR;
+
     [Column('ASSINADO', [TColumnProp.Required],1)]
+    [validates_s_or_n('O campo Assinado deverá ser preenchido com S ou N')]
     property Assinado: String  read FASSINADO write FASSINADO;
+
     [Column('DTA_FIM_VIGENCIA', [TColumnProp.Required])]
     property DataFimVigencia: TDateTime  read FDTA_FIM_VIGENCIA write FDTA_FIM_VIGENCIA;
+
     [Column('DTA_EXCLUSAO', [TColumnProp.Required])]
     property DataExclusao: TDateTime  read FDTA_EXCLUSAO write FDTA_EXCLUSAO;
 

@@ -31,7 +31,7 @@ implementation
 
 {$R *.dfm}
 
-uses UDm;
+uses UDm, UFrmBase, UFrmPrincipal;
 
 procedure TFrmPesquisaTiposDocumentos.AtualizaCamposPesquisa(
   campos: TObjectList<TServerData>);
@@ -59,7 +59,7 @@ for i := 0 to tipos_documentos.Count - 1 do
     Dm.cdsTipoDocumento.Append;
     Dm.cdsTipoDocumento.Fields[0].AsInteger := tipos_documentos.Items[i].Id;
     Dm.cdsTipoDocumento.Fields[1].AsString := tipos_documentos.Items[i].Nome;
-    Dm.cdsTipoDocumento.Fields[2].AsCurrency := tipos_documentos.Items[i].TamanhoMaximo;
+    //Dm.cdsTipoDocumento.Fields[2].AsCurrency := tipos_documentos.Items[i].TamanhoMaximo;
     Dm.cdsTipoDocumento.Post;
   end;
   Dm.cdsTipoDocumento.Open;

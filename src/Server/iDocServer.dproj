@@ -97,7 +97,6 @@
         <DCCReference Include="..\Comum\utils\ServerData.pas"/>
         <DCCReference Include="..\Comum\utils\superobject.pas"/>
         <DCCReference Include="..\Comum\model\Documento.pas"/>
-        <DCCReference Include="..\Comum\model\VersaoDocumento.pas"/>
         <DCCReference Include="..\Comum\utils\Generics.Factory.pas"/>
         <DCCReference Include="Validators\Validator.pas"/>
         <DCCReference Include="Validators\Validators.CoreAttributes.pas"/>
@@ -107,8 +106,9 @@
         <DCCReference Include="..\Comum\model\Orgao.pas"/>
         <DCCReference Include="Controller\Server.UnidadeOrcamentariaController.pas"/>
         <DCCReference Include="..\Comum\model\UnidadeOrcamentaria.pas"/>
-        <DCCReference Include="Controller\Server.CargosController.pas"/>
         <DCCReference Include="Controller\Server.DocumentoController.pas"/>
+        <DCCReference Include="Controller\Server.CargosController.pas"/>
+        <DCCReference Include="..\Comum\model\VersaoDocumento.pas"/>
         <BuildConfiguration Include="Debug">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

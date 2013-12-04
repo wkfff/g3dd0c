@@ -30,11 +30,22 @@ type
     constructor Create(pErrorMessage:String='');overload;
   end;
 
+  validates_s_or_n = class(validates_format)
+  public
+      constructor Create (pErrorMessage:String='');overload;
+  end;
+
 
 
 implementation
 
 { validates_email }
+
+constructor validates_s_or_n.Create(pErrorMessage: String);
+begin
+    self.FFormat := 'S|N';
+end;
+
 
 constructor validates_email.Create(pErrorMessage: String);
 begin

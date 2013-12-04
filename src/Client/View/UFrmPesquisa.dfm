@@ -50,7 +50,6 @@ object FrmPesquisa: TFrmPesquisa
     Spacing = 2
     Caption = 'bsSkinPanel1'
     Align = alClient
-    ExplicitWidth = 655
     DesignSize = (
       652
       387)
@@ -61,7 +60,6 @@ object FrmPesquisa: TFrmPesquisa
       Height = 350
       Anchors = [akLeft, akTop, akRight, akBottom]
       TabOrder = 0
-      ExplicitWidth = 648
       DesignSize = (
         645
         350)
@@ -226,7 +224,6 @@ object FrmPesquisa: TFrmPesquisa
         Caption = '&Pesquisar'
         NumGlyphs = 1
         Spacing = 1
-        ExplicitLeft = 557
       end
       object bsSkinGroupBox1: TbsSkinGroupBox
         Left = 4
@@ -265,7 +262,6 @@ object FrmPesquisa: TFrmPesquisa
         Spacing = 2
         Caption = 'Listagem'
         UseSkinSize = True
-        ExplicitWidth = 632
         DesignSize = (
           629
           296)
@@ -333,7 +329,6 @@ object FrmPesquisa: TFrmPesquisa
           Position = 0
           SmallChange = 1
           LargeChange = 1
-          ExplicitWidth = 597
         end
         object bsSkinScrollBar2: TbsSkinScrollBar
           Left = 605
@@ -365,13 +360,12 @@ object FrmPesquisa: TFrmPesquisa
           Position = 0
           SmallChange = 1
           LargeChange = 1
-          ExplicitLeft = 608
         end
       end
     end
     object BtnOK: TbsSkinButton
       Left = 465
-      Top = 359
+      Top = 357
       Width = 84
       Height = 25
       HintImageIndex = 0
@@ -407,7 +401,7 @@ object FrmPesquisa: TFrmPesquisa
     end
     object BtnCancelar: TbsSkinButton
       Left = 555
-      Top = 359
+      Top = 357
       Width = 84
       Height = 25
       HintImageIndex = 0

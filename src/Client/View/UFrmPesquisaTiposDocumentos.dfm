@@ -10,4 +10,9 @@ inherited FrmPesquisaTiposDocumentos: TFrmPesquisaTiposDocumentos
       end
     end
   end
+  inherited bsBusinessSkinForm1: TbsBusinessSkinForm
+    SkinData = FrmPrincipal.bsSkinData1
+    Left = 72
+    Top = 80
+  end
 end

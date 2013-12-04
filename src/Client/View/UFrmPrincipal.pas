@@ -14,7 +14,7 @@ type
     bsSkinData1: TbsSkinData;
     MainMenu1: TMainMenu;
     GerenciamentodeDocumentos1: TMenuItem;
-    ipodeDocumento1: TMenuItem;
+    TipodeDocumento1: TMenuItem;
     Digitalizao1: TMenuItem;
     ContabilidadePblica1: TMenuItem;
     Pblica1: TMenuItem;
@@ -32,7 +32,7 @@ type
     procedure Button1Click(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure Usurios1Click(Sender: TObject);
-    procedure ipodeDocumento1Click(Sender: TObject);
+    procedure TipodeDocumento1Click(Sender: TObject);
     procedure mOrgaoClick(Sender: TObject);
     procedure mUnidadeOramentriaClick(Sender: TObject);
     procedure Documentos1Click(Sender: TObject);
@@ -47,8 +47,8 @@ var
 
 implementation
 
-uses UFrmBase, UFrmLogin, UFrmUsuarios, Helpers, UFrmTipoDocumento, UFrmOrgao,UFrmUnidadeOrcamentaria
-  UFrmDocumento;
+uses UFrmBase, UFrmLogin, UFrmUsuarios, Helpers, UFrmTipoDocumento,
+     UFrmOrgao,UFrmUnidadeOrcamentaria, UFrmDocumento;
 
 {$R *.dfm}
 
@@ -66,10 +66,10 @@ end;
 procedure TFrmPrincipal.FormShow(Sender: TObject);
 begin
   Application.CreateForm(TFrmLogin,FrmLogin);
-  FrmLogin.SHowModal;
+  FrmLogin.ShowModal;
 end;
 
-procedure TFrmPrincipal.ipodeDocumento1Click(Sender: TObject);
+procedure TFrmPrincipal.TipodeDocumento1Click(Sender: TObject);
 begin
   AbrirForm(TFrmTipoDocumento,FrmTipoDocumento);
 end;

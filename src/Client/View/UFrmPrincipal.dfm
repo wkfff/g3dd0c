@@ -1840,7 +1840,7 @@ object FrmPrincipal: TFrmPrincipal
     DlgListViewDrawSkin = True
     DlgListViewItemSkinDataName = 'listbox'
     SkinnableForm = True
-    AnimationForAllWindows = False
+    AnimationForAllWindows = True
     EnableSkinEffects = True
     ShowButtonGlowFrames = True
     ShowCaptionButtonGlowFrames = True
@@ -1856,9 +1856,9 @@ object FrmPrincipal: TFrmPrincipal
     Top = 24
     object GerenciamentodeDocumentos1: TMenuItem
       Caption = 'Gerenciamento de Documentos'
-      object ipodeDocumento1: TMenuItem
+      object TipodeDocumento1: TMenuItem
         Caption = 'Tipo de Documento'
-        OnClick = ipodeDocumento1Click
+        OnClick = TipodeDocumento1Click
       end
       object Digitalizao1: TMenuItem
         Caption = 'Digitaliza'#231#227'o'
@@ -1870,6 +1870,7 @@ object FrmPrincipal: TFrmPrincipal
       object mUnidadeOramentria: TMenuItem
         Caption = 'Unidade Or'#231'ament'#225'ria'
         OnClick = mUnidadeOramentriaClick
+      end
       object Documentos1: TMenuItem
         Caption = 'Documentos'
         OnClick = Documentos1Click

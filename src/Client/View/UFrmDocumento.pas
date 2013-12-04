@@ -9,35 +9,38 @@ uses
   bsSkinCtrls, bsSkinGrids, bsDBGrids, Vcl.Mask, bsSkinBoxCtrls, Vcl.StdCtrls,
   ServerData,
   Vcl.ComCtrls, Vcl.Grids, Vcl.DBGrids, Documento, Generics.Collections,
-  DocumentoController, Vcl.DBCtrls;
+  DocumentoController, Vcl.DBCtrls, bsdbctrls, bsSkinExCtrls;
 
 type
   TFrmDocumentos = class(TFrmBase)
-    Label3: TLabel;
-    DBEdit1: TDBEdit;
-    Label5: TLabel;
-    DBEdit3: TDBEdit;
-    Label6: TLabel;
-    DBEdit4: TDBEdit;
-    Label7: TLabel;
-    DBEdit5: TDBEdit;
-    Label8: TLabel;
-    DBEdit6: TDBEdit;
-    Label9: TLabel;
-    DBEdit7: TDBEdit;
-    Label10: TLabel;
-    DBEdit8: TDBEdit;
-    Label11: TLabel;
-    DBEdit9: TDBEdit;
-    Label12: TLabel;
-    DBEdit10: TDBEdit;
+    dbeNome: TbsSkinDBEdit;
+    bsSkinVistaGlowLabel1: TbsSkinVistaGlowLabel;
+    bsSkinVistaGlowLabel2: TbsSkinVistaGlowLabel;
+    bsSkinVistaGlowLabel4: TbsSkinVistaGlowLabel;
+    bsSkinVistaGlowLabel5: TbsSkinVistaGlowLabel;
+    bsSkinVistaGlowLabel6: TbsSkinVistaGlowLabel;
+    dbeDescricao: TbsSkinDBEdit;
+    bsSkinVistaGlowLabel7: TbsSkinVistaGlowLabel;
+    dbeTipoDocumento: TbsSkinDBEdit;
+    dbePalavraChave: TbsSkinDBEdit;
+    dbeAssinado: TbsSkinDBEdit;
+    bsSkinVistaGlowLabel8: TbsSkinVistaGlowLabel;
+    dbePodeAlterar: TbsSkinDBEdit;
+    bsSkinGroupBox2: TbsSkinGroupBox;
+    bsSkinVistaGlowLabel9: TbsSkinVistaGlowLabel;
+    dtVigencia: TbsSkinDBDateEdit;
+    bsSkinDBDateEdit1: TbsSkinDBDateEdit;
+    bsSkinDBEdit1: TbsSkinDBEdit;
+    bsSkinLabel1: TbsSkinLabel;
+    edtTipoDocumento: TbsSkinEdit;
     procedure btnPesquisarClick(Sender: TObject);
     procedure BtnSalvarClick(Sender: TObject);
     procedure BtnExcluirClick(Sender: TObject);
     procedure BtnInserirClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
-    procedure DBEdit3KeyDown(Sender: TObject; var Key: Word;
+    procedure dbeTipoDocumentoKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
+    procedure dbeTipoDocumentoExit(Sender: TObject);
   private
     { Private declarations }
     procedure AtualizaGrid(documentos: TObjectList<TDocumento>);
@@ -115,16 +118,15 @@ end;
 procedure TFrmDocumentos.BtnInserirClick(Sender: TObject);
 begin
   inherited;
-  self.DBEdit1.SetFocus;
+  self.dbeNome.SetFocus;
 end;
 
 procedure TFrmDocumentos.btnPesquisarClick(Sender: TObject);
 begin
   inherited;
-
   Dm.CDSDocumento.EmptyDataSet;
   AtualizaGrid(Controller.Consulta(self.fCamposPesquisa
-    [self.cbbPesquisa.ItemIndex].Key, ePesquisa.Text, 'like', 0));
+ [self.cbbPesquisa.ItemIndex].Key, ePesquisa.Text, 'like', 0));
 end;
 
 procedure TFrmDocumentos.BtnSalvarClick(Sender: TObject);
@@ -135,7 +137,6 @@ var
   i: integer;
   messageErro: String;
 begin
-
   Documento := TDocumento.Create;
   try
     Documento.Id := Dm.CDSDocumentoID.Value;
@@ -178,16 +179,26 @@ begin
   end;
 end;
 
-procedure TFrmDocumentos.DBEdit3KeyDown(Sender: TObject; var Key: Word;
+procedure TFrmDocumentos.dbeTipoDocumentoExit(Sender: TObject);
+begin
+  inherited;
+  ShowMessage(dbeTipoDocumento.Text);
+end;
+
+procedure TFrmDocumentos.dbeTipoDocumentoKeyDown(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
   inherited;
   if Key = VK_F2 then
       if AbrirForm(TFrmPesquisaTiposDocumentos,FrmPesquisaTiposDocumentos) = mrOk then
+  if dm.CDSTipoDOcumento.RecordCount > 0 then
+      begin
           Dm.CDSDocumentoIDTIPODOCUMENTO.AsString := Dm.cdsTipoDOcumentoID.AsString;
+          self.edtTipoDocumento.Text:= Dm.CDSTipoDOcumentoNOME.AsString;
+      end;
 end;
 
-procedure TFrmDocumentos.FormShow(Sender: TObject);
+Procedure TFrmDocumentos.FormShow(Sender: TObject);
 var
   sucesso: boolean;
 begin

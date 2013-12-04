@@ -5,7 +5,7 @@ inherited FrmOrgao: TFrmOrgao
   PixelsPerInch = 96
   TextHeight = 13
   inherited PCBase: TPageControl
-    ActivePage = tsPesquisa
+    ActivePage = tsCadastro
     inherited tsPesquisa: TTabSheet
       ExplicitLeft = 4
       ExplicitTop = 24
@@ -17,9 +17,7 @@ inherited FrmOrgao: TFrmOrgao
             ExplicitWidth = 509
           end
           inherited btnPesquisar: TbsSkinButton
-            Left = 654
             OnClick = btnPesquisarClick
-            ExplicitLeft = 654
           end
         end
       end

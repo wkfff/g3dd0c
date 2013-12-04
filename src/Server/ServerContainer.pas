@@ -84,12 +84,8 @@ var
 
 implementation
 
-<<<<<<< HEAD
 uses  DSServerClass, Server.UsuarioController, Server.TipoDocumentoController,
-  Server.OrgaoController, Server.UnidadeOrcamentariaController,
-=======
-uses  DSServerClass, Server.UsuarioController, Server.TipoDocumentoController,Server.DocumentoController,
->>>>>>> 75af3a46775eeb5ca4a5dacd408ab9347b8a5d82
+  Server.OrgaoController, Server.UnidadeOrcamentariaController, Server.DocumentoController,
   DBConnection;//,BancoController, PaisController, TipoDocumentoController,
   //DocumentoController, DownloadArquivoController;
 {$R *.dfm}
@@ -99,13 +95,10 @@ begin
 GravaLog('ServerContainer');
 RegistrarClasse(TUsuarioController);
 RegistrarClasse(TTipoDocumentoController);
-<<<<<<< HEAD
 RegistrarClasse(TOrgaoController);
 RegistrarClasse(TUnidadeOrcamentariaController);
-
-=======
 RegistrarClasse(TDocumentoController);
->>>>>>> 75af3a46775eeb5ca4a5dacd408ab9347b8a5d82
+
 end;
 
 procedure TFServerContainer.ConectarBD;
