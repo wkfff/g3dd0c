@@ -109,7 +109,6 @@ end;
 
 procedure TFrmDocumentos.BtnExcluirClick(Sender: TObject);
 begin
-  inherited;
   try
     if Application.MessageBox
       (PChar('Tem certeza que deseja excluir esse registro ?'),
@@ -194,9 +193,13 @@ tipoDocumentos : TObjectList<TTipoDocumento>;
 TipoDocumento:TTipoDocumento;
 begin
   inherited;
-  TipoDocumento := Controller.findTipoDocumento(StrToInt(dbeTipoDocumento.Text));
-  if not (TipoDocumento = nil) then
-      edtTipoDocumento.Text := TipoDocumento.Nome;
+  if dbeTipoDocumento.Text <> '' then
+      Begin
+          TipoDocumento := Controller.findTipoDocumento(StrToInt(dbeTipoDocumento.Text));
+          if not (TipoDocumento = nil) then
+              edtTipoDocumento.Text := TipoDocumento.Nome;
+      End
+  else edtTipoDocumento.Text := '';
 end;
 
 procedure TFrmDocumentos.dbeTipoDocumentoKeyDown(Sender: TObject; var Key: Word;

@@ -35,7 +35,7 @@ object Dm: TDm
     Left = 40
     Top = 224
     Bitmap = {
-      494C01011D0026004C0010001000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C01011D002600500010001000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000008000000001002000000000000080
       000000000000000000000000000000000000032C3A4D088DBEFF088DBEFF088D
       BEFF088DBEFF088DBEFF088DBEFF088DBEFF088DBEFF088DBEFF088DBEFF088D
@@ -1103,7 +1103,7 @@ object Dm: TDm
     Left = 144
     Top = 224
     Bitmap = {
-      494C01011D0026004C0010001000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C01011D002600500010001000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000008000000001002000000000000080
       0000000000000000000000000000000000002F2F2F4D989898FF989898FF9898
       98FF989898FF989898FF989898FF989898FF989898FF989898FF989898FF9898
@@ -2193,42 +2193,53 @@ object Dm: TDm
     Left = 96
     Top = 8
     object CDSDocumentoID: TIntegerField
+      DisplayLabel = 'C'#243'digo'
       FieldName = 'ID'
     end
     object CDSDocumentoNOME: TStringField
+      DisplayLabel = 'Nome'
       FieldName = 'NOME'
       Size = 60
     end
     object CDSDocumentoIDEMPRESA: TIntegerField
       FieldName = 'IDEMPRESA'
+      Visible = False
     end
     object CDSDocumentoIDTIPODOCUMENTO: TIntegerField
       FieldName = 'IDTIPODOCUMENTO'
+      Visible = False
     end
     object CDSDocumentoDESCRICAO: TStringField
+      DisplayLabel = 'Descri'#231#227'o'
       FieldName = 'DESCRICAO'
       Size = 60
     end
     object CDSDocumentoPALAVRACHAVE: TStringField
+      DisplayLabel = 'Palavra Chave'
       DisplayWidth = 60
       FieldName = 'PALAVRACHAVE'
       Size = 60
     end
     object CDSDocumentoPODEALTERAR: TStringField
+      DisplayLabel = 'Pode Alterar'
       FieldName = 'PODEALTERAR'
       Size = 1
     end
     object CDSDocumentoASSINADO: TStringField
+      DisplayLabel = 'Assinado'
       FieldName = 'ASSINADO'
       Size = 1
     end
     object CDSDocumentoDATAFIMVIGENCIA: TDateField
+      DisplayLabel = 'Dta Fim Vigencia'
       FieldName = 'DATAFIMVIGENCIA'
     end
     object CDSDocumentoDATAEXCLUSAO: TDateField
+      DisplayLabel = 'Dta. Exclus'#227'o'
       FieldName = 'DATAEXCLUSAO'
     end
     object CDSDocumentoPODEEXCLUIR: TStringField
+      DisplayLabel = 'Pode Excluir'
       FieldName = 'PODEEXCLUIR'
       Size = 1
     end
