@@ -85,7 +85,7 @@ var
 implementation
 
 uses  DSServerClass, Server.UsuarioController, Server.TipoDocumentoController,
-  Server.OrgaoController, Server.UnidadeOrcamentariaController, Server.DocumentoController,
+  Server.OrgaoController, {Server.UnidadeOrcamentariaController,} Server.DocumentoController,
   DBConnection;//,BancoController, PaisController, TipoDocumentoController,
   //DocumentoController, DownloadArquivoController;
 {$R *.dfm}
