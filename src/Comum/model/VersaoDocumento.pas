@@ -58,18 +58,25 @@ type
     [TId('ID')]
     [TGeneratedValue('AUTO')]
     property Id: Integer  read FID write FID;
+
     [TColumn('ID_USUARIO')]
     property IdUsuario: Integer  read FID_USUARIO write FID_USUARIO;
+
     [TColumn('ID_DOCUMENTO')]
     property IdDocumento: Integer  read FID_DOCUMENTO write FID_DOCUMENTO;
+
     [TColumn('VERSAO')]
     property Versao: Integer  read FVERSAO write FVERSAO;
+
     [TColumn('DATA_HORA')]
     property DataHora: String  read FDATA_HORA write FDATA_HORA;
+
     [TColumn('HASH')]
     property Hash: String  read FHASH write FHASH;
+
     [TColumn('CAMINHO')]
     property Caminho: String  read FCAMINHO write FCAMINHO;
+
     [TColumn('ACAO')]
     property Acao: String  read FACAO write FACAO;
 

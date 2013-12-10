@@ -69,7 +69,6 @@ var
   Pagina: Integer;
 
 {$R *.dfm}
-
 procedure TFrmBase.BitBtn1Click(Sender: TObject);
 begin
   self.dsBase.DataSet.Cancel;

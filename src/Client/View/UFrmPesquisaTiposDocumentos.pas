@@ -5,8 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, UFrmPesquisa, bsSkinCtrls, bsSkinGrids,Generics.Collections,
-  bsDBGrids, Vcl.StdCtrls, Vcl.Mask, bsSkinBoxCtrls,TipoDocumentoController,ServerData,TipoDocumento,
-  Data.DB, BusinessSkinForm;
+  bsDBGrids, Vcl.StdCtrls, Vcl.Mask, bsSkinBoxCtrls,TipoDocumentoController,ServerData,TipoDocumento,  Data.DB, BusinessSkinForm;
 
 type
   TFrmPesquisaTiposDocumentos = class(TFrmPesquisa)
@@ -59,7 +58,6 @@ for i := 0 to tipos_documentos.Count - 1 do
     Dm.cdsTipoDocumento.Append;
     Dm.cdsTipoDocumento.Fields[0].AsInteger := tipos_documentos.Items[i].Id;
     Dm.cdsTipoDocumento.Fields[1].AsString := tipos_documentos.Items[i].Nome;
-    //Dm.cdsTipoDocumento.Fields[2].AsCurrency := tipos_documentos.Items[i].TamanhoMaximo;
     Dm.cdsTipoDocumento.Post;
   end;
   Dm.cdsTipoDocumento.Open;

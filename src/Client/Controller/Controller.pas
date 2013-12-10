@@ -26,10 +26,10 @@ type
     function Consulta(pCampo: String; pValue:String; pTipo:String; pPagina: Integer): TObjectList<O>;
     function IndexFields(var response: TObjectList<TServerData>): boolean;
     function Insere(pTipoDocumento: O;var errorList:TObjectList<TServerData>): O;
-    function Altera(pTipoDocumento: O): O;
+    function Altera(pTipoDocumento: O;var errorList:TObjectList<TServerData>): O;
     Procedure Exclui(pId: Integer);
     function GetErrors:TObjectList<TServerData>;
-
+    function Find(id: Integer): TObjectList<O>;
   end;
 
 implementation
@@ -38,12 +38,13 @@ implementation
 
 uses UDm, Helpers;
 
-function TController<O>.Altera(pTipoDocumento: O): O;
+function TController<O>.Altera(pTipoDocumento: O;var errorList:TObjectList<TServerData>): O;
 var
   dataStream: TStringStream;
   streamResposta: TStringStream;
   jItem: TJSONValue;
   http : TDSHTTP;
+  Lista:TObjectList<O>;
 begin
   try
     try
@@ -52,10 +53,18 @@ begin
       http.SetBasicAuthentication(DM.SQLConnection1.Params.Values
         ['DSAuthenticationUser'], DM.SQLConnection1.Params.Values
         ['DSAuthenticationPassword']);
+
       dataStream := TStringStream.Create(jItem.ToString);
       streamResposta := TStringStream.Create;
       http.Put(FBaseUrl + FControllerAlias + '/', dataStream, streamResposta);
-      result := O(AtualizaLista(streamResposta).Items[0]);
+      self.SetErrors(streamResposta);
+      errorList := self.FserverErrors;
+
+      Lista := AtualizaLista(streamResposta);
+      if Lista.Count > 0 then
+          result := O(Lista.Items[0])
+      else result := nil;
+      //result := O(AtualizaLista(streamResposta).Items[0]);
     except
       Application.MessageBox('Ocorreu um erro. Inclusão não realizada.',
         'Erro do sistema', MB_OK + MB_ICONERROR);
@@ -126,6 +135,37 @@ begin
   result := list;
 end;
 
+function TController<O>.Find(id: Integer)
+  : TObjectList<O>;
+var
+  http: TDSHTTP;
+  streamResposta: TStringStream;
+  modelList: TObjectList<O>;
+begin
+  try
+    try
+      http := TDSHTTP.Create;
+      try
+      http.SetBasicAuthentication(DM.SQLConnection1.Params.Values
+        ['DSAuthenticationUser'], DM.SQLConnection1.Params.Values
+        ['DSAuthenticationPassword']);
+      streamResposta := TStringStream.Create;
+      http.Get(FBaseUrl +'find/' + IntToStr(id), streamResposta);
+      modelList := AtualizaLista(streamResposta);
+      result := modelList;
+      except
+        ShowMessage(http.Response.ResponseText);
+      end;
+    except
+      Application.MessageBox('Ocorreu um erro na consulta aos dados.',
+        'Erro do sistema', MB_OK + MB_ICONERROR);
+    end;
+  finally
+    streamResposta.Free;
+    http.Free;
+  end;
+end;
+
 function TController<O>.Consulta(pCampo: String; pValue:String; pTipo:String; pPagina: Integer)
   : TObjectList<O>;
 var
@@ -157,8 +197,6 @@ begin
     http.Free;
   end;
 end;
-
-
 
 procedure TController<O>.Exclui(pId: Integer);
 var

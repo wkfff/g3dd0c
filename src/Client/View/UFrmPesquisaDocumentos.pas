@@ -8,7 +8,7 @@ uses
   bsDBGrids, Vcl.StdCtrls, Vcl.Mask, bsSkinBoxCtrls, Data.DB, BusinessSkinForm;
 
 type
-  TFrmPesquisa1 = class(TFrmPesquisa)
+  TFrmPesquisaDocumentos = class(TFrmPesquisa)
   private
     { Private declarations }
   public
@@ -16,7 +16,7 @@ type
   end;
 
 var
-  FrmPesquisa1: TFrmPesquisa1;
+  FrmPesquisaDocumentos: TFrmPesquisaDocumentos;
 
 implementation
 

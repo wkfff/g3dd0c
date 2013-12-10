@@ -1,0 +1,232 @@
+inherited FrmUnidadeOrcamentaria: TFrmUnidadeOrcamentaria
+  Caption = 'Unidade Or'#231'ament'#225'ria'
+  ExplicitWidth = 773
+  ExplicitHeight = 390
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited PCBase: TPageControl
+    ActivePage = tsCadastro
+    inherited tsPesquisa: TTabSheet
+      ExplicitLeft = 4
+      ExplicitTop = 24
+      ExplicitWidth = 749
+      ExplicitHeight = 324
+      inherited bsSkinPanel1: TbsSkinPanel
+        inherited GroupBox1: TGroupBox
+          inherited btnPesquisar: TbsSkinButton
+            OnClick = btnPesquisarClick
+          end
+        end
+      end
+    end
+    inherited tsCadastro: TTabSheet
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
+      inherited bsSkinPanel2: TbsSkinPanel
+        object bsSkinVistaGlowLabel4: TbsSkinVistaGlowLabel [0]
+          Left = 0
+          Top = 0
+          Width = 55
+          Height = 41
+          HintImageIndex = 0
+          AutoSize = True
+          DoubleBuffered = False
+          GlowColor = clWhite
+          Caption = 'Nome'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clGreen
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+        end
+        object bsSkinVistaGlowLabel1: TbsSkinVistaGlowLabel [1]
+          Left = -3
+          Top = 26
+          Width = 58
+          Height = 41
+          HintImageIndex = 0
+          AutoSize = True
+          DoubleBuffered = False
+          GlowColor = clWhite
+          Caption = #211'rgao'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clGreen
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+        end
+        object bsSkinVistaGlowLabel2: TbsSkinVistaGlowLabel [2]
+          Left = 488
+          Top = 0
+          Width = 103
+          Height = 41
+          HintImageIndex = 0
+          AutoSize = True
+          DoubleBuffered = False
+          GlowColor = clWhite
+          Caption = 'C'#243'digo Cont'#225'bil'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clGreen
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+        end
+        object dbeNome: TbsSkinDBEdit
+          Left = 42
+          Top = 11
+          Width = 450
+          Height = 19
+          Text = 'DBENOME'
+          DefaultColor = clWindow
+          DefaultFont.Charset = DEFAULT_CHARSET
+          DefaultFont.Color = clBlack
+          DefaultFont.Height = 13
+          DefaultFont.Name = 'Tahoma'
+          DefaultFont.Style = []
+          UseSkinFont = True
+          DefaultWidth = 0
+          DefaultHeight = 0
+          ButtonMode = False
+          SkinData = FrmPrincipal.bsSkinData1
+          SkinDataName = 'edit'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = 13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          CharCase = ecUpperCase
+          ParentFont = False
+          TabOrder = 2
+          ButtonImageIndex = -1
+          LeftImageIndex = -1
+          LeftImageHotIndex = -1
+          LeftImageDownIndex = -1
+          RightImageIndex = -1
+          RightImageHotIndex = -1
+          RightImageDownIndex = -1
+          AutoSize = False
+          DataField = 'NOME'
+          DataSource = dsBase
+        end
+        object dbeCodContabil: TbsSkinDBEdit
+          Left = 578
+          Top = 11
+          Width = 75
+          Height = 19
+          Text = 'dbeCodContabil'
+          DefaultColor = clWindow
+          DefaultFont.Charset = DEFAULT_CHARSET
+          DefaultFont.Color = clBlack
+          DefaultFont.Height = 13
+          DefaultFont.Name = 'Tahoma'
+          DefaultFont.Style = []
+          UseSkinFont = True
+          DefaultWidth = 0
+          DefaultHeight = 0
+          ButtonMode = False
+          SkinData = FrmPrincipal.bsSkinData1
+          SkinDataName = 'edit'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = 13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 3
+          ButtonImageIndex = -1
+          LeftImageIndex = -1
+          LeftImageHotIndex = -1
+          LeftImageDownIndex = -1
+          RightImageIndex = -1
+          RightImageHotIndex = -1
+          RightImageDownIndex = -1
+          AutoSize = False
+          DataField = 'COD_CONTABIL'
+          DataSource = dsBase
+        end
+        object dbeOrgao: TbsSkinDBEdit
+          Left = 42
+          Top = 36
+          Width = 75
+          Height = 19
+          Text = 'dbeOrgao'
+          DefaultColor = clWindow
+          DefaultFont.Charset = DEFAULT_CHARSET
+          DefaultFont.Color = clBlack
+          DefaultFont.Height = 13
+          DefaultFont.Name = 'Tahoma'
+          DefaultFont.Style = []
+          UseSkinFont = True
+          DefaultWidth = 0
+          DefaultHeight = 0
+          ButtonMode = False
+          SkinData = FrmPrincipal.bsSkinData1
+          SkinDataName = 'edit'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = 13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 4
+          ButtonImageIndex = -1
+          LeftImageIndex = -1
+          LeftImageHotIndex = -1
+          LeftImageDownIndex = -1
+          RightImageIndex = -1
+          RightImageHotIndex = -1
+          RightImageDownIndex = -1
+          OnKeyDown = dbeOrgaoKeyDown
+          AutoSize = False
+          DataField = 'ORGAO_ID'
+          DataSource = dsBase
+        end
+        object edtOrgao: TbsSkinEdit
+          Left = 123
+          Top = 36
+          Width = 369
+          Height = 19
+          TabStop = False
+          Text = ''
+          DefaultColor = clWindow
+          DefaultFont.Charset = DEFAULT_CHARSET
+          DefaultFont.Color = clBlack
+          DefaultFont.Height = 13
+          DefaultFont.Name = 'Tahoma'
+          DefaultFont.Style = []
+          UseSkinFont = True
+          DefaultWidth = 0
+          DefaultHeight = 0
+          ButtonMode = False
+          SkinData = FrmPrincipal.bsSkinData1
+          SkinDataName = 'edit'
+          ReadOnly = True
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = 13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 5
+          ButtonImageIndex = -1
+          LeftImageIndex = -1
+          LeftImageHotIndex = -1
+          LeftImageDownIndex = -1
+          RightImageIndex = -1
+          RightImageHotIndex = -1
+          RightImageDownIndex = -1
+        end
+      end
+    end
+  end
+  inherited dsBase: TDataSource
+    DataSet = nil
+    Left = 536
+  end
+  inherited bsBusinessSkinForm1: TbsBusinessSkinForm
+    Left = 536
+    Top = 120
+  end
+end

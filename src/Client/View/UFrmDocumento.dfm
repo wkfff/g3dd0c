@@ -8,7 +8,9 @@ inherited FrmDocumentos: TFrmDocumentos
       inherited bsSkinPanel1: TbsSkinPanel
         inherited GroupBox1: TGroupBox
           inherited btnPesquisar: TbsSkinButton
+            Top = 20
             OnClick = btnPesquisarClick
+            ExplicitTop = 20
           end
         end
       end
@@ -240,7 +242,7 @@ inherited FrmDocumentos: TFrmDocumentos
           RightImageIndex = -1
           RightImageHotIndex = -1
           RightImageDownIndex = -1
-          OnExit = dbeTipoDocumentoExit
+          OnChange = dbeTipoDocumentoChange
           OnKeyDown = dbeTipoDocumentoKeyDown
           AutoSize = False
           DataField = 'IDTIPODOCUMENTO'

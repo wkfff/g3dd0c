@@ -22,6 +22,7 @@ type
     property Serializer: TDataSnapJsonSerializer read FSerializer Write FSerializer;
     property Manager: TObjectManager read FManager Write FManager;
     function List(pCampo: String; pValue:String; pTipo:String; pPagina: Integer): TJSONArray;
+    function Find(id: integer): TJSONArray;
     function Accept(pObjeto: TJSONValue): TJSONArray;
     function Update(pObjeto: TJSONValue): TJSONArray;
     function Cancel(pId: Integer): Boolean;
@@ -200,6 +201,26 @@ begin
     FManager.Free;
   end;
 end;
+
+function TController<O>.Find(id: integer): TJSONArray;
+var
+  obj: O;
+  oList: TObjectList<O>;
+  i:integer;
+begin
+  try
+    try
+      FManager := TDBConnection.GetInstance.CreateObjectManager;
+      obj := FManager.Find<O>(ID);
+      result.AddElement(TJSonVO.ObjectToJSON<O>(obj));
+    except
+    end;
+  finally
+    oList.Free;
+    FManager.Free;
+  end;
+end;
+
 
 function TController<O>.Serializar(obj: O): TJSonObject;
 begin

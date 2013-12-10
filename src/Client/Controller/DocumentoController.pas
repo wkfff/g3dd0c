@@ -3,7 +3,7 @@ unit DocumentoController;
 interface
 
 uses
-Controller,Documento,System.Classes,DBXJSON;
+Controller,Documento,System.Classes,DBXJSON,TipoDocumentoController,TipoDocumento,Generics.Collections;
 
 type
   TDocumentoController = class(TController<TDocumento>)
@@ -13,6 +13,7 @@ type
   public
     constructor create;
     class procedure AtualizaGrid(streamResposta: TStringStream);
+    function findTipoDocumento(id:integer):TTipoDocumento;
   end;
 
 var
@@ -65,6 +66,21 @@ begin
   self.BaseUrl := 'http://localhost/datasnap/restT2Ti/TDocumentoController/';
   self.ControllerAlias := 'Documento';
 
+end;
+
+function TDocumentoController.findTipoDocumento(
+  id: integer): TTipoDocumento;
+var
+  tipoDocumentos : TObjectList<TTipoDocumento>;
+  tipoDocumentoController:TTipoDocumentoController;
+begin
+  tipoDocumentoController := TTipoDocumentoController.create;
+  inherited;
+  tipoDocumentos := tipoDocumentoController.Find(id);
+  if tipoDocumentos.Count > 0 then
+      Begin
+         result := tipoDocumentos.Items[0];
+      End;
 end;
 
 end.

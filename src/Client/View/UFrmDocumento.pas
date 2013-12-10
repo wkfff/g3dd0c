@@ -40,7 +40,9 @@ type
     procedure FormShow(Sender: TObject);
     procedure dbeTipoDocumentoKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
-    procedure dbeTipoDocumentoExit(Sender: TObject);
+    procedure dbeTipoDocumentoChange(Sender: TObject);
+    procedure BtnEditaClick(Sender: TObject);
+
   private
     { Private declarations }
     procedure AtualizaGrid(documentos: TObjectList<TDocumento>);
@@ -58,7 +60,8 @@ implementation
 
 {$R *.dfm}
 
-uses UDm, UFrmPrincipal, UFrmPesquisaTiposDocumentos, Helpers;
+uses UDm, UFrmPrincipal, UFrmPesquisaTiposDocumentos, Helpers, Orgao,
+  TipoDocumento;
 
 procedure TFrmDocumentos.AtualizaCamposPesquisa
   (campos: TObjectList<TServerData>);
@@ -98,6 +101,12 @@ for i := 0 to documentos.Count - 1 do
   Dm.cdsDocumento.EnableControls;
 end;
 
+procedure TFrmDocumentos.BtnEditaClick(Sender: TObject);
+begin
+  inherited;
+  self.dbeNome.SetFocus;
+end;
+
 procedure TFrmDocumentos.BtnExcluirClick(Sender: TObject);
 begin
   inherited;
@@ -126,7 +135,7 @@ begin
   inherited;
   Dm.CDSDocumento.EmptyDataSet;
   AtualizaGrid(Controller.Consulta(self.fCamposPesquisa
- [self.cbbPesquisa.ItemIndex].Key, ePesquisa.Text, 'like', 0));
+  [self.cbbPesquisa.ItemIndex].Key, ePesquisa.Text, 'like', 0));
 end;
 
 procedure TFrmDocumentos.BtnSalvarClick(Sender: TObject);
@@ -154,7 +163,7 @@ begin
       if Dm.CDSDocumento.State in [dsInsert] then
         Documento := Controller.Insere(Documento, listErro)
       else
-        Documento := Controller.Altera(Documento);
+        Documento := Controller.Altera(Documento, listErro);
       if not(Documento = nil) then
       Begin
         Dm.CDSDocumentoID.Value := Documento.Id;
@@ -179,10 +188,15 @@ begin
   end;
 end;
 
-procedure TFrmDocumentos.dbeTipoDocumentoExit(Sender: TObject);
+procedure TFrmDocumentos.dbeTipoDocumentoChange(Sender: TObject);
+var
+tipoDocumentos : TObjectList<TTipoDocumento>;
+TipoDocumento:TTipoDocumento;
 begin
   inherited;
-  ShowMessage(dbeTipoDocumento.Text);
+  TipoDocumento := Controller.findTipoDocumento(StrToInt(dbeTipoDocumento.Text));
+  if not (TipoDocumento = nil) then
+      edtTipoDocumento.Text := TipoDocumento.Nome;
 end;
 
 procedure TFrmDocumentos.dbeTipoDocumentoKeyDown(Sender: TObject; var Key: Word;
@@ -198,7 +212,7 @@ begin
       end;
 end;
 
-Procedure TFrmDocumentos.FormShow(Sender: TObject);
+procedure TFrmDocumentos.FormShow(Sender: TObject);
 var
   sucesso: boolean;
 begin
@@ -210,8 +224,6 @@ begin
   Begin
     AtualizaCamposPesquisa(fCamposPesquisa);
     AtualizaGrid(Controller.Consulta('1', '1', 'ALL', 0));
-    //Dm.cdsTipoDOcumento.Fields[2].Visible := false;
-    //self.DBETamanhoMaximo.DataField := 'TAMANHO_MAXIMO';
   End
   else
   Begin

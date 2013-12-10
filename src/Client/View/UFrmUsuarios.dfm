@@ -1,15 +1,10 @@
 inherited FrmUsuarios: TFrmUsuarios
   Caption = 'FrmUsuarios'
-  ExplicitWidth = 773
-  ExplicitHeight = 390
   PixelsPerInch = 96
   TextHeight = 13
   inherited PCBase: TPageControl
+    ActivePage = tsCadastro
     inherited tsPesquisa: TTabSheet
-      ExplicitLeft = 4
-      ExplicitTop = 24
-      ExplicitWidth = 749
-      ExplicitHeight = 324
       inherited bsSkinPanel1: TbsSkinPanel
         inherited GroupBox1: TGroupBox
           inherited btnPesquisar: TbsSkinButton
@@ -19,6 +14,10 @@ inherited FrmUsuarios: TFrmUsuarios
       end
     end
     inherited tsCadastro: TTabSheet
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       inherited bsSkinPanel2: TbsSkinPanel
         object Label3: TLabel [0]
           Left = 3

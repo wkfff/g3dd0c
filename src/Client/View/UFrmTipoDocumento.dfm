@@ -2,67 +2,79 @@ inherited FrmTipoDocumento: TFrmTipoDocumento
   Caption = 'Cadastro de tipos de documento'
   ClientWidth = 753
   ExplicitWidth = 769
-  ExplicitHeight = 390
+  ExplicitHeight = 240
   PixelsPerInch = 96
   TextHeight = 13
   inherited PCBase: TPageControl
     Width = 753
     ActivePage = tsCadastro
+    ExplicitWidth = 753
     inherited tsPesquisa: TTabSheet
-      ExplicitLeft = 4
-      ExplicitTop = 24
-      ExplicitWidth = 749
-      ExplicitHeight = 324
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 745
+      ExplicitHeight = 0
       inherited bsSkinPanel1: TbsSkinPanel
         Width = 745
+        ExplicitWidth = 745
         inherited GroupBox1: TGroupBox
           Width = 738
+          ExplicitWidth = 738
           inherited ePesquisa: TbsSkinEdit
             Width = 505
+            ExplicitWidth = 505
           end
           inherited btnPesquisar: TbsSkinButton
             Left = 650
             OnClick = btnPesquisarClick
+            ExplicitLeft = 650
           end
           inherited bsSkinGroupBox1: TbsSkinGroupBox
             Width = 722
+            ExplicitWidth = 722
             inherited bsSkinDBGrid1: TbsSkinDBGrid
               Width = 687
             end
             inherited bsSkinScrollBar1: TbsSkinScrollBar
               Width = 687
+              ExplicitWidth = 687
             end
             inherited bsSkinScrollBar2: TbsSkinScrollBar
               Left = 698
+              ExplicitLeft = 698
             end
           end
         end
       end
     end
     inherited tsCadastro: TTabSheet
+      ExplicitLeft = 0
+      ExplicitTop = 0
       ExplicitWidth = 745
+      ExplicitHeight = 0
       inherited bsSkinPanel2: TbsSkinPanel
         Width = 745
+        ExplicitTop = -10
         ExplicitWidth = 745
-        object bsSkinStdLabel3: TbsSkinStdLabel [0]
-          Left = 3
-          Top = 10
-          Width = 27
-          Height = 13
-          EllipsType = bsetNone
-          UseSkinFont = True
-          UseSkinColor = True
-          DefaultFont.Charset = DEFAULT_CHARSET
-          DefaultFont.Color = clWindowText
-          DefaultFont.Height = -11
-          DefaultFont.Name = 'Tahoma'
-          DefaultFont.Style = []
-          SkinDataName = 'stdlabel'
+        object bsSkinVistaGlowLabel1: TbsSkinVistaGlowLabel [0]
+          Left = 0
+          Top = 0
+          Width = 55
+          Height = 41
+          HintImageIndex = 0
+          AutoSize = True
+          DoubleBuffered = False
+          GlowColor = clWhite
           Caption = 'Nome'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clGreen
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
         end
         object dbeNome: TbsSkinDBEdit
-          Left = 3
-          Top = 24
+          Left = 42
+          Top = 11
           Width = 366
           Height = 19
           Text = 'DBENOME'
@@ -101,6 +113,8 @@ inherited FrmTipoDocumento: TFrmTipoDocumento
   end
   inherited dsBase: TDataSource
     DataSet = Dm.CDSTipoDOcumento
+    Left = 552
+    Top = 120
   end
   inherited bsBusinessSkinForm1: TbsBusinessSkinForm
     Left = 480

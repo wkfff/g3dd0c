@@ -1,16 +1,16 @@
 inherited FrmOrgao: TFrmOrgao
   Caption = 'Cadastro de '#211'rg'#227'os'
-  ExplicitWidth = 773
-  ExplicitHeight = 390
+  ExplicitWidth = 320
+  ExplicitHeight = 240
   PixelsPerInch = 96
   TextHeight = 13
   inherited PCBase: TPageControl
     ActivePage = tsCadastro
     inherited tsPesquisa: TTabSheet
-      ExplicitLeft = 4
-      ExplicitTop = 24
-      ExplicitWidth = 749
-      ExplicitHeight = 324
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       inherited bsSkinPanel1: TbsSkinPanel
         inherited GroupBox1: TGroupBox
           inherited ePesquisa: TbsSkinEdit
@@ -23,100 +23,46 @@ inherited FrmOrgao: TFrmOrgao
       end
     end
     inherited tsCadastro: TTabSheet
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       inherited bsSkinPanel2: TbsSkinPanel
-        object bsSkinStdLabel3: TbsSkinStdLabel [0]
-          Left = 6
-          Top = 7
-          Width = 33
-          Height = 13
-          EllipsType = bsetNone
-          UseSkinFont = True
-          UseSkinColor = True
-          DefaultFont.Charset = DEFAULT_CHARSET
-          DefaultFont.Color = clWindowText
-          DefaultFont.Height = -11
-          DefaultFont.Name = 'Tahoma'
-          DefaultFont.Style = []
-          SkinData = FrmPrincipal.bsSkinData1
-          SkinDataName = 'stdlabel'
-          Caption = 'C'#243'digo'
-        end
-        object bsSkinStdLabel4: TbsSkinStdLabel [1]
-          Left = 92
-          Top = 7
-          Width = 27
-          Height = 13
-          EllipsType = bsetNone
-          UseSkinFont = True
-          UseSkinColor = True
-          DefaultFont.Charset = DEFAULT_CHARSET
-          DefaultFont.Color = clWindowText
-          DefaultFont.Height = -11
-          DefaultFont.Name = 'Tahoma'
-          DefaultFont.Style = []
-          SkinData = FrmPrincipal.bsSkinData1
-          SkinDataName = 'stdlabel'
+        object bsSkinVistaGlowLabel4: TbsSkinVistaGlowLabel [0]
+          Left = 0
+          Top = 0
+          Width = 55
+          Height = 41
+          HintImageIndex = 0
+          AutoSize = True
+          DoubleBuffered = False
+          GlowColor = clWhite
           Caption = 'Nome'
-        end
-        object bsSkinStdLabel5: TbsSkinStdLabel [2]
-          Left = 598
-          Top = 7
-          Width = 75
-          Height = 13
-          EllipsType = bsetNone
-          UseSkinFont = True
-          UseSkinColor = True
-          DefaultFont.Charset = DEFAULT_CHARSET
-          DefaultFont.Color = clWindowText
-          DefaultFont.Height = -11
-          DefaultFont.Name = 'Tahoma'
-          DefaultFont.Style = []
-          SkinData = FrmPrincipal.bsSkinData1
-          SkinDataName = 'stdlabel'
-          Caption = 'C'#243'digo Contabil'
-        end
-        object dbeID: TbsSkinDBEdit
-          Left = 6
-          Top = 23
-          Width = 80
-          Height = 19
-          TabStop = False
-          Text = 'dbeID'
-          DefaultColor = clWindow
-          DefaultFont.Charset = DEFAULT_CHARSET
-          DefaultFont.Color = clBlack
-          DefaultFont.Height = 13
-          DefaultFont.Name = 'Tahoma'
-          DefaultFont.Style = []
-          UseSkinFont = True
-          DefaultWidth = 0
-          DefaultHeight = 0
-          ButtonMode = False
-          SkinData = FrmPrincipal.bsSkinData1
-          SkinDataName = 'edit'
-          ReadOnly = True
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = 13
+          Font.Color = clGreen
+          Font.Height = -11
           Font.Name = 'Tahoma'
           Font.Style = []
-          Enabled = False
-          ParentFont = False
-          TabOrder = 2
-          ButtonImageIndex = -1
-          LeftImageIndex = -1
-          LeftImageHotIndex = -1
-          LeftImageDownIndex = -1
-          RightImageIndex = -1
-          RightImageHotIndex = -1
-          RightImageDownIndex = -1
-          AutoSize = False
-          DataField = 'ID'
-          DataSource = dsBase
+        end
+        object bsSkinVistaGlowLabel1: TbsSkinVistaGlowLabel [1]
+          Left = 536
+          Top = 0
+          Width = 103
+          Height = 41
+          HintImageIndex = 0
+          AutoSize = True
+          DoubleBuffered = False
+          GlowColor = clWhite
+          Caption = 'C'#243'digo Contabil'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clGreen
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
         end
         object dbeNome: TbsSkinDBEdit
-          Left = 92
-          Top = 23
+          Left = 42
+          Top = 11
           Width = 500
           Height = 19
           Text = 'DBENOME'
@@ -139,7 +85,7 @@ inherited FrmOrgao: TFrmOrgao
           Font.Style = []
           CharCase = ecUpperCase
           ParentFont = False
-          TabOrder = 3
+          TabOrder = 2
           ButtonImageIndex = -1
           LeftImageIndex = -1
           LeftImageHotIndex = -1
@@ -152,8 +98,8 @@ inherited FrmOrgao: TFrmOrgao
           DataSource = dsBase
         end
         object dbeCodContabil: TbsSkinDBEdit
-          Left = 598
-          Top = 23
+          Left = 625
+          Top = 11
           Width = 77
           Height = 19
           Text = 'dbeCodContabil'
@@ -175,7 +121,7 @@ inherited FrmOrgao: TFrmOrgao
           Font.Name = 'Tahoma'
           Font.Style = []
           ParentFont = False
-          TabOrder = 4
+          TabOrder = 3
           ButtonImageIndex = -1
           LeftImageIndex = -1
           LeftImageHotIndex = -1
@@ -184,18 +130,19 @@ inherited FrmOrgao: TFrmOrgao
           RightImageHotIndex = -1
           RightImageDownIndex = -1
           AutoSize = False
+          DataField = 'COD_CONTABIL'
           DataSource = dsBase
         end
       end
     end
   end
   inherited dsBase: TDataSource
-    DataSet = Dm.CDSOrgao
-    Left = 704
-    Top = 80
+    DataSet = nil
+    Left = 648
+    Top = 256
   end
   inherited bsBusinessSkinForm1: TbsBusinessSkinForm
-    Left = 616
-    Top = 80
+    Left = 576
+    Top = 256
   end
 end

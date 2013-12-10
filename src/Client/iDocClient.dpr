@@ -24,7 +24,7 @@ uses
   UnidadeOrcamentaria in '..\Comum\model\UnidadeOrcamentaria.pas',
   UFrmUnidadeOrcamentaria in 'View\UFrmUnidadeOrcamentaria.pas' {FrmUnidadeOrcamentaria},
   UFrmPesquisa in 'View\UFrmPesquisa.pas' {FrmPesquisa},
-  UFrmPesquisaDocumentos in 'View\UFrmPesquisaDocumentos.pas' {FrmPesquisa1},
+  UFrmPesquisaDocumentos in 'View\UFrmPesquisaDocumentos.pas' {FrmPesquisaDocumentos},
   UFrmPesquisaTiposDocumentos in 'View\UFrmPesquisaTiposDocumentos.pas' {FrmPesquisaTiposDocumentos},
   UFrmTipoDocumento in 'View\UFrmTipoDocumento.pas' {FrmTipoDocumento},
   UFrmDocumento in 'View\UFrmDocumento.pas' {FrmDocumentos},
@@ -34,7 +34,8 @@ uses
   UHelpers in 'Helpers\UHelpers.pas',
   VersaoDocumento in '..\Comum\model\VersaoDocumento.pas',
   UFrmPrincipal in 'View\UFrmPrincipal.pas' {FrmPrincipal},
-  UDm in 'Data\UDm.pas' {Dm: TDataModule};
+  UDm in 'Data\UDm.pas' {Dm: TDataModule},
+  UFrmPesquisaOrgaos in 'View\UFrmPesquisaOrgaos.pas' {FrmPesquisaOrgaos};
 
 {$R *.res}
 
@@ -46,14 +47,15 @@ begin
   Application.CreateForm(TFrmLogin, FrmLogin);
   Application.CreateForm(TFrmBase, FrmBase);
   Application.CreateForm(TFrmDocumentos, FrmDocumentos);
-  Application.CreateForm(TFrmPesquisa1, FrmPesquisa1);
+  Application.CreateForm(TFrmPesquisaDocumentos, FrmPesquisaDocumentos);
   Application.CreateForm(TFrmPesquisaTiposDocumentos, FrmPesquisaTiposDocumentos);
   Application.CreateForm(TFrmDocumentos, FrmDocumentos);
-  Application.CreateForm(TFrmPesquisa1, FrmPesquisa1);
+  Application.CreateForm(TFrmPesquisaOrgaos, FrmPesquisaOrgaos);
   Application.CreateForm(TFrmPesquisaTiposDocumentos, FrmPesquisaTiposDocumentos);
   Application.CreateForm(TFrmTipoDocumento, FrmTipoDocumento);
   Application.CreateForm(TFrmDocumentos, FrmDocumentos);
   Application.CreateForm(TFrmPrincipal, FrmPrincipal);
   Application.CreateForm(TDm, Dm);
+  Application.CreateForm(TFrmPesquisaOrgaos, FrmPesquisaOrgaos);
   Application.Run;
 end.
