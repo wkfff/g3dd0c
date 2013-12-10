@@ -7,16 +7,14 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, UFrmBase, BusinessSkinForm, Data.DB,
   bsSkinCtrls, bsSkinGrids, bsDBGrids, Vcl.Mask, bsSkinBoxCtrls, Vcl.StdCtrls,
   Vcl.ComCtrls, Vcl.Grids, Vcl.DBGrids, Vcl.DBCtrls,OrgaoController,Orgao,ServerData,
-  Generics.Collections, bsdbctrls;
+  Generics.Collections, bsdbctrls, bsSkinExCtrls;
 
 type
   TFrmOrgao = class(TFrmBase)
-    bsSkinStdLabel3: TbsSkinStdLabel;
-    dbeID: TbsSkinDBEdit;
-    bsSkinStdLabel4: TbsSkinStdLabel;
     dbeNome: TbsSkinDBEdit;
     dbeCodContabil: TbsSkinDBEdit;
-    bsSkinStdLabel5: TbsSkinStdLabel;
+    bsSkinVistaGlowLabel4: TbsSkinVistaGlowLabel;
+    bsSkinVistaGlowLabel1: TbsSkinVistaGlowLabel;
     procedure FormShow(Sender: TObject);
     procedure BtnInserirClick(Sender: TObject);
     procedure BtnSalvarClick(Sender: TObject);
@@ -121,7 +119,7 @@ begin
     try
       if Dm.cdsOrgao.State in [dsInsert] then
           orgao := Controller.Insere(orgao,listErro)
-      else  orgao := Controller.Altera(orgao);
+      else  orgao := Controller.Altera(orgao,listErro);
       if not (orgao = nil) then
         Begin
           Dm.cdsOrgaoID.Value := orgao.Id;
@@ -143,15 +141,14 @@ begin
   finally
     orgao.Free;
   end;
-
-end;
+end;
 
 procedure TFrmOrgao.FormShow(Sender: TObject);
 var
 sucesso : boolean;
 begin
   inherited;
-  DBECodContabil.DataField := 'COD_CONTABIL';
+  self.dsBase.DataSet := Dm.CDSOrgao;
   Controller := TOrgaoController.Create;
   sucesso := Controller.IndexFields(fCamposPesquisa);
   if sucesso then
@@ -165,7 +162,6 @@ begin
       FecharForm;
       Controller.Free;
     End;
-
-end;
+end;
 
 end.

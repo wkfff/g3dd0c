@@ -19,12 +19,15 @@ type
     FSENHA: String;
   public
     property Id: Integer  read FID write FID;
+
     [Column('NOME', [TColumnProp.Required], 60)]
     [TIndexColumn('NOME', 'Nome',true)]
     [validates_size(1,20,'O nome do usuário deve estar entre 1 e 20')]
     property Nome: String  read FNOME write FNOME;
+
     [Column('SENHA', [TColumnProp.Required], 20)]
     property Senha: String  read FSENHA write FSENHA;
+
     function ToJSON(usuario: TUsuario): TJSONValue;
     function JsonToObject(json: TJSONValue): TUsuario;
   end;

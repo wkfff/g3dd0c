@@ -29,8 +29,15 @@ type
     function isValid(pValue:Variant):boolean;override;
   end;
 
-  //eneasmarques - validates
   validates_s_or_n = class(validator_attr)
+  protected
+    FFormat:String;
+  public
+    constructor Create(pErrorMessage:String='');overload;
+    function isValid(pValue:Variant):boolean;override;
+  end;
+
+  validates_not_zero = class(validator_attr)
   protected
     FFormat:String;
   public
@@ -68,6 +75,7 @@ begin
 end;
 
 { validates_presence }
+
 constructor validates_presence.Create(pErrorMessage: String);
 begin
   if pErrorMessage <> '' then
@@ -82,6 +90,7 @@ begin
 end;
 
 { validates_format }
+
 constructor validates_format.Create(pFormat, pErrorMessage: String);
 begin
   self.FFormat := pFormat;
@@ -100,6 +109,7 @@ begin
 end;
 
 { validates_size }
+
 constructor validates_size.Create(pMinSize, pMaxSize: Integer;
   pErrorMessage: String);
 begin
@@ -117,6 +127,21 @@ begin
             result := true
         else result := false;
     end;
+end;
+
+{ validates_not_zero }
+
+constructor validates_not_zero.Create(pErrorMessage: String);
+begin
+  if pErrorMessage <> '' then
+    self.ErrorMessage := pErrorMessage;
+end;
+
+function validates_not_zero.isValid(pValue: Variant): boolean;
+begin
+  if (pValue > 0) and (pValue <> '') then
+    result := true
+  else result := false;
 end;
 
 end.

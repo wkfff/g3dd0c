@@ -5,7 +5,7 @@ interface
 uses
   Aurelius.Mapping.Attributes,
   Aurelius.Types.Nullable,
-  DBXJSON, DBXJSONReflect, SysUtils,Atributos,BaseModel;
+  DBXJSON, DBXJSONReflect, SysUtils,Atributos,BaseModel,Validators.CoreAttributes;
 
 type
   [Entity]
@@ -22,8 +22,11 @@ type
   public
     [TIndexColumn('ID', 'Código',false)]
     property Id: Integer  read FID write FID;
-    [TIndexColumn('NOME', 'Nome',true)]
+
     [Column('NOME', [TColumnProp.Required], 60)]
+    [TIndexColumn('NOME', 'Nome',true)]
+    [validates_presence('Campo Obrígatório')]
+    [validates_size(3,60,'O nome do Tipo do Documento deverá ter de 3 a 60 caractres')]
     property Nome: String  read FNOME write FNOME;
   end;
 

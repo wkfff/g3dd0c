@@ -110,7 +110,7 @@ begin
 
       if Dm.CDSUsuario.State in [dsInsert] then
           Usuario := Controller.Insere(Usuario,listErro)
-      else  Usuario := Controller.Altera(Usuario);
+      else  Usuario := Controller.Altera(Usuario,listErro);
     if not (Usuario = nil) then
        Begin
           Dm.CDSUsuarioID.Value := Usuario.Id;

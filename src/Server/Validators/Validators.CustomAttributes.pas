@@ -30,28 +30,14 @@ type
     constructor Create(pErrorMessage:String='');overload;
   end;
 
-  validates_s_or_n = class(validates_format)
-  public
-      constructor Create (pErrorMessage:String='');overload;
-  end;
-
-
-
 implementation
 
 { validates_email }
-
-constructor validates_s_or_n.Create(pErrorMessage: String);
-begin
-    self.FFormat := 'S|N';
-end;
-
 
 constructor validates_email.Create(pErrorMessage: String);
 begin
   self.FFormat := '[_a-zA-Z\d\-\.]+@([_a-zA-Z\d\-]+(\.[_a-zA-Z\d\-]+)+)';
 end;
-
 
 { validates_arquivo_imagem }
 
@@ -66,7 +52,6 @@ constructor validates_ip.Create(pErrorMessage: String);
 begin
    self.FFormat := '((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){3}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})$';
 end;
-
 
 { validates_url }
 

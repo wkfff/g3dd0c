@@ -29,7 +29,6 @@ type
     function isValid(pValue:Variant):boolean;override;
   end;
 
-
   validates_size = class(validator_attr)
   protected
     FMinSize:Integer;
@@ -97,5 +96,4 @@ begin
         else result := false;
     end;
 end;
-
 end.
