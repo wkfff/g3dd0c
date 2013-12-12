@@ -184,7 +184,8 @@ begin
           oList := FManager.Find<O>.Add(TExpression.Eq(pCampo, pValue)).List
       else
       if UpperCase(pTipo) = 'LIKE' then
-         oList := FManager.Find<O>.Add(TExpression.Like(pCampo, pValue+'%')).List
+         oList := FManager.Find<O>.Add(TLinq.Sql(pCampo+' like '''+pValue+'%''')).List
+      //   TExpression.Like(, +'%')).List
       else oList := FManager.FindAll<O>;
 
       {.Where.(TLinq.Sql(pFiltro)).List;}
@@ -212,6 +213,7 @@ begin
     try
       FManager := TDBConnection.GetInstance.CreateObjectManager;
       obj := FManager.Find<O>(ID);
+      result := TJSONArray.Create;
       result.AddElement(TJSonVO.ObjectToJSON<O>(obj));
     except
     end;

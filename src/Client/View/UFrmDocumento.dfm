@@ -1,10 +1,15 @@
 inherited FrmDocumentos: TFrmDocumentos
   Caption = 'Documentos'
+  ExplicitWidth = 773
+  ExplicitHeight = 391
   PixelsPerInch = 96
   TextHeight = 13
   inherited PCBase: TPageControl
-    ActivePage = tsCadastro
     inherited tsPesquisa: TTabSheet
+      ExplicitLeft = 4
+      ExplicitTop = 24
+      ExplicitWidth = 749
+      ExplicitHeight = 324
       inherited bsSkinPanel1: TbsSkinPanel
         ExplicitTop = 0
         inherited GroupBox1: TGroupBox
