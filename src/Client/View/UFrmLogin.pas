@@ -10,17 +10,19 @@ uses
 type
   TFrmLogin = class(TForm)
     bsBusinessSkinForm1: TbsBusinessSkinForm;
-    bsSkinButton1: TbsSkinButton;
+    btnLogin: TbsSkinButton;
     EUsuario: TbsSkinEdit;
     bsSkinStdLabel1: TbsSkinStdLabel;
-    ESenha: TbsSkinEdit;
     bsPngImageStorage1: TbsPngImageStorage;
     bsPngImageView1: TbsPngImageView;
     bsPngImageView2: TbsPngImageView;
     bsSkinStdLabel2: TbsSkinStdLabel;
-    procedure bsSkinButton1Click(Sender: TObject);
+    ESenha: TbsSkinPasswordEdit;
+    procedure btnLoginClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
+    procedure EUsuarioKeyPress(Sender: TObject; var Key: Char);
+    procedure ESenhaKeyPress(Sender: TObject; var Key: Char);
   private
     { Private declarations }
     autenticado:boolean;
@@ -38,7 +40,7 @@ uses UFrmPrincipal, UDm, UsuarioController;
 
 {$R *.dfm}
 
-procedure TFrmLogin.bsSkinButton1Click(Sender: TObject);
+procedure TFrmLogin.btnLoginClick(Sender: TObject);
 begin
     autenticado := false;
     if TUsuarioController.Autenticar(EUsuario.Text,ESenha.Text) then
@@ -48,11 +50,22 @@ begin
       End;
 end;
 
+procedure TFrmLogin.ESenhaKeyPress(Sender: TObject; var Key: Char);
+begin
+    if Key = #13 then
+        btnLogin.SetFocus;
+end;
+
+procedure TFrmLogin.EUsuarioKeyPress(Sender: TObject; var Key: Char);
+begin
+    if Key = #13 then
+        ESenha.SetFocus;
+end;
+
 procedure TFrmLogin.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
     if not autenticado then
         Application.Terminate;
-
 end;
 
 procedure TFrmLogin.FormShow(Sender: TObject);

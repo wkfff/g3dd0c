@@ -9,4 +9,7 @@ inherited FrmPesquisaOrgaos: TFrmPesquisaOrgaos
       end
     end
   end
+  inherited bsBusinessSkinForm1: TbsBusinessSkinForm
+    SkinData = FrmPrincipal.bsSkinData1
+  end
 end

@@ -188,6 +188,7 @@ object FrmPesquisa: TFrmPesquisa
         RightImageIndex = -1
         RightImageHotIndex = -1
         RightImageDownIndex = -1
+        OnKeyPress = ePesquisaKeyPress
         ExplicitWidth = 503
       end
       object btnPesquisar: TbsSkinButton

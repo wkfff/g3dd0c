@@ -6,11 +6,10 @@ inherited FrmDocumentos: TFrmDocumentos
     ActivePage = tsCadastro
     inherited tsPesquisa: TTabSheet
       inherited bsSkinPanel1: TbsSkinPanel
+        ExplicitTop = 0
         inherited GroupBox1: TGroupBox
           inherited btnPesquisar: TbsSkinButton
-            Top = 20
             OnClick = btnPesquisarClick
-            ExplicitTop = 20
           end
         end
       end
@@ -214,6 +213,7 @@ inherited FrmDocumentos: TFrmDocumentos
           Top = 61
           Width = 75
           Height = 19
+          Hint = 'Campo de Pesquisa|Tecle F2 para Pesquisar|0'
           Text = 'dbeTipoDocumento'
           DefaultColor = clWindow
           DefaultFont.Charset = DEFAULT_CHARSET
@@ -234,6 +234,8 @@ inherited FrmDocumentos: TFrmDocumentos
           Font.Name = 'Tahoma'
           Font.Style = []
           ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
           TabOrder = 2
           ButtonImageIndex = -1
           LeftImageIndex = -1
@@ -253,6 +255,8 @@ inherited FrmDocumentos: TFrmDocumentos
           Top = 86
           Width = 195
           Height = 19
+          Hint = 'Palavra Chave|Defina um nome padr'#227'o para o Documento|1'
+          CustomHint = bHint
           Text = 'DBEPALAVRACHAVE'
           DefaultColor = clWindow
           DefaultFont.Charset = DEFAULT_CHARSET
@@ -273,6 +277,8 @@ inherited FrmDocumentos: TFrmDocumentos
           Font.Style = []
           CharCase = ecUpperCase
           ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
           TabOrder = 3
           ButtonImageIndex = -1
           LeftImageIndex = -1
@@ -290,6 +296,8 @@ inherited FrmDocumentos: TFrmDocumentos
           Top = 86
           Width = 20
           Height = 19
+          Hint = 'Assinado|Preencha com S ou N|0'
+          CustomHint = bHint
           Text = 'DBEASSINADO'
           DefaultColor = clWindow
           DefaultFont.Charset = DEFAULT_CHARSET
@@ -310,6 +318,8 @@ inherited FrmDocumentos: TFrmDocumentos
           Font.Style = []
           CharCase = ecUpperCase
           ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
           TabOrder = 4
           ButtonImageIndex = -1
           LeftImageIndex = -1
@@ -327,6 +337,8 @@ inherited FrmDocumentos: TFrmDocumentos
           Top = 86
           Width = 20
           Height = 19
+          Hint = 'Pode Alterar|Preencha com S ou N|1'
+          CustomHint = bHint
           Text = 'DBEPODEALTERAR'
           DefaultColor = clWindow
           DefaultFont.Charset = DEFAULT_CHARSET
@@ -340,13 +352,10 @@ inherited FrmDocumentos: TFrmDocumentos
           ButtonMode = False
           SkinData = FrmPrincipal.bsSkinData1
           SkinDataName = 'edit'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = 13
-          Font.Name = 'Tahoma'
-          Font.Style = []
           CharCase = ecUpperCase
-          ParentFont = False
+          DragMode = dmAutomatic
+          ParentShowHint = False
+          ShowHint = True
           TabOrder = 5
           ButtonImageIndex = -1
           LeftImageIndex = -1
@@ -557,6 +566,7 @@ inherited FrmDocumentos: TFrmDocumentos
           Top = 86
           Width = 20
           Height = 19
+          CustomHint = bHint
           Text = 'BSSKINDBEDIT1'
           DefaultColor = clWindow
           DefaultFont.Charset = DEFAULT_CHARSET
@@ -633,7 +643,13 @@ inherited FrmDocumentos: TFrmDocumentos
     Top = 296
   end
   inherited bsBusinessSkinForm1: TbsBusinessSkinForm
+    ShowObjectHint = True
     Left = 696
     Top = 296
+  end
+  object bHint: TBalloonHint
+    Style = bhsStandard
+    Left = 164
+    Top = 192
   end
 end

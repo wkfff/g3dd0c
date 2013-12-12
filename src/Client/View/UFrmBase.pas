@@ -48,6 +48,7 @@ type
     procedure FormShow(Sender: TObject);
     procedure FecharForm;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure ePesquisaKeyPress(Sender: TObject; var Key: Char);
   private
     { Private declarations }
    FController:TController<TBaseModel>;
@@ -100,6 +101,12 @@ begin
   self.dsBase.DataSet.Post;
   tsPesquisa.TabVisible := true;
   tsCadastro.TabVisible := false;
+end;
+
+procedure TFrmBase.ePesquisaKeyPress(Sender: TObject; var Key: Char);
+begin
+    if Key = #13 then
+        btnPesquisar.SetFocus;
 end;
 
 procedure TFrmBase.FecharForm;

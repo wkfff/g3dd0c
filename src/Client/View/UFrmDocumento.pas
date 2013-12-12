@@ -9,7 +9,8 @@ uses
   bsSkinCtrls, bsSkinGrids, bsDBGrids, Vcl.Mask, bsSkinBoxCtrls, Vcl.StdCtrls,
   ServerData,
   Vcl.ComCtrls, Vcl.Grids, Vcl.DBGrids, Documento, Generics.Collections,
-  DocumentoController, Vcl.DBCtrls, bsdbctrls, bsSkinExCtrls;
+  DocumentoController, Vcl.DBCtrls, bsdbctrls, bsSkinExCtrls, bsSkinHint, JvHint,
+  JvComponentBase, JvBalloonHint;
 
 type
   TFrmDocumentos = class(TFrmBase)
@@ -33,6 +34,7 @@ type
     bsSkinDBEdit1: TbsSkinDBEdit;
     bsSkinLabel1: TbsSkinLabel;
     edtTipoDocumento: TbsSkinEdit;
+    bHint: TBalloonHint;
     procedure btnPesquisarClick(Sender: TObject);
     procedure BtnSalvarClick(Sender: TObject);
     procedure BtnExcluirClick(Sender: TObject);
@@ -194,9 +196,10 @@ tipoDocumentos : TObjectList<TTipoDocumento>;
 TipoDocumento:TTipoDocumento;
 begin
   inherited;
-  TipoDocumento := Controller.findTipoDocumento(StrToInt(dbeTipoDocumento.Text));
-  if not (TipoDocumento = nil) then
-      edtTipoDocumento.Text := TipoDocumento.Nome;
+  //if edtTipoDocumento.Text <> '' then
+  //TipoDocumento := Controller.findTipoDocumento(StrToInt(dbeTipoDocumento.Text));
+  //if not (TipoDocumento = nil) then
+  //    edtTipoDocumento.Text := TipoDocumento.Nome;
 end;
 
 procedure TFrmDocumentos.dbeTipoDocumentoKeyDown(Sender: TObject; var Key: Word;

@@ -91,7 +91,7 @@ object FrmLogin: TFrmLogin
     Caption = 'Senha'
     ParentFont = False
   end
-  object bsSkinButton1: TbsSkinButton
+  object btnLogin: TbsSkinButton
     Left = 536
     Top = 287
     Width = 129
@@ -125,7 +125,7 @@ object FrmLogin: TFrmLogin
     Caption = 'Acesse sua conta'
     NumGlyphs = 1
     Spacing = 1
-    OnClick = bsSkinButton1Click
+    OnClick = btnLoginClick
   end
   object EUsuario: TbsSkinEdit
     Left = 384
@@ -160,40 +160,31 @@ object FrmLogin: TFrmLogin
     RightImageIndex = -1
     RightImageHotIndex = -1
     RightImageDownIndex = -1
+    OnKeyPress = EUsuarioKeyPress
   end
-  object ESenha: TbsSkinEdit
+  object ESenha: TbsSkinPasswordEdit
+    AlignWithMargins = True
     Left = 384
     Top = 248
     Width = 281
     Height = 24
-    Text = ''
-    DefaultColor = clWindow
-    DefaultFont.Charset = DEFAULT_CHARSET
-    DefaultFont.Color = clBlack
-    DefaultFont.Height = 14
-    DefaultFont.Name = 'Arial'
-    DefaultFont.Style = []
-    UseSkinFont = True
-    DefaultWidth = 0
-    DefaultHeight = 0
-    ButtonMode = False
+    Cursor = crIBeam
+    HintImageIndex = 0
+    Anchors = [akTop, akRight]
+    TabOrder = 2
     SkinData = FrmPrincipal.bsSkinData1
     SkinDataName = 'edit'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clBlack
-    Font.Height = 0
-    Font.Name = 'Arial'
-    Font.Style = []
-    Anchors = [akTop, akRight]
-    ParentFont = False
-    TabOrder = 2
-    ButtonImageIndex = -1
-    LeftImageIndex = -1
-    LeftImageHotIndex = -1
-    LeftImageDownIndex = -1
-    RightImageIndex = -1
-    RightImageHotIndex = -1
-    RightImageDownIndex = -1
+    DefaultFont.Charset = DEFAULT_CHARSET
+    DefaultFont.Color = clWindowText
+    DefaultFont.Height = 13
+    DefaultFont.Name = 'Tahoma'
+    DefaultFont.Style = []
+    DefaultWidth = 0
+    DefaultHeight = 0
+    UseSkinFont = True
+    DefaultColor = clWindow
+    PasswordKind = pkRoundRect
+    Text = ''
   end
   object bsBusinessSkinForm1: TbsBusinessSkinForm
     UseRibbon = False

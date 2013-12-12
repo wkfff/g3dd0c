@@ -27,6 +27,7 @@ type
     bsBusinessSkinForm1: TbsBusinessSkinForm;
     procedure BtnOKClick(Sender: TObject);
     procedure BtnCancelarClick(Sender: TObject);
+    procedure ePesquisaKeyPress(Sender: TObject; var Key: Char);
   private
     { Private declarations }
   public
@@ -50,6 +51,12 @@ end;
 procedure TFrmPesquisa.BtnOKClick(Sender: TObject);
 begin
     self.ModalResult := mrOk;
+end;
+
+procedure TFrmPesquisa.ePesquisaKeyPress(Sender: TObject; var Key: Char);
+begin
+    if Key = #13 then
+        btnPesquisar.SetFocus;
 end;
 
 procedure TFrmPesquisa.FecharForm;

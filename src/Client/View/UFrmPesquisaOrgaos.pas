@@ -31,7 +31,7 @@ implementation
 
 {$R *.dfm}
 
-uses UDm, UFrmBase;
+uses UDm, UFrmBase, UFrmPrincipal;
 
 { TFrmPesquisaOrgaos }
 procedure TFrmPesquisaOrgaos.AtualizaCamposPesquisa(

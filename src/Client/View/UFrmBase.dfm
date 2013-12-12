@@ -129,6 +129,7 @@ object FrmBase: TFrmBase
         Spacing = 2
         Caption = 'bsSkinPanel1'
         Align = alClient
+        ExplicitTop = 4
         DesignSize = (
           749
           324)
@@ -267,11 +268,12 @@ object FrmBase: TFrmBase
             RightImageIndex = -1
             RightImageHotIndex = -1
             RightImageDownIndex = -1
+            OnKeyPress = ePesquisaKeyPress
             ExplicitWidth = 503
           end
           object btnPesquisar: TbsSkinButton
             Left = 654
-            Top = 23
+            Top = 20
             Width = 77
             Height = 19
             HintImageIndex = 0

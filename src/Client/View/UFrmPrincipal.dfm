@@ -106,6 +106,7 @@ object FrmPrincipal: TFrmPrincipal
     Top = 24
   end
   object bsCompressedStoredSkin1: TbsCompressedStoredSkin
+    Description = 'Tecle F2 para pesquisar'
     CompressedFileName = 'SknIsistemas1.skn'
     Left = 104
     Top = 24
