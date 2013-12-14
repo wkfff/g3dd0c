@@ -31,8 +31,9 @@ uses
   Server.UnidadeOrcamentariaController in 'Controller\Server.UnidadeOrcamentariaController.pas',
   UnidadeOrcamentaria in '..\Comum\model\UnidadeOrcamentaria.pas',
   Server.DocumentoController in 'Controller\Server.DocumentoController.pas',
-  Server.CargosController in 'Controller\Server.CargosController.pas',
-  VersaoDocumento in '..\Comum\model\VersaoDocumento.pas';
+  Server.CargoController in 'Controller\Server.CargoController.pas',
+  VersaoDocumento in '..\Comum\model\VersaoDocumento.pas',
+  Cargo in '..\Comum\model\Cargo.pas';
 
 {$R *.res}
 

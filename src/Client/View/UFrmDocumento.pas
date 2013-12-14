@@ -34,7 +34,6 @@ type
     bsSkinDBEdit1: TbsSkinDBEdit;
     bsSkinLabel1: TbsSkinLabel;
     edtTipoDocumento: TbsSkinEdit;
-    bHint: TBalloonHint;
     procedure btnPesquisarClick(Sender: TObject);
     procedure BtnSalvarClick(Sender: TObject);
     procedure BtnExcluirClick(Sender: TObject);
@@ -44,6 +43,7 @@ type
       Shift: TShiftState);
     procedure dbeTipoDocumentoChange(Sender: TObject);
     procedure BtnEditaClick(Sender: TObject);
+    procedure dbeTipoDocumentoExit(Sender: TObject);
 
   private
     { Private declarations }
@@ -148,7 +148,7 @@ var
   messageErro: String;
 begin
   Documento := TDocumento.Create;
-  try
+    try
     Documento.Id := Dm.CDSDocumentoID.Value;
     Documento.Nome := Dm.CDSDocumentoNOME.Value;
     Documento.IdTipoDocumento := Dm.CDSDocumentoIDTIPODOCUMENTO.Value;
@@ -180,35 +180,38 @@ begin
         End;
         FrmPrincipal.messageDlg.messageDlg(messageErro, mtWarning, [mbOK], -1);
       End;
-
     except
-      ShowMessage('Erro ao tentar salvar o documento');
+          ShowMessage('Erro ao tentar salvar o documento');
     end;
-  finally
+    finally
     Documento.Free;
-  end;
+    end;
 end;
 
 procedure TFrmDocumentos.dbeTipoDocumentoChange(Sender: TObject);
 var
-tipoDocumentos : TObjectList<TTipoDocumento>;
 TipoDocumento:TTipoDocumento;
+retorna : boolean;
 begin
   inherited;
-<<<<<<< HEAD
-  //if edtTipoDocumento.Text <> '' then
-  //TipoDocumento := Controller.findTipoDocumento(StrToInt(dbeTipoDocumento.Text));
-  //if not (TipoDocumento = nil) then
-  //    edtTipoDocumento.Text := TipoDocumento.Nome;
-=======
   if dbeTipoDocumento.Text <> '' then
-      Begin
-          TipoDocumento := Controller.findTipoDocumento(StrToInt(dbeTipoDocumento.Text));
-          if not (TipoDocumento = nil) then
-              edtTipoDocumento.Text := TipoDocumento.Nome;
-      End
+  begin
+          TipoDocumento := Controller.findTipoDocumento(StrToInt(dbeTipoDocumento.Text),retorna);
+          if retorna then
+              edtTipoDocumento.Text := TipoDocumento.Nome
+          else edtTipoDocumento.Text := '';
+  end
   else edtTipoDocumento.Text := '';
->>>>>>> 2593676121426a335314aa773a912299a70097e8
+end;
+
+procedure TFrmDocumentos.dbeTipoDocumentoExit(Sender: TObject);
+begin
+  inherited;
+  if edtTipoDocumento.Text = '' then
+  begin
+      FrmPrincipal.messageDlg.messageDlg('Tipo de Documento:O Tipo de Documento não foi encontrado.', mtWarning, [mbOK], -1);
+      dbeTipoDocumento.SetFocus;
+  end;
 end;
 
 procedure TFrmDocumentos.dbeTipoDocumentoKeyDown(Sender: TObject; var Key: Word;

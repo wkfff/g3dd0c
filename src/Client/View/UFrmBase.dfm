@@ -93,6 +93,10 @@ object FrmBase: TFrmBase
     TabOrder = 5
     object tsPesquisa: TTabSheet
       Caption = 'Lista'
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object bsSkinPanel1: TbsSkinPanel
         Left = 0
         Top = 0
@@ -129,7 +133,6 @@ object FrmBase: TFrmBase
         Spacing = 2
         Caption = 'bsSkinPanel1'
         Align = alClient
-        ExplicitTop = 4
         DesignSize = (
           749
           324)
@@ -273,7 +276,7 @@ object FrmBase: TFrmBase
           end
           object btnPesquisar: TbsSkinButton
             Left = 654
-            Top = 20
+            Top = 17
             Width = 77
             Height = 19
             HintImageIndex = 0

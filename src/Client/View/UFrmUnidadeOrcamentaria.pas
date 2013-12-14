@@ -31,6 +31,8 @@ type
     procedure btnPesquisarClick(Sender: TObject);
     procedure dbeOrgaoKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
+    procedure dbeOrgaoChange(Sender: TObject);
+    procedure dbeOrgaoExit(Sender: TObject);
   private
     Controller : TUnidadeOrcamentariaController;
     fCamposPesquisa:TObjectList<TServerData>;
@@ -47,7 +49,7 @@ implementation
 
 {$R *.dfm}
 
-uses UFrmPrincipal, UDm, Helpers, UFrmPesquisaOrgaos;
+uses UFrmPrincipal, UDm, Helpers, UFrmPesquisaOrgaos, Orgao;
 
 procedure TFrmUnidadeOrcamentaria.AtualizaCamposPesquisa(
   campos: TObjectList<TServerData>);
@@ -158,19 +160,42 @@ begin
   end;
 end;
 
+procedure TFrmUnidadeOrcamentaria.dbeOrgaoChange(Sender: TObject);
+var
+Orgao:TOrgao;
+retorna : boolean;
+begin
+  inherited;
+  if dbeOrgao.Text <> '' then
+  begin
+      Orgao := Controller.findOrgao(StrToInt(dbeOrgao.Text),retorna);
+      if retorna then
+          edtOrgao.Text := Orgao.Nome
+      else edtOrgao.Text := '';
+  end
+  else edtOrgao.Text := '';
+end;
+
+procedure TFrmUnidadeOrcamentaria.dbeOrgaoExit(Sender: TObject);
+begin
+  if edtOrgao.Text = '' then
+  begin
+      FrmPrincipal.messageDlg.messageDlg('Tipo de Documento:O Tipo de Documento não foi encontrado.', mtWarning, [mbOK], -1);
+      dbeOrgao.SetFocus;
+  end;
+end;
+
 procedure TFrmUnidadeOrcamentaria.dbeOrgaoKeyDown(Sender: TObject;
   var Key: Word; Shift: TShiftState);
 begin
     inherited;
     if Key = VK_F2 then
-    begin
-        if AbrirForm(TFrmPesquisaOrgaos,FrmPesquisaOrgaos) = mrOk then
-        if dm.CDSOrgao.RecordCount > 0 then
-        begin
-            Dm.CDSUnidadeOrcamentariaORGAO_ID.AsString := Dm.CDSOrgaoID.AsString;
+      if AbrirForm(TFrmPesquisaOrgaos,FrmPesquisaOrgaos) = mrOk then
+    if dm.cdsOrgao.RecordCount > 0 then
+      begin
+          Dm.CDSUnidadeOrcamentariaORGAO_ID.AsString := Dm.CDSOrgaoID.AsString;
             self.edtOrgao.Text := Dm.CDSOrgaoNOME.AsString;
-        end;
-    end;
+      end;
 end;
 
 procedure TFrmUnidadeOrcamentaria.FormShow(Sender: TObject);
@@ -179,7 +204,6 @@ var
 begin
   inherited;
   self.dsBase.DataSet := Dm.CDSUnidadeOrcamentaria;
-
   Controller := TUnidadeOrcamentariaController.Create;
   sucesso := Controller.IndexFields(fCamposPesquisa);
   if sucesso then

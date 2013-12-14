@@ -1,16 +1,16 @@
 inherited FrmOrgao: TFrmOrgao
   Caption = 'Cadastro de '#211'rg'#227'os'
-  ExplicitWidth = 320
-  ExplicitHeight = 240
+  ExplicitWidth = 773
+  ExplicitHeight = 390
   PixelsPerInch = 96
   TextHeight = 13
   inherited PCBase: TPageControl
     ActivePage = tsCadastro
     inherited tsPesquisa: TTabSheet
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
+      ExplicitLeft = 4
+      ExplicitTop = 24
+      ExplicitWidth = 749
+      ExplicitHeight = 324
       inherited bsSkinPanel1: TbsSkinPanel
         inherited GroupBox1: TGroupBox
           inherited ePesquisa: TbsSkinEdit
@@ -23,10 +23,6 @@ inherited FrmOrgao: TFrmOrgao
       end
     end
     inherited tsCadastro: TTabSheet
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       inherited bsSkinPanel2: TbsSkinPanel
         object bsSkinVistaGlowLabel4: TbsSkinVistaGlowLabel [0]
           Left = 0
@@ -45,7 +41,7 @@ inherited FrmOrgao: TFrmOrgao
           Font.Style = []
         end
         object bsSkinVistaGlowLabel1: TbsSkinVistaGlowLabel [1]
-          Left = 536
+          Left = 488
           Top = 0
           Width = 103
           Height = 41
@@ -63,7 +59,7 @@ inherited FrmOrgao: TFrmOrgao
         object dbeNome: TbsSkinDBEdit
           Left = 42
           Top = 11
-          Width = 500
+          Width = 450
           Height = 19
           Text = 'DBENOME'
           DefaultColor = clWindow
@@ -98,11 +94,11 @@ inherited FrmOrgao: TFrmOrgao
           DataSource = dsBase
         end
         object dbeCodContabil: TbsSkinDBEdit
-          Left = 625
+          Left = 578
           Top = 11
           Width = 77
           Height = 19
-          Text = 'dbeCodContabil'
+          Text = 'DBECODCONTABIL'
           DefaultColor = clWindow
           DefaultFont.Charset = DEFAULT_CHARSET
           DefaultFont.Color = clBlack
@@ -120,6 +116,7 @@ inherited FrmOrgao: TFrmOrgao
           Font.Height = 13
           Font.Name = 'Tahoma'
           Font.Style = []
+          CharCase = ecUpperCase
           ParentFont = False
           TabOrder = 3
           ButtonImageIndex = -1

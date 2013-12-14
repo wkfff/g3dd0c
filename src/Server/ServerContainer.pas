@@ -50,7 +50,7 @@ uses
   Aurelius.Criteria.Linq,
   Aurelius.JSon.DataSnap,Generics.Collections,
   Aurelius.Criteria.Base,
-  IdHashMessageDigest;
+  IdHashMessageDigest, Server.CargoController;
 
 type
   TFServerContainer = class(TDataModule)
@@ -98,7 +98,7 @@ RegistrarClasse(TTipoDocumentoController);
 RegistrarClasse(TOrgaoController);
 RegistrarClasse(TUnidadeOrcamentariaController);
 RegistrarClasse(TDocumentoController);
-
+RegistrarClasse(TCargoController);
 end;
 
 procedure TFServerContainer.ConectarBD;

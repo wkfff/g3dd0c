@@ -35,7 +35,7 @@ object Dm: TDm
     Left = 40
     Top = 224
     Bitmap = {
-      494C01011D002600500010001000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C01011D002600600010001000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000008000000001002000000000000080
       000000000000000000000000000000000000032C3A4D088DBEFF088DBEFF088D
       BEFF088DBEFF088DBEFF088DBEFF088DBEFF088DBEFF088DBEFF088DBEFF088D
@@ -1103,7 +1103,7 @@ object Dm: TDm
     Left = 144
     Top = 224
     Bitmap = {
-      494C01011D002600500010001000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C01011D002600600010001000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000008000000001002000000000000080
       0000000000000000000000000000000000002F2F2F4D989898FF989898FF9898
       98FF989898FF989898FF989898FF989898FF989898FF989898FF989898FF9898
@@ -2331,11 +2331,13 @@ object Dm: TDm
       FieldName = 'ID'
     end
     object CDSUnidadeOrcamentariaNOME: TStringField
+      DisplayWidth = 60
       FieldName = 'NOME'
-      Size = 100
+      Size = 60
     end
     object CDSUnidadeOrcamentariaCOD_CONTABIL: TStringField
       FieldName = 'COD_CONTABIL'
+      EditMask = '!999;0;_'
       Size = 3
     end
     object CDSUnidadeOrcamentariaORGAO_ID: TIntegerField
@@ -2346,5 +2348,27 @@ object Dm: TDm
     DataSet = CDSUnidadeOrcamentaria
     Left = 376
     Top = 16
+  end
+  object CDSCargo: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    Left = 376
+    Top = 120
+    object CDSCargoID: TIntegerField
+      FieldName = 'ID'
+    end
+    object CDSCargoNOME: TStringField
+      FieldName = 'NOME'
+      Size = 60
+    end
+    object CDSCargoCODIGO: TStringField
+      FieldName = 'CODIGO'
+      EditMask = '!9999;0;_'
+      Size = 4
+    end
+  end
+  object DSCargo: TDataSource
+    Left = 376
+    Top = 128
   end
 end

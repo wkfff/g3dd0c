@@ -75,7 +75,7 @@ begin
       begin
           if Pos('socket',LowerCase(e.Message)) > 0 then
               ShowMessage('O servidor não está disponível')
-          else  ShowMessage('Usuário ou senha inválidos'+E.Message);
+          else  ShowMessage('Usuário ou senha inválidos: '+E.Message);
           result := false;
       end;
 

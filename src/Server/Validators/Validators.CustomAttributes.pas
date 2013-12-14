@@ -20,6 +20,11 @@ type
     constructor Create(pErrorMessage:String='');overload;
   end;
 
+  validates_integer = class(validates_format)
+  public
+    constructor Create(pErrorMessage:String='');overload;
+  end;
+
   validates_url = class(validates_format)
   public
     constructor Create(pErrorMessage:String='');overload;
@@ -65,6 +70,13 @@ end;
 constructor validates_fone_br.Create(pErrorMessage: String);
 begin
   self.FFormat := '\(?\d{2}\)?[\s-]?\d{4}-?\d{4}$';
+end;
+
+{ validates_integer }
+
+constructor validates_integer.Create(pErrorMessage: String);
+begin
+    self.FFormat := '[0-9]';
 end;
 
 end.

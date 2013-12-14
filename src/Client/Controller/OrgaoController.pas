@@ -3,7 +3,7 @@ unit OrgaoController;
 interface
 
 uses
-Controller,System.Classes,DBXJSON,Orgao;
+Controller,System.Classes,DBXJSON,Orgao,Generics.Collections;
 
 type
   TOrgaoController = class(TController<TOrgao>)
@@ -13,6 +13,7 @@ type
   public
     constructor create;
     class procedure AtualizaGrid(streamResposta: TStringStream);
+    function findOrgao(id:integer;var retorna : boolean):TOrgao;
   end;
 
 var
@@ -58,6 +59,22 @@ constructor TOrgaoController.create;
 begin
   self.BaseUrl := 'http://localhost/datasnap/restT2Ti/TOrgaoController/';
   self.ControllerAlias := 'Orgao';
+end;
+
+
+
+function TOrgaoController.findOrgao(id: integer; var retorna: boolean): TOrgao;
+var
+  orgaos : TObjectList<TOrgao>;
+  orgaoController:TOrgaoController;
+begin
+  orgaoController := TorgaoController.create;
+  inherited;
+  retorna := true;
+  orgaos := orgaoController.Find(id);
+  if orgaos.Count > 0 then
+      result := orgaos.Items[0]
+  else retorna := false;
 end;
 
 end.

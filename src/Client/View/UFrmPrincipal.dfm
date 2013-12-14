@@ -1857,28 +1857,34 @@ object FrmPrincipal: TFrmPrincipal
     Top = 24
     object GerenciamentodeDocumentos1: TMenuItem
       Caption = 'Gerenciamento de Documentos'
-      object TipodeDocumento1: TMenuItem
-        Caption = 'Tipo de Documento'
-        OnClick = TipodeDocumento1Click
+      object Cargos1: TMenuItem
+        Caption = 'Cargos'
+        OnClick = Cargos1Click
       end
       object Digitalizao1: TMenuItem
         Caption = 'Digitaliza'#231#227'o'
-      end
-      object mOrgao: TMenuItem
-        Caption = #211'rgao'
-        OnClick = mOrgaoClick
-      end
-      object mUnidadeOramentria: TMenuItem
-        Caption = 'Unidade Or'#231'ament'#225'ria'
-        OnClick = mUnidadeOramentriaClick
+        Visible = False
       end
       object Documentos1: TMenuItem
         Caption = 'Documentos'
         OnClick = Documentos1Click
       end
+      object mOrgao: TMenuItem
+        Caption = #211'rgaos'
+        OnClick = mOrgaoClick
+      end
+      object TipodeDocumento1: TMenuItem
+        Caption = 'Tipo de Documentos'
+        OnClick = TipodeDocumento1Click
+      end
+      object mUnidadeOramentria: TMenuItem
+        Caption = 'Unidade Or'#231'ament'#225'rias'
+        OnClick = mUnidadeOramentriaClick
+      end
     end
     object ContabilidadePblica1: TMenuItem
       Caption = 'Contabilidade'
+      Visible = False
       object Pblica1: TMenuItem
         Caption = 'P'#250'blica'
       end
@@ -1888,6 +1894,7 @@ object FrmPrincipal: TFrmPrincipal
     end
     object RecursosHumanos1: TMenuItem
       Caption = 'Recursos Humanos'
+      Visible = False
       object Privada1: TMenuItem
         Caption = 'P'#250'blica'
       end

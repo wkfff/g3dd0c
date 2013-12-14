@@ -131,6 +131,7 @@ var
 sucesso:boolean;
 begin
   inherited;
+  self.dsBase.DataSet := Dm.CDSTipoDOcumento;
   Controller := TTipoDocumentoController.Create;
   sucesso:=Controller.IndexFields(fCamposPesquisa);
   if sucesso then

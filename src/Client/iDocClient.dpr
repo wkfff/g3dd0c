@@ -35,7 +35,10 @@ uses
   VersaoDocumento in '..\Comum\model\VersaoDocumento.pas',
   UFrmPrincipal in 'View\UFrmPrincipal.pas' {FrmPrincipal},
   UDm in 'Data\UDm.pas' {Dm: TDataModule},
-  UFrmPesquisaOrgaos in 'View\UFrmPesquisaOrgaos.pas' {FrmPesquisaOrgaos};
+  UFrmPesquisaOrgaos in 'View\UFrmPesquisaOrgaos.pas' {FrmPesquisaOrgaos},
+  CargoController in 'Controller\CargoController.pas',
+  Cargo in '..\Comum\model\Cargo.pas',
+  UFrmCargo in 'View\UFrmCargo.pas' {FrmCargo};
 
 {$R *.res}
 
@@ -45,17 +48,6 @@ begin
   Application.CreateForm(TFrmPrincipal, FrmPrincipal);
   Application.CreateForm(TDm, Dm);
   Application.CreateForm(TFrmLogin, FrmLogin);
-  Application.CreateForm(TFrmBase, FrmBase);
-  Application.CreateForm(TFrmDocumentos, FrmDocumentos);
-  Application.CreateForm(TFrmPesquisaDocumentos, FrmPesquisaDocumentos);
-  Application.CreateForm(TFrmPesquisaTiposDocumentos, FrmPesquisaTiposDocumentos);
-  Application.CreateForm(TFrmDocumentos, FrmDocumentos);
-  Application.CreateForm(TFrmPesquisaOrgaos, FrmPesquisaOrgaos);
-  Application.CreateForm(TFrmPesquisaTiposDocumentos, FrmPesquisaTiposDocumentos);
-  Application.CreateForm(TFrmTipoDocumento, FrmTipoDocumento);
-  Application.CreateForm(TFrmDocumentos, FrmDocumentos);
-  Application.CreateForm(TFrmPrincipal, FrmPrincipal);
   Application.CreateForm(TDm, Dm);
-  Application.CreateForm(TFrmPesquisaOrgaos, FrmPesquisaOrgaos);
   Application.Run;
 end.

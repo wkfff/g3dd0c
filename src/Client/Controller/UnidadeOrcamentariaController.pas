@@ -3,7 +3,7 @@ unit UnidadeOrcamentariaController;
 interface
 
 uses
-Controller,System.Classes,DBXJSON,UnidadeOrcamentaria;
+Controller,System.Classes,DBXJSON,UnidadeOrcamentaria,Orgao,Generics.Collections;
 
 type
   TUnidadeOrcamentariaController = class(TController<TUnidadeOrcamentaria>)
@@ -13,6 +13,7 @@ type
   public
     constructor create;
     class procedure AtualizaGrid(streamResposta: TStringStream);
+    function findOrgao(id:integer;var retorna : boolean):TOrgao;
   end;
 
 var
@@ -23,7 +24,7 @@ implementation
 
 { TTipoDocumentoController }
 
-uses UDm, JSonVO;
+uses UDm, JSonVO, OrgaoController;
 
 class procedure TUnidadeOrcamentariaController.AtualizaGrid(streamResposta: TStringStream);
 var
@@ -60,6 +61,20 @@ constructor TUnidadeOrcamentariaController.create;
 begin
   self.BaseUrl := 'http://localhost/datasnap/restT2Ti/TUnidadeOrcamentariaController/';
   self.ControllerAlias := 'UnidadeOrcamentaria';
+end;
+
+function TUnidadeOrcamentariaController.findOrgao(id: integer; var retorna : boolean): TOrgao;
+var
+  orgaos : TObjectList<TOrgao>;
+  orgaoController:TOrgaoController;
+begin
+  orgaoController := TOrgaoController.create;
+  retorna := true;
+  inherited;
+  orgaos := orgaoController.Find(id);
+  if orgaos.Count > 0 then
+      result := orgaos.Items[0]
+  else retorna := false;
 end;
 
 end.

@@ -5,7 +5,8 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, UFrmPesquisa, bsSkinCtrls, bsSkinGrids,Generics.Collections,
-  bsDBGrids, Vcl.StdCtrls, Vcl.Mask, bsSkinBoxCtrls,TipoDocumentoController,ServerData,TipoDocumento,  Data.DB, BusinessSkinForm;
+  bsDBGrids, Vcl.StdCtrls, Vcl.Mask, bsSkinBoxCtrls,TipoDocumentoController,ServerData,TipoDocumento,
+  Data.DB, BusinessSkinForm;
 
 type
   TFrmPesquisaTiposDocumentos = class(TFrmPesquisa)
@@ -87,20 +88,20 @@ procedure TFrmPesquisaTiposDocumentos.FormShow(Sender: TObject);
 var
 sucesso:boolean;
 begin
-  inherited;
-  Controller := TTipoDocumentoController.Create;
-  sucesso:=Controller.IndexFields(fCamposPesquisa);
-  if sucesso then
-     Begin
-        AtualizaCamposPesquisa(fCamposPesquisa);
-        AtualizaGrid(Controller.Consulta('1','1','ALL',0));
-     End
-  else
-    Begin
-      FecharForm;
-      Controller.Free;
-    End;
- self.dsPesquisa.DataSet := Dm.cdsTipoDOcumento;
+    inherited;
+    Controller := TTipoDocumentoController.Create;
+    sucesso := Controller.IndexFields(fCamposPesquisa);
+    if sucesso then
+       Begin
+          AtualizaCamposPesquisa(fCamposPesquisa);
+          AtualizaGrid(Controller.Consulta('1','1','ALL',0));
+       End
+    else
+      Begin
+        FecharForm;
+        Controller.Free;
+      End;
+   self.dsPesquisa.DataSet := Dm.cdsTipoDOcumento;
 end;
 
 end.

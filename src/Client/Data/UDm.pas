@@ -50,6 +50,11 @@ type
     CDSDocumentoDATAEXCLUSAO: TDateField;
     CDSDocumentoDATAFIMVIGENCIA: TDateField;
     CDSDocumentoPODEEXCLUIR: TStringField;
+    CDSCargo: TClientDataSet;
+    DSCargo: TDataSource;
+    CDSCargoID: TIntegerField;
+    CDSCargoNOME: TStringField;
+    CDSCargoCODIGO: TStringField;
     procedure DataModuleCreate(Sender: TObject);
 
   private
@@ -73,6 +78,7 @@ self.cdsTipoDOcumento.CreateDataSet;
 self.cdsOrgao.CreateDataSet;
 self.CDSUnidadeOrcamentaria.CreateDataSet;
 self.CDSDocumento.CreateDataSet;
+self.CDSCargo.CreateDataSet;
 HTTP := TDSHTTP.Create;
 
 end;

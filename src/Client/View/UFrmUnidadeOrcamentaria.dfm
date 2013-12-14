@@ -20,10 +20,6 @@ inherited FrmUnidadeOrcamentaria: TFrmUnidadeOrcamentaria
       end
     end
     inherited tsCadastro: TTabSheet
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       inherited bsSkinPanel2: TbsSkinPanel
         object bsSkinVistaGlowLabel4: TbsSkinVistaGlowLabel [0]
           Left = 0
@@ -113,7 +109,7 @@ inherited FrmUnidadeOrcamentaria: TFrmUnidadeOrcamentaria
         object dbeCodContabil: TbsSkinDBEdit
           Left = 578
           Top = 11
-          Width = 75
+          Width = 77
           Height = 19
           Text = 'dbeCodContabil'
           DefaultColor = clWindow
@@ -178,6 +174,8 @@ inherited FrmUnidadeOrcamentaria: TFrmUnidadeOrcamentaria
           RightImageIndex = -1
           RightImageHotIndex = -1
           RightImageDownIndex = -1
+          OnChange = dbeOrgaoChange
+          OnExit = dbeOrgaoExit
           OnKeyDown = dbeOrgaoKeyDown
           AutoSize = False
           DataField = 'ORGAO_ID'

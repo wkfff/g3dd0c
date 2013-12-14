@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms, BaseModel,
   Dialogs, Grids, DBGrids, StdCtrls,DBClient, DB, ComCtrls, Buttons, Controller,Usuario,
-  BusinessSkinForm, bsSkinCtrls, bsSkinGrids, bsDBGrids, Vcl.Mask,
+  BusinessSkinForm, bsSkinCtrls, bsSkinGrids, bsDBGrids, Vcl.Mask,ServerData,Generics.Collections,
   bsSkinBoxCtrls;
 
 type

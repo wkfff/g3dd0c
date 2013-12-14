@@ -4,9 +4,9 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, UFrmPesquisa, BusinessSkinForm, Data.DB,
-  bsSkinCtrls, bsSkinGrids, bsDBGrids, Vcl.StdCtrls, Vcl.Mask, bsSkinBoxCtrls, ServerData,
-  Generics.Collections,OrgaoController,Orgao;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, UFrmPesquisa, bsSkinCtrls, bsSkinGrids,Generics.Collections,
+  bsDBGrids, Vcl.StdCtrls, Vcl.Mask, bsSkinBoxCtrls,OrgaoController,ServerData,Orgao,
+  Data.DB, BusinessSkinForm;
 
 type
   TFrmPesquisaOrgaos = class(TFrmPesquisa)
@@ -94,16 +94,17 @@ begin
     Controller := TOrgaoController.Create;
     sucesso := Controller.IndexFields(fCamposPesquisa);
     if sucesso then
-    begin
-        AtualizaCamposPesquisa(fCamposPesquisa);
-        AtualizaGrid(Controller.Consulta('1','1','ALL',0));
-    end
+       Begin
+          AtualizaCamposPesquisa(fCamposPesquisa);
+          AtualizaGrid(Controller.Consulta('1','1','ALL',0));
+       End
     else
-    begin
-      FecharForm;
-      Controller.Free;
-    end;
-    self.dsPesquisa.DataSet := Dm.CDSOrgao;
+      Begin
+        FecharForm;
+        Controller.Free;
+      End;
+   self.dsPesquisa.DataSet := Dm.CDSOrgao;
 end;
 
 end.
+

@@ -26,7 +26,7 @@ type
     [Column('NOME', [TColumnProp.Required], 60)]
     [TIndexColumn('NOME', 'Nome',true)]
     [validates_presence('Campo Obrígatório')]
-    [validates_size(3,60,'O nome do Tipo do Documento deverá ter de 3 a 60 caractres')]
+    [validates_size(3,60,'O Nome deve ter no mínimo 3 caracteres e no máximo 60')]
     property Nome: String  read FNOME write FNOME;
   end;
 

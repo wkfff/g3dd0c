@@ -55,6 +55,7 @@ object FrmLogin: TFrmLogin
     PngImageStorage = bsPngImageStorage1
     ImageIndex = 1
     Align = alTop
+    Visible = False
     ExplicitWidth = 1920
   end
   object bsPngImageView1: TbsPngImageView
@@ -66,6 +67,7 @@ object FrmLogin: TFrmLogin
     ReflectionEffect = False
     PngImageStorage = bsPngImageStorage1
     ImageIndex = 0
+    Visible = False
   end
   object bsSkinStdLabel2: TbsSkinStdLabel
     Left = 384
@@ -185,6 +187,7 @@ object FrmLogin: TFrmLogin
     DefaultColor = clWindow
     PasswordKind = pkRoundRect
     Text = ''
+    OnKeyPress = ESenhaKeyPress
   end
   object bsBusinessSkinForm1: TbsBusinessSkinForm
     UseRibbon = False

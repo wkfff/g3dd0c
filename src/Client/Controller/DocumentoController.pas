@@ -13,11 +13,11 @@ type
   public
     constructor create;
     class procedure AtualizaGrid(streamResposta: TStringStream);
-    function findTipoDocumento(id:integer):TTipoDocumento;
+    function findTipoDocumento(id:integer;var retorna : boolean):TTipoDocumento;
   end;
 
 var
-Documento:TDOcumento;
+Documento:TDocumento;
 
 implementation
 
@@ -69,18 +69,18 @@ begin
 end;
 
 function TDocumentoController.findTipoDocumento(
-  id: integer): TTipoDocumento;
+  id: integer;var retorna : boolean): TTipoDocumento;
 var
   tipoDocumentos : TObjectList<TTipoDocumento>;
   tipoDocumentoController:TTipoDocumentoController;
 begin
   tipoDocumentoController := TTipoDocumentoController.create;
   inherited;
+  retorna := true;
   tipoDocumentos := tipoDocumentoController.Find(id);
   if tipoDocumentos.Count > 0 then
-      Begin
-         result := tipoDocumentos.Items[0];
-      End;
+      result := tipoDocumentos.Items[0]
+  else retorna := false;
 end;
 
 end.

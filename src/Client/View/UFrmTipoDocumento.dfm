@@ -2,7 +2,7 @@ inherited FrmTipoDocumento: TFrmTipoDocumento
   Caption = 'Cadastro de tipos de documento'
   ClientWidth = 753
   ExplicitWidth = 769
-  ExplicitHeight = 240
+  ExplicitHeight = 390
   PixelsPerInch = 96
   TextHeight = 13
   inherited PCBase: TPageControl
@@ -10,10 +10,10 @@ inherited FrmTipoDocumento: TFrmTipoDocumento
     ActivePage = tsCadastro
     ExplicitWidth = 753
     inherited tsPesquisa: TTabSheet
-      ExplicitLeft = 0
-      ExplicitTop = 0
+      ExplicitLeft = 4
+      ExplicitTop = 24
       ExplicitWidth = 745
-      ExplicitHeight = 0
+      ExplicitHeight = 324
       inherited bsSkinPanel1: TbsSkinPanel
         Width = 745
         ExplicitWidth = 745
@@ -48,13 +48,9 @@ inherited FrmTipoDocumento: TFrmTipoDocumento
       end
     end
     inherited tsCadastro: TTabSheet
-      ExplicitLeft = 0
-      ExplicitTop = 0
       ExplicitWidth = 745
-      ExplicitHeight = 0
       inherited bsSkinPanel2: TbsSkinPanel
         Width = 745
-        ExplicitTop = -10
         ExplicitWidth = 745
         object bsSkinVistaGlowLabel1: TbsSkinVistaGlowLabel [0]
           Left = 0
@@ -75,7 +71,7 @@ inherited FrmTipoDocumento: TFrmTipoDocumento
         object dbeNome: TbsSkinDBEdit
           Left = 42
           Top = 11
-          Width = 366
+          Width = 450
           Height = 19
           Text = 'DBENOME'
           DefaultColor = clWindow
@@ -88,6 +84,7 @@ inherited FrmTipoDocumento: TFrmTipoDocumento
           DefaultWidth = 0
           DefaultHeight = 0
           ButtonMode = False
+          SkinData = FrmPrincipal.bsSkinData1
           SkinDataName = 'edit'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
@@ -112,7 +109,7 @@ inherited FrmTipoDocumento: TFrmTipoDocumento
     end
   end
   inherited dsBase: TDataSource
-    DataSet = Dm.CDSTipoDOcumento
+    DataSet = nil
     Left = 552
     Top = 120
   end
